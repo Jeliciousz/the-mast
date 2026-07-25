@@ -4,6 +4,7 @@ extends Node3D
 var menu_tween: Tween
 
 @onready var main_menu_ui: MainMenuUI = $main_menu_ui
+@onready var pause_menu_ui: PauseMenuUI = $pause_menu_ui
 @onready var menu_view_target: Marker3D = $menu_view_target
 @onready var menu_camera: Camera3D = $menu_camera
 @onready var player: Player = %player
@@ -45,19 +46,18 @@ func _start_game() -> void:
     menu_camera.current = false
     player.camera.current = true
 
-    PauseManager.enable_pausing()
+    pause_menu_ui.process_mode = Node.PROCESS_MODE_INHERIT
 
     if get_window().has_focus():
         player.activate()
     else:
-        PauseManager.pause_game()
+        pause_menu_ui.pause()
 
 
 func _exit_to_main_menu() -> void:
     menu_camera.global_transform = player.head.global_transform
 
-    PauseManager.unpause_game()
-    PauseManager.disable_pausing()
+    pause_menu_ui.process_mode = Node.PROCESS_MODE_DISABLED
 
     player.deactivate()
     Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -82,8 +82,9 @@ func _exit_to_main_menu() -> void:
 
 
 func _on_continue_game_tag_interacted() -> void:
+    pause_menu_ui.process_mode = Node.PROCESS_MODE_DISABLED
+
     player.deactivate()
-    PauseManager.disable_pausing()
 
     SceneTransition.start_transition(2.0, 2.0, 0.0)
 

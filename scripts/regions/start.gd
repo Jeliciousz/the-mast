@@ -20,7 +20,7 @@ func _ready() -> void:
 
 
 func _exit_to_main_menu() -> void:
-    PauseManager.unpause_game()
+    PauseManager.unpause()
     PauseManager.disable_pausing()
 
     player.deactivate()
