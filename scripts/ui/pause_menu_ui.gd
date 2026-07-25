@@ -70,7 +70,7 @@ func _on_mm_confirm_button_pressed() -> void:
 
     unpause()
 
-    Events.exit_to_main_menu_pressed.emit()
+    Events.main_menu_pressed.emit()
 
 
 func _on_mm_deny_button_pressed() -> void:
