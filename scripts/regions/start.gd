@@ -1,39 +1,38 @@
 extends Node3D
 
 
-var pod_scene = preload("res://scenes/regions/pod.scn")
-
 @onready var player: Player = %player
 @onready var cinematic_camera: Camera3D = $cinematic_camera
 @onready var fade_rect: ColorRect = $fade_rect
+@onready var pause_menu_ui: PauseMenuUI = $pause_menu_ui
 
 
 func _ready() -> void:
-    Events.exit_to_main_menu_pressed.connect(_exit_to_main_menu)
-
-    Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+    Events.main_menu_pressed.connect(_on_main_menu_pressed)
 
     if SceneTransition.in_transition:
         await SceneTransition.transition_wait_finished
     
+    Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
     _start_opening_cinematic()
 
 
-func _exit_to_main_menu() -> void:
-    PauseManager.unpause()
-    PauseManager.disable_pausing()
+func _on_main_menu_pressed() -> void:
+    pause_menu_ui.process_mode = Node.PROCESS_MODE_DISABLED
 
     player.deactivate()
-    Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
     SceneTransition.start_transition(1.0, 0.5, 1.0)
 
     await SceneTransition.transition_fully_faded
     
+    var pod_scene: PackedScene = load("res://scenes/regions/pod.scn")
+
     get_tree().change_scene_to_packed(pod_scene)
 
 
-func _start_opening_cinematic(_x = null) -> void:
+func _start_opening_cinematic() -> void:
     var fov_tween = create_tween()
     fov_tween.set_trans(Tween.TRANS_SINE)
     fov_tween.tween_property(cinematic_camera, "fov", 94.0, 4.0)
@@ -47,12 +46,12 @@ func _start_opening_cinematic(_x = null) -> void:
     camera_tween.tween_property(cinematic_camera, "rotation_degrees", Vector3(65.0, -90.0, 0.0), 8.0)
     camera_tween.tween_interval(1.0)
     camera_tween.tween_property(cinematic_camera, "global_transform", player.head.global_transform, 4.0)
-    camera_tween.tween_callback(_opening_cinematic_finished)
 
+    await camera_tween.finished
 
-func _opening_cinematic_finished() -> void:
     cinematic_camera.current = false
     player.camera.current = true
 
     player.activate()
-    PauseManager.enable_pausing()
+
+    pause_menu_ui.process_mode = Node.PROCESS_MODE_INHERIT
