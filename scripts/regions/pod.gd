@@ -3,10 +3,10 @@ extends Node3D
 
 var camera_fly_tween: Tween
 
-@onready var pause_menu_ui: PauseMenuUI = $pause_menu_ui
+@onready var player: Player = %player
 @onready var menu_view_target: Marker3D = $menu_view_target
 @onready var menu_camera: Camera3D = $menu_camera
-@onready var player: Player = %player
+@onready var pause_menu_ui: PauseMenuUI = $pause_menu_ui
 
 
 func _ready() -> void:
@@ -62,4 +62,6 @@ func _on_continue_game_tag_interacted() -> void:
 
     await SceneTransition.transition_fully_faded
 
-    get_tree().change_scene_to_packed(load("res://scenes/regions/start.scn"))
+    var start_scene: PackedScene = load("res://scenes/regions/start.scn")
+
+    get_tree().change_scene_to_packed(start_scene)
