@@ -41,16 +41,23 @@ func _physics_process(delta: float) -> void:
     var distance_from_step = _last_step_position.distance_to(player.global_position + player.velocity * velocity_influence_on_distance)
 
     if distance_from_step > clampf(velocity_influence_on_step * player.velocity.length(), step_min_distance, step_max_distance):
-        var footstep_sound_effect: SoundEffect3D = sound_effect_3d.instantiate()
-        footstep_sound_effect.stream = footsteps_concrete_stream
-        footstep_sound_effect.volume_db = lerpf(-43.0, -36.0, clampf(0.15 * player.velocity.length_squared(), 0.0, 1.0))
-
-        get_tree().root.add_child(footstep_sound_effect)
-        footstep_sound_effect.global_position = _last_step_position + player.basis.x * (-0.1 + _steps_taken % 2 * 0.2)
-
         _last_step_position = player.global_position + (velocity_influence_on_step * player.velocity).limit_length(step_max_distance)
         _last_step_time = GlobalTime.get_time()
+        
+        _spawn_footstep_sound_effect()
+        
         _steps_taken += 1
+
+
+func _spawn_footstep_sound_effect() -> void:
+    var footstep_sound_effect: SoundEffect3D = sound_effect_3d.instantiate()
+    footstep_sound_effect.stream = footsteps_concrete_stream
+    footstep_sound_effect.volume_db = lerpf(-43.0, -36.0, clampf(0.15 * player.velocity.length_squared(), 0.0, 1.0))
+
+    get_tree().root.add_child(footstep_sound_effect)
+    
+    var lr_foot_position := player.basis.x * (-0.1 + _steps_taken % 2 * 0.2)
+    footstep_sound_effect.global_position = _last_step_position + lr_foot_position
 
 
 func reset() -> void:
