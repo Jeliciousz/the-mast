@@ -52,6 +52,9 @@ func _start_opening_cinematic() -> void:
     cinematic_camera.current = false
     player.camera.current = true
 
-    player.activate()
-
     pause_menu_ui.process_mode = Node.PROCESS_MODE_INHERIT
+
+    if get_window().has_focus():
+        player.activate()
+    else:
+        pause_menu_ui.pause()
