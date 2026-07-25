@@ -8,6 +8,9 @@ class_name PauseMenuUI extends Control
 
 
 func _notification(what: int) -> void:
+    if process_mode == PROCESS_MODE_DISABLED:
+        return
+
     match what:
         NOTIFICATION_APPLICATION_FOCUS_OUT:
             if not PauseManager.is_paused():
