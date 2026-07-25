@@ -18,6 +18,8 @@ func _ready() -> void:
         await SceneTransition.transition_wait_finished
         
         mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_INHERITED
+    
+    Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
 func _on_play_game_pressed() -> void:
