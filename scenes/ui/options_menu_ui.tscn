@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dtab14whalab3"]
 
-[ext_resource type="Theme" uid="uid://c1e8rb47do3ni" path="res://themes/main_1x.res" id="1_1ms61"]
+[ext_resource type="Theme" uid="uid://dbrjgfehw4dbl" path="res://themes/main_1x.tres" id="1_p1gu2"]
 [ext_resource type="Script" uid="uid://brcdcc6dpc68d" path="res://scripts/ui/button_sfx.gd" id="2_1ms61"]
 [ext_resource type="Script" uid="uid://csak44gg77npd" path="res://scripts/ui/options/options_menu_ui.gd" id="2_627sf"]
 [ext_resource type="Script" uid="uid://c7os3h3jlv7xr" path="res://scripts/ui/options/options_category_button.gd" id="3_7it14"]
@@ -28,7 +28,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-theme = ExtResource("1_1ms61")
+theme = ExtResource("1_p1gu2")
 script = ExtResource("2_627sf")
 
 [node name="ui_scaler" type="Node" parent="." unique_id=1916630325]

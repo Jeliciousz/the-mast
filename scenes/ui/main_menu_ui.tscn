@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bhosoduhjp7c0"]
 
-[ext_resource type="Theme" uid="uid://c1e8rb47do3ni" path="res://themes/main_1x.res" id="1_oq2e2"]
+[ext_resource type="Theme" uid="uid://dbrjgfehw4dbl" path="res://themes/main_1x.tres" id="1_02l8k"]
 [ext_resource type="Script" uid="uid://yq7ttv8yomox" path="res://scripts/ui/main_menu_ui.gd" id="2_1xem4"]
 [ext_resource type="Script" uid="uid://c8wab4ohpiqg7" path="res://scripts/ui/ui_scaler.gd" id="3_02l8k"]
 [ext_resource type="Script" uid="uid://dxorvcedm6l2h" path="res://scripts/ui/extend_on_hover_button.gd" id="5_ij111"]
@@ -15,7 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-theme = ExtResource("1_oq2e2")
+theme = ExtResource("1_02l8k")
 script = ExtResource("2_1xem4")
 menu_options_main_container = NodePath("main_menu_container/buttons_container/menu_options_main")
 menu_options_quit_container = NodePath("main_menu_container/buttons_container/menu_options_quit")

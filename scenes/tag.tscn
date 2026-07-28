@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://r1f0i2vqcgxd" path="res://scripts/tags/tag.gd" id="1_mqmul"]
 [ext_resource type="Script" uid="uid://dt7sqf3oe6q47" path="res://scripts/ui/tag_ui.gd" id="2_a2x8w"]
-[ext_resource type="Theme" uid="uid://c1e8rb47do3ni" path="res://themes/main_1x.res" id="2_kvos3"]
+[ext_resource type="Theme" uid="uid://dbrjgfehw4dbl" path="res://themes/main_1x.tres" id="2_mqmul"]
 [ext_resource type="Texture2D" uid="uid://cx4urgmmclpvn" path="res://assets/textures/tags/tag_in_range.png" id="4_mqmul"]
 [ext_resource type="Theme" uid="uid://bbw6saxp1kboo" path="res://themes/tag_panel.tres" id="5_mqmul"]
 
@@ -32,7 +32,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_kvos3")
+theme = ExtResource("2_mqmul")
 script = ExtResource("2_a2x8w")
 tag = NodePath("../..")
 

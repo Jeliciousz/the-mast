@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://scwfewhktdjv"]
 
+[ext_resource type="Theme" uid="uid://dbrjgfehw4dbl" path="res://themes/main_1x.tres" id="1_27lmx"]
 [ext_resource type="Script" uid="uid://k62amiuil41q" path="res://scripts/ui/pause_menu_ui.gd" id="1_8358y"]
-[ext_resource type="Theme" uid="uid://c1e8rb47do3ni" path="res://themes/main_1x.res" id="1_yd8pb"]
 [ext_resource type="FontFile" uid="uid://dgwus8cwmn1np" path="res://assets/fonts/Montserrat-SemiBold.ttf" id="2_642b2"]
 [ext_resource type="Script" uid="uid://dxorvcedm6l2h" path="res://scripts/ui/extend_on_hover_button.gd" id="3_27lmx"]
 [ext_resource type="Script" uid="uid://c8wab4ohpiqg7" path="res://scripts/ui/ui_scaler.gd" id="3_yd8pb"]
@@ -28,7 +28,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-theme = ExtResource("1_yd8pb")
+theme = ExtResource("1_27lmx")
 script = ExtResource("1_8358y")
 menu_options_main_container = NodePath("pause_menu_container/buttons_container/menu_options_main")
 menu_options_mm_container = NodePath("pause_menu_container/buttons_container/menu_options_mm")

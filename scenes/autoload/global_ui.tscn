@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://4urhegdrouq2"]
 
-[ext_resource type="Theme" uid="uid://c1e8rb47do3ni" path="res://themes/main_1x.res" id="1_adfi5"]
+[ext_resource type="Theme" uid="uid://dbrjgfehw4dbl" path="res://themes/main_1x.tres" id="1_5idsn"]
 [ext_resource type="Script" uid="uid://unjhxofseuhc" path="res://scripts/ui/fps_label.gd" id="2_5idsn"]
 [ext_resource type="Script" uid="uid://c8wab4ohpiqg7" path="res://scripts/ui/ui_scaler.gd" id="4_g2oto"]
 
@@ -13,7 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = ExtResource("1_adfi5")
+theme = ExtResource("1_5idsn")
 
 [node name="ui_scaler" type="Node" parent="." unique_id=1718989963]
 script = ExtResource("4_g2oto")
