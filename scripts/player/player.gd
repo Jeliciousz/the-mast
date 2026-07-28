@@ -59,6 +59,9 @@ func _unhandled_input(event: InputEvent) -> void:
     if not active:
         return
     
+    if (event is InputEventJoypadButton or event is InputEventJoypadMotion) and event.device != Global.active_joypad_id:
+        return
+
     if event.is_action_pressed(&"sprint"):
         sprinting = true
         return
@@ -84,7 +87,7 @@ func _get_input_vector(event: InputEvent) -> void:
     if Global.active_input_method == Global.ACTIVE_INPUT_KEYBOARD_MOUSE:
         if not event is InputEventKey:
             return
-            
+
         #	I didn't want to use Input.get_vector(...), because when opposing movement keys are pressed at the same time, it treats it as if the player hasn't pressed anything at all
         #
         #	What usually is happening when opposing movement keys are pressed at the same time, is that the player is switching between either key rapidly
