@@ -16,7 +16,6 @@ pixel_size = 0.001
 billboard = 1
 double_sided = false
 no_depth_test = true
-fixed_size = true
 texture = SubResource("ViewportTexture_j060n")
 script = ExtResource("1_mqmul")
 
