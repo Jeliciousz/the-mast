@@ -82,6 +82,9 @@ func _physics_process(_delta) -> void:
 
 func _get_input_vector(event: InputEvent) -> void:
     if Global.active_input_method == Global.ACTIVE_INPUT_KEYBOARD_MOUSE:
+        if not event is InputEventKey:
+            return
+            
         #	I didn't want to use Input.get_vector(...), because when opposing movement keys are pressed at the same time, it treats it as if the player hasn't pressed anything at all
         #
         #	What usually is happening when opposing movement keys are pressed at the same time, is that the player is switching between either key rapidly
@@ -113,6 +116,9 @@ func _get_input_vector(event: InputEvent) -> void:
         
         wish_direction = Vector3(input_vector.x, 0.0, input_vector.y).normalized()
     else:
+        if not event is InputEventJoypadMotion:
+            return
+
         input_vector = Input.get_vector(&"move_left", &"move_right", &"move_forward", &"move_back")
         wish_direction = Vector3(input_vector.x, 0.0, input_vector.y)
 
