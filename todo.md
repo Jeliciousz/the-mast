@@ -11,7 +11,7 @@
   - add category in options menu for controller settings, separate from m&k settings
   - ~~make input prompts use the new tracked input method, using this to adjust the input prompts shown~~
   - ~~make input prompts swap out prompts depending on the kind of controller that is being used~~
-  - make ui nagivatable with controller
+  - make ui navigatable with controller
 
 - Implement welcome screen:
   - welcome player to the game
