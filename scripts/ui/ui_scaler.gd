@@ -17,12 +17,12 @@ func _on_setting_changed(setting_name: StringName, new_value: Variant) -> void:
     if setting_name == &"ui_scale":
         match new_value:
             0.75:
-                parent_ui.theme = preload("res://themes/main_1x.res")
+                parent_ui.theme = preload("res://themes/main_0.75x.res")
             1.0:
                 parent_ui.theme = preload("res://themes/main_1x.res")
             2.0:
                 parent_ui.theme = preload("res://themes/main_2x.res")
             3.0:
-                parent_ui.theme = preload("res://themes/main_2x.res")
+                parent_ui.theme = preload("res://themes/main_3x.res")
             4.0:
-                parent_ui.theme = preload("res://themes/main_2x.res")
+                parent_ui.theme = preload("res://themes/main_4x.res")
