@@ -186,7 +186,6 @@ alignment = 1
 [node name="confirmation_label" type="Label" parent="pause_menu_container/buttons_container/menu_options_quit" unique_id=499038469]
 layout_mode = 2
 text = "Are you sure?"
-label_settings = SubResource("LabelSettings_fhvuy")
 
 [node name="quit_confirm_button" type="Button" parent="pause_menu_container/buttons_container/menu_options_quit" unique_id=1575736141]
 layout_mode = 2
