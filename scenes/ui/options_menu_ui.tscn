@@ -1,0 +1,945 @@
+[gd_scene format=3 uid="uid://dtab14whalab3"]
+
+[ext_resource type="Theme" uid="uid://c1e8rb47do3ni" path="res://themes/main_1x.res" id="1_1ms61"]
+[ext_resource type="Script" uid="uid://brcdcc6dpc68d" path="res://scripts/ui/button_sfx.gd" id="2_1ms61"]
+[ext_resource type="Script" uid="uid://csak44gg77npd" path="res://scripts/ui/options/options_menu_ui.gd" id="2_627sf"]
+[ext_resource type="Script" uid="uid://c7os3h3jlv7xr" path="res://scripts/ui/options/options_category_button.gd" id="3_7it14"]
+[ext_resource type="Script" uid="uid://c8wab4ohpiqg7" path="res://scripts/ui/ui_scaler.gd" id="3_p1gu2"]
+[ext_resource type="Script" uid="uid://d07nahgs7syx0" path="res://scripts/ui/options/options_category_container.gd" id="4_xt5fk"]
+[ext_resource type="Script" uid="uid://nsh0xw6fkecv" path="res://scripts/ui/options/setting_option_button.gd" id="7_kr0nk"]
+[ext_resource type="Script" uid="uid://dpdy5jwowmojm" path="res://scripts/ui/options/filtering_button.gd" id="8_pv740"]
+[ext_resource type="Script" uid="uid://cc0aqan1to3ka" path="res://scripts/ui/options/antialiasing_button.gd" id="9_h4f51"]
+[ext_resource type="Script" uid="uid://ci42gthqhv2x" path="res://scripts/ui/options/max_fps_slider.gd" id="10_726te"]
+[ext_resource type="Script" uid="uid://c8bg87sofqbpt" path="res://scripts/ui/options/setting_display.gd" id="11_21rqc"]
+[ext_resource type="Script" uid="uid://b6lqvtbsawmj8" path="res://scripts/ui/options/setting_toggle_button.gd" id="12_dq6vn"]
+[ext_resource type="Texture2D" uid="uid://n7h0i64sgmog" path="res://assets/textures/input_prompts/keyboard_and_mouse/keyboard_q.png" id="13_7it14"]
+[ext_resource type="Script" uid="uid://2qriouj54kka" path="res://scripts/ui/options/setting_option_slider.gd" id="13_q5xht"]
+[ext_resource type="Script" uid="uid://bcr0t82k861x3" path="res://scripts/ui/options/input_remap_button.gd" id="15_1vrwu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qntjp"]
+bg_color = Color(0, 0, 0, 0.25490198)
+
+[node name="options_menu_ui" type="Control" unique_id=1074080114]
+z_index = 15
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("1_1ms61")
+script = ExtResource("2_627sf")
+
+[node name="ui_scaler" type="Node" parent="." unique_id=1916630325]
+script = ExtResource("3_p1gu2")
+
+[node name="background" type="Panel" parent="." unique_id=612339634]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qntjp")
+
+[node name="vertical_padding" type="VBoxContainer" parent="." unique_id=94983405]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="top_padding" type="Control" parent="vertical_padding" unique_id=1097661125]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="horizontal_padding" type="HBoxContainer" parent="vertical_padding" unique_id=214534469]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="left_padding" type="Control" parent="vertical_padding/horizontal_padding" unique_id=1073438058]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="options_main_panel" type="PanelContainer" parent="vertical_padding/horizontal_padding" unique_id=1499987204]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+theme_type_variation = &"OptionsMainPanelContainer"
+
+[node name="options_main_container" type="VBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel" unique_id=1516569766]
+layout_mode = 2
+theme_type_variation = &"OptionsMainContainer"
+
+[node name="options_top_bar" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container" unique_id=181143818]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+theme_type_variation = &"OptionsTopBarContainer"
+
+[node name="scroll_container" type="ScrollContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_top_bar" unique_id=1210517582]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="options_categories" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_top_bar/scroll_container" unique_id=89769650]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = &"OptionsTopBarContainer"
+
+[node name="video_category_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_top_bar/scroll_container/options_categories" unique_id=1970999326]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_type_variation = &"OptionsTopBarButton"
+disabled = true
+text = "Video"
+script = ExtResource("3_7it14")
+category = &"video"
+
+[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_top_bar/scroll_container/options_categories/video_category_button" unique_id=2015552014]
+script = ExtResource("2_1ms61")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="audio_category_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_top_bar/scroll_container/options_categories" unique_id=1221711989]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_type_variation = &"OptionsTopBarButton"
+text = "Audio"
+script = ExtResource("3_7it14")
+category = &"audio"
+
+[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_top_bar/scroll_container/options_categories/audio_category_button" unique_id=297550754]
+script = ExtResource("2_1ms61")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="controls_category_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_top_bar/scroll_container/options_categories" unique_id=42787756]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_type_variation = &"OptionsTopBarButton"
+text = "Controls
+"
+script = ExtResource("3_7it14")
+category = &"controls"
+
+[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_top_bar/scroll_container/options_categories/controls_category_button" unique_id=433454571]
+script = ExtResource("2_1ms61")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="options_back_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_top_bar" unique_id=522474159]
+layout_mode = 2
+focus_mode = 0
+theme_type_variation = &"OptionsTopBarButton"
+text = "🞫"
+
+[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_top_bar/options_back_button" unique_id=274157535]
+script = ExtResource("2_1ms61")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="options_choices_panel" type="PanelContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container" unique_id=1883846243]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"OptionsChoicesPanelContainer"
+
+[node name="scroll_container" type="ScrollContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel" unique_id=884884854]
+layout_mode = 2
+
+[node name="options_video_container" type="VBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container" unique_id=358673407]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = &"OptionsChoicesVBoxContainer"
+script = ExtResource("4_xt5fk")
+category = &"video"
+
+[node name="resolution_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container" unique_id=1393791510]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="resolution_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container/resolution_option_container" unique_id=1650716101]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesLabel"
+text = "Resolution"
+vertical_alignment = 1
+
+[node name="resolution_button" type="OptionButton" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container/resolution_option_container" unique_id=1218096175]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesOptionButton"
+selected = 1
+allow_reselect = true
+item_count = 5
+popup/item_0/text = "0.75x"
+popup/item_0/id = 0
+popup/item_1/text = "1x"
+popup/item_1/id = 1
+popup/item_2/text = "2x"
+popup/item_2/id = 2
+popup/item_3/text = "3x"
+popup/item_3/id = 3
+popup/item_4/text = "4x"
+popup/item_4/id = 4
+script = ExtResource("7_kr0nk")
+setting_name = &"viewport_resolution"
+
+[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container/resolution_option_container/resolution_button" unique_id=905327416]
+script = ExtResource("2_1ms61")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="3d_scale_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container" unique_id=1226143889]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="3d_scale_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container/3d_scale_option_container" unique_id=399796303]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesLabel"
+text = "3D Resolution Scale"
+vertical_alignment = 1
+
+[node name="3d_scale_button" type="OptionButton" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container/3d_scale_option_container" unique_id=1112992597]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesOptionButton"
+selected = 1
+allow_reselect = true
+item_count = 5
+popup/item_0/text = "25%"
+popup/item_0/id = 0
+popup/item_1/text = "50%"
+popup/item_1/id = 1
+popup/item_2/text = "100%"
+popup/item_2/id = 2
+popup/item_3/text = "150%"
+popup/item_3/id = 3
+popup/item_4/text = "200%"
+popup/item_4/id = 4
+script = ExtResource("7_kr0nk")
+setting_name = &"viewport_3d_scale"
+
+[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container/3d_scale_option_container/3d_scale_button" unique_id=1166796590]
+script = ExtResource("2_1ms61")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="filtering_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container" unique_id=1258778939]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="filtering_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container/filtering_option_container" unique_id=1286073686]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesLabel"
+text = "Filtering"
+vertical_alignment = 1
+
+[node name="filtering_button" type="OptionButton" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container/filtering_option_container" unique_id=1112276055]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesOptionButton"
+selected = 0
+allow_reselect = true
+item_count = 4
+popup/item_0/text = "Nearest"
+popup/item_0/id = 0
+popup/item_1/text = "Bilinear"
+popup/item_1/id = 1
+popup/item_2/text = "FSR 1"
+popup/item_2/id = 2
+popup/item_3/text = "FSR 2.2"
+popup/item_3/id = 3
+script = ExtResource("8_pv740")
+setting_name = &"viewport_filtering"
+
+[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container/filtering_option_container/filtering_button" unique_id=345016341]
+script = ExtResource("2_1ms61")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="antialiasing_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container" unique_id=1563130460]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="antialiasing_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container/antialiasing_option_container" unique_id=1810647432]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesLabel"
+text = "Antialiasing"
+vertical_alignment = 1
+
+[node name="antialiasing_button" type="OptionButton" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container/antialiasing_option_container" unique_id=408987662]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesOptionButton"
+selected = 0
+allow_reselect = true
+item_count = 7
+popup/item_0/text = "None"
+popup/item_0/id = 0
+popup/item_1/text = "FXAA"
+popup/item_1/id = 1
+popup/item_2/text = "SMAA"
+popup/item_2/id = 2
+popup/item_3/text = "MSAA 2x"
+popup/item_3/id = 3
+popup/item_4/text = "MSAA 4x"
+popup/item_4/id = 4
+popup/item_5/text = "MSAA 8x"
+popup/item_5/id = 5
+popup/item_6/text = "TAA"
+popup/item_6/id = 6
+script = ExtResource("9_h4f51")
+setting_name = &"viewport_antialiasing"
+
+[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container/antialiasing_option_container/antialiasing_button" unique_id=1042834843]
+script = ExtResource("2_1ms61")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="vsync_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container" unique_id=769005724]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="vsync_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container/vsync_option_container" unique_id=1847087334]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesLabel"
+text = "VSync"
+vertical_alignment = 1
+
+[node name="vsync_button" type="OptionButton" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container/vsync_option_container" unique_id=1276870324]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesOptionButton"
+selected = 0
+allow_reselect = true
+item_count = 4
+popup/item_0/text = "Disabled"
+popup/item_0/id = 0
+popup/item_1/text = "Normal"
+popup/item_1/id = 1
+popup/item_2/text = "Adaptive"
+popup/item_2/id = 2
+popup/item_3/text = "Mailbox"
+popup/item_3/id = 3
+script = ExtResource("7_kr0nk")
+setting_name = &"vsync"
+
+[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container/vsync_option_container/vsync_button" unique_id=1941824106]
+script = ExtResource("2_1ms61")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="max_fps_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container" unique_id=533540171]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="max_fps_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container/max_fps_option_container" unique_id=1838040596]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesLabel"
+text = "FPS Limit"
+vertical_alignment = 1
+
+[node name="max_fps_slider" type="HSlider" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container/max_fps_option_container" unique_id=896217122]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"OptionsChoicesHSlider"
+max_value = 360.0
+step = 15.0
+rounded = true
+scrollable = false
+script = ExtResource("10_726te")
+setting_name = &"max_fps"
+
+[node name="margin" type="MarginContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container/max_fps_option_container/max_fps_slider" unique_id=751580366]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="max_fps_display" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container/max_fps_option_container/max_fps_slider/margin" unique_id=251578542]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+theme_type_variation = &"OptionsChoicesLabel"
+text = "max_fps"
+horizontal_alignment = 1
+script = ExtResource("11_21rqc")
+setting_name = &"max_fps"
+type = 1
+precision = 0
+special_values = Dictionary[Variant, String]({
+0: "No limit"
+})
+
+[node name="43_aspect_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container" unique_id=1031173366]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="43_aspect_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container/43_aspect_option_container" unique_id=709127897]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesLabel"
+text = "4:3 Aspect Ratio"
+vertical_alignment = 1
+
+[node name="43_aspect_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container/43_aspect_option_container" unique_id=1292020402]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesButton"
+toggle_mode = true
+script = ExtResource("12_dq6vn")
+setting_name = &"window_43_aspect"
+true_text = "Locked"
+false_text = "Unlocked"
+
+[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container/43_aspect_option_container/43_aspect_button" unique_id=310114429]
+script = ExtResource("2_1ms61")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="separator" type="HSeparator" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container" unique_id=1996329607]
+layout_mode = 2
+
+[node name="show_fps_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container" unique_id=188164930]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="show_fps_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container/show_fps_option_container" unique_id=592311528]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesLabel"
+text = "Show FPS"
+vertical_alignment = 1
+
+[node name="show_fps_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container/show_fps_option_container" unique_id=455081852]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesButton"
+toggle_mode = true
+script = ExtResource("12_dq6vn")
+setting_name = &"show_fps"
+true_text = "Shown"
+false_text = "Hidden"
+
+[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container/show_fps_option_container/show_fps_button" unique_id=898398529]
+script = ExtResource("2_1ms61")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="options_audio_container" type="VBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container" unique_id=1736987490]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesVBoxContainer"
+script = ExtResource("4_xt5fk")
+category = &"audio"
+
+[node name="master_volume_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_audio_container" unique_id=116935170]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="master_volume_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_audio_container/master_volume_option_container" unique_id=4358284]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesLabel"
+text = "Master Volume"
+vertical_alignment = 1
+
+[node name="master_volume_slider" type="HSlider" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_audio_container/master_volume_option_container" unique_id=406033401]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"OptionsChoicesHSlider"
+max_value = 1.0
+step = 0.01
+scrollable = false
+script = ExtResource("13_q5xht")
+setting_name = &"volume_master"
+
+[node name="margin" type="MarginContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_audio_container/master_volume_option_container/master_volume_slider" unique_id=781512700]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="master_volume_display" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_audio_container/master_volume_option_container/master_volume_slider/margin" unique_id=1036067716]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+theme_type_variation = &"OptionsChoicesLabel"
+text = "volume_master"
+horizontal_alignment = 1
+script = ExtResource("11_21rqc")
+setting_name = &"volume_master"
+type = 2
+
+[node name="music_volume_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_audio_container" unique_id=1729466445]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="music_volume_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_audio_container/music_volume_option_container" unique_id=648010593]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesLabel"
+text = "Music Volume"
+vertical_alignment = 1
+
+[node name="music_volume_slider" type="HSlider" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_audio_container/music_volume_option_container" unique_id=1217769789]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"OptionsChoicesHSlider"
+max_value = 1.0
+step = 0.01
+scrollable = false
+script = ExtResource("13_q5xht")
+setting_name = &"volume_music"
+
+[node name="margin" type="MarginContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_audio_container/music_volume_option_container/music_volume_slider" unique_id=502540825]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="music_volume_display" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_audio_container/music_volume_option_container/music_volume_slider/margin" unique_id=1318507818]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+theme_type_variation = &"OptionsChoicesLabel"
+text = "volume_music"
+horizontal_alignment = 1
+script = ExtResource("11_21rqc")
+setting_name = &"volume_music"
+type = 2
+
+[node name="ui_volume_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_audio_container" unique_id=965020767]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="ui_volume_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_audio_container/ui_volume_option_container" unique_id=376142729]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesLabel"
+text = "UI Volume"
+vertical_alignment = 1
+
+[node name="ui_volume_slider" type="HSlider" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_audio_container/ui_volume_option_container" unique_id=74449186]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"OptionsChoicesHSlider"
+max_value = 1.0
+step = 0.01
+scrollable = false
+script = ExtResource("13_q5xht")
+setting_name = &"volume_ui"
+
+[node name="margin" type="MarginContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_audio_container/ui_volume_option_container/ui_volume_slider" unique_id=1054388454]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ui_volume_display" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_audio_container/ui_volume_option_container/ui_volume_slider/margin" unique_id=2120841820]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+theme_type_variation = &"OptionsChoicesLabel"
+text = "volume_ui"
+horizontal_alignment = 1
+script = ExtResource("11_21rqc")
+setting_name = &"volume_ui"
+type = 2
+
+[node name="world_volume_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_audio_container" unique_id=2113155841]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="world_volume_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_audio_container/world_volume_option_container" unique_id=2076350661]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesLabel"
+text = "World Volume"
+vertical_alignment = 1
+
+[node name="world_volume_slider" type="HSlider" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_audio_container/world_volume_option_container" unique_id=304108475]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"OptionsChoicesHSlider"
+max_value = 1.0
+step = 0.01
+scrollable = false
+script = ExtResource("13_q5xht")
+setting_name = &"volume_world"
+
+[node name="margin" type="MarginContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_audio_container/world_volume_option_container/world_volume_slider" unique_id=1120377311]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="world_volume_display" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_audio_container/world_volume_option_container/world_volume_slider/margin" unique_id=915045092]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+theme_type_variation = &"OptionsChoicesLabel"
+text = "volume_world"
+horizontal_alignment = 1
+script = ExtResource("11_21rqc")
+setting_name = &"volume_world"
+type = 2
+
+[node name="player_volume_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_audio_container" unique_id=456522514]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="player_volume_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_audio_container/player_volume_option_container" unique_id=1827648983]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesLabel"
+text = "Player Volume"
+vertical_alignment = 1
+
+[node name="player_volume_slider" type="HSlider" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_audio_container/player_volume_option_container" unique_id=163846118]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"OptionsChoicesHSlider"
+max_value = 1.0
+step = 0.01
+scrollable = false
+script = ExtResource("13_q5xht")
+setting_name = &"volume_player"
+
+[node name="margin" type="MarginContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_audio_container/player_volume_option_container/player_volume_slider" unique_id=2056830215]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="player_volume_display" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_audio_container/player_volume_option_container/player_volume_slider/margin" unique_id=1385151255]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+theme_type_variation = &"OptionsChoicesLabel"
+text = "volume_player"
+horizontal_alignment = 1
+script = ExtResource("11_21rqc")
+setting_name = &"volume_player"
+type = 2
+
+[node name="option_controls_container" type="VBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container" unique_id=325042313]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesVBoxContainer"
+script = ExtResource("4_xt5fk")
+category = &"controls"
+
+[node name="sensitivity_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container" unique_id=1067013343]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="sensitivity_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/sensitivity_option_container" unique_id=1633202731]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesLabel"
+text = "Sensitivity"
+vertical_alignment = 1
+
+[node name="sensitivity_slider" type="HSlider" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/sensitivity_option_container" unique_id=1975223234]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"OptionsChoicesHSlider"
+min_value = 0.01
+max_value = 10.0
+step = 0.01
+value = 1.0
+scrollable = false
+script = ExtResource("13_q5xht")
+setting_name = &"player_look_sensitivity"
+
+[node name="margin" type="MarginContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/sensitivity_option_container/sensitivity_slider" unique_id=100290597]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="sensitivity_display" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/sensitivity_option_container/sensitivity_slider/margin" unique_id=1653320650]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+theme_type_variation = &"OptionsChoicesLabel"
+text = "player_look_sensitivity"
+horizontal_alignment = 1
+script = ExtResource("11_21rqc")
+setting_name = &"player_look_sensitivity"
+type = 2
+
+[node name="separator" type="HSeparator" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container" unique_id=1454783286]
+layout_mode = 2
+
+[node name="forward_remap_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container" unique_id=1735650361]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="forward_remap_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/forward_remap_option_container" unique_id=750913477]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesLabel"
+text = "Forward"
+vertical_alignment = 1
+
+[node name="forward_remap_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/forward_remap_option_container" unique_id=1577319812]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_type_variation = &"OptionsChoicesButton"
+icon = ExtResource("13_7it14")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("15_1vrwu")
+action = &"move_forward"
+joypad_button_events_allowed = false
+mouse_button_events_allowed = false
+
+[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/forward_remap_option_container/forward_remap_button" unique_id=788113442]
+script = ExtResource("2_1ms61")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="left_remap_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container" unique_id=1629120832]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="left_remap_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/left_remap_option_container" unique_id=1422632841]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesLabel"
+text = "Left"
+vertical_alignment = 1
+
+[node name="left_remap_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/left_remap_option_container" unique_id=1440388730]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_type_variation = &"OptionsChoicesButton"
+icon = ExtResource("13_7it14")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("15_1vrwu")
+action = &"move_left"
+joypad_button_events_allowed = false
+mouse_button_events_allowed = false
+
+[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/left_remap_option_container/left_remap_button" unique_id=264699877]
+script = ExtResource("2_1ms61")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="back_remap_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container" unique_id=2019611638]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="back_remap_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/back_remap_option_container" unique_id=1407896824]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesLabel"
+text = "Back"
+vertical_alignment = 1
+
+[node name="back_remap_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/back_remap_option_container" unique_id=286197907]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_type_variation = &"OptionsChoicesButton"
+icon = ExtResource("13_7it14")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("15_1vrwu")
+action = &"move_back"
+joypad_button_events_allowed = false
+mouse_button_events_allowed = false
+
+[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/back_remap_option_container/back_remap_button" unique_id=483662596]
+script = ExtResource("2_1ms61")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="right_remap_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container" unique_id=1831357021]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="right_remap_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/right_remap_option_container" unique_id=721904358]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesLabel"
+text = "Right"
+vertical_alignment = 1
+
+[node name="right_remap_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/right_remap_option_container" unique_id=1555426475]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_type_variation = &"OptionsChoicesButton"
+icon = ExtResource("13_7it14")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("15_1vrwu")
+action = &"move_right"
+joypad_button_events_allowed = false
+mouse_button_events_allowed = false
+
+[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/right_remap_option_container/right_remap_button" unique_id=1609828516]
+script = ExtResource("2_1ms61")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="sprint_remap_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container" unique_id=310920294]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="sprint_remap_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/sprint_remap_option_container" unique_id=1237618291]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesLabel"
+text = "Sprint"
+vertical_alignment = 1
+
+[node name="sprint_remap_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/sprint_remap_option_container" unique_id=1195866220]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_type_variation = &"OptionsChoicesButton"
+icon = ExtResource("13_7it14")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("15_1vrwu")
+action = &"sprint"
+joypad_button_events_allowed = false
+mouse_button_events_allowed = false
+
+[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/sprint_remap_option_container/sprint_remap_button" unique_id=1888250137]
+script = ExtResource("2_1ms61")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="interact_remap_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container" unique_id=1144618128]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="interact_remap_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/interact_remap_option_container" unique_id=1783422990]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesLabel"
+text = "Interact"
+vertical_alignment = 1
+
+[node name="interact_remap_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/interact_remap_option_container" unique_id=1400713669]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_type_variation = &"OptionsChoicesButton"
+icon = ExtResource("13_7it14")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("15_1vrwu")
+action = &"interact"
+joypad_button_events_allowed = false
+mouse_button_events_allowed = false
+
+[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/interact_remap_option_container/interact_remap_button" unique_id=219987995]
+script = ExtResource("2_1ms61")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="right_padding" type="Control" parent="vertical_padding/horizontal_padding" unique_id=1802734399]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="bottom_padding" type="Control" parent="vertical_padding" unique_id=22580788]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[connection signal="pressed" from="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_top_bar/options_back_button" to="." method="_on_options_back_button_pressed"]

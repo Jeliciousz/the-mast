@@ -1,0 +1,217 @@
+[gd_scene format=3 uid="uid://scwfewhktdjv"]
+
+[ext_resource type="Script" uid="uid://k62amiuil41q" path="res://scripts/ui/pause_menu_ui.gd" id="1_8358y"]
+[ext_resource type="Theme" uid="uid://c1e8rb47do3ni" path="res://themes/main_1x.res" id="1_yd8pb"]
+[ext_resource type="FontFile" uid="uid://dgwus8cwmn1np" path="res://assets/fonts/Montserrat-SemiBold.ttf" id="2_642b2"]
+[ext_resource type="Script" uid="uid://dxorvcedm6l2h" path="res://scripts/ui/extend_on_hover_button.gd" id="3_27lmx"]
+[ext_resource type="Script" uid="uid://c8wab4ohpiqg7" path="res://scripts/ui/ui_scaler.gd" id="3_yd8pb"]
+[ext_resource type="Script" uid="uid://brcdcc6dpc68d" path="res://scripts/ui/button_sfx.gd" id="4_yd8pb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j060n"]
+bg_color = Color(0, 0, 0, 0.25490198)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fhvuy"]
+font = ExtResource("2_642b2")
+font_size = 20
+font_color = Color(0.98, 0.96040004, 0.9506, 1)
+outline_size = 4
+outline_color = Color(0.10830527, 0.1164479, 0.121329285, 1)
+shadow_size = 4
+shadow_color = Color(0.10980392, 0.11764706, 0.12156863, 1)
+
+[node name="pause_menu_ui" type="Control" unique_id=1402958210 node_paths=PackedStringArray("menu_options_main_container", "menu_options_mm_container", "menu_options_quit_container")]
+z_index = 5
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("1_yd8pb")
+script = ExtResource("1_8358y")
+menu_options_main_container = NodePath("pause_menu_container/buttons_container/menu_options_main")
+menu_options_mm_container = NodePath("pause_menu_container/buttons_container/menu_options_mm")
+menu_options_quit_container = NodePath("pause_menu_container/buttons_container/menu_options_quit")
+
+[node name="ui_scaler" type="Node" parent="." unique_id=1110214287]
+script = ExtResource("3_yd8pb")
+
+[node name="background" type="Panel" parent="." unique_id=32337783]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_j060n")
+
+[node name="pause_menu_container" type="VBoxContainer" parent="." unique_id=989767829]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="title_container" type="HBoxContainer" parent="pause_menu_container" unique_id=857648527]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="padding" type="Control" parent="pause_menu_container/title_container" unique_id=969477598]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="title_label" type="Label" parent="pause_menu_container/title_container" unique_id=1917797555]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.71
+theme_type_variation = &"MenuTitleLabel"
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="buttons_container" type="HBoxContainer" parent="pause_menu_container" unique_id=1505274897]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="padding" type="Control" parent="pause_menu_container/buttons_container" unique_id=1196248258]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="menu_options_main" type="VBoxContainer" parent="pause_menu_container/buttons_container" unique_id=664184670]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.71
+alignment = 1
+
+[node name="continue_button" type="Button" parent="pause_menu_container/buttons_container/menu_options_main" unique_id=341319313]
+layout_mode = 2
+theme_type_variation = &"ExpandOnHoverButton"
+text = "Continue"
+alignment = 0
+script = ExtResource("3_27lmx")
+
+[node name="button_sfx" type="Node" parent="pause_menu_container/buttons_container/menu_options_main/continue_button" unique_id=242192346]
+script = ExtResource("4_yd8pb")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="options_button" type="Button" parent="pause_menu_container/buttons_container/menu_options_main" unique_id=1054154657]
+layout_mode = 2
+theme_type_variation = &"ExpandOnHoverButton"
+text = "Options
+"
+alignment = 0
+script = ExtResource("3_27lmx")
+
+[node name="button_sfx" type="Node" parent="pause_menu_container/buttons_container/menu_options_main/options_button" unique_id=1539663094]
+script = ExtResource("4_yd8pb")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="main_menu_button" type="Button" parent="pause_menu_container/buttons_container/menu_options_main" unique_id=1721820023]
+layout_mode = 2
+theme_type_variation = &"ExpandOnHoverButton"
+text = "Main Menu
+"
+alignment = 0
+script = ExtResource("3_27lmx")
+
+[node name="button_sfx" type="Node" parent="pause_menu_container/buttons_container/menu_options_main/main_menu_button" unique_id=432183497]
+script = ExtResource("4_yd8pb")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="quit_button" type="Button" parent="pause_menu_container/buttons_container/menu_options_main" unique_id=224409169]
+layout_mode = 2
+theme_type_variation = &"ExpandOnHoverButton"
+text = "Quit
+"
+alignment = 0
+script = ExtResource("3_27lmx")
+
+[node name="button_sfx" type="Node" parent="pause_menu_container/buttons_container/menu_options_main/quit_button" unique_id=1132041004]
+script = ExtResource("4_yd8pb")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="menu_options_mm" type="VBoxContainer" parent="pause_menu_container/buttons_container" unique_id=1065589095]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.71
+alignment = 1
+
+[node name="confirmation_label" type="Label" parent="pause_menu_container/buttons_container/menu_options_mm" unique_id=1410643574]
+layout_mode = 2
+text = "Are you sure?"
+label_settings = SubResource("LabelSettings_fhvuy")
+
+[node name="mm_confirm_button" type="Button" parent="pause_menu_container/buttons_container/menu_options_mm" unique_id=729794888]
+layout_mode = 2
+theme_type_variation = &"ExpandOnHoverButton"
+text = "Yes, leave."
+alignment = 0
+script = ExtResource("3_27lmx")
+
+[node name="button_sfx" type="Node" parent="pause_menu_container/buttons_container/menu_options_mm/mm_confirm_button" unique_id=1812766156]
+script = ExtResource("4_yd8pb")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="mm_deny_button" type="Button" parent="pause_menu_container/buttons_container/menu_options_mm" unique_id=1083371638]
+layout_mode = 2
+theme_type_variation = &"ExpandOnHoverButton"
+text = "No, stay."
+alignment = 0
+script = ExtResource("3_27lmx")
+
+[node name="button_sfx" type="Node" parent="pause_menu_container/buttons_container/menu_options_mm/mm_deny_button" unique_id=233251442]
+script = ExtResource("4_yd8pb")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="menu_options_quit" type="VBoxContainer" parent="pause_menu_container/buttons_container" unique_id=283845778]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.71
+alignment = 1
+
+[node name="confirmation_label" type="Label" parent="pause_menu_container/buttons_container/menu_options_quit" unique_id=499038469]
+layout_mode = 2
+text = "Are you sure?"
+label_settings = SubResource("LabelSettings_fhvuy")
+
+[node name="quit_confirm_button" type="Button" parent="pause_menu_container/buttons_container/menu_options_quit" unique_id=1575736141]
+layout_mode = 2
+theme_type_variation = &"ExpandOnHoverButton"
+text = "Yes, quit."
+alignment = 0
+script = ExtResource("3_27lmx")
+
+[node name="button_sfx" type="Node" parent="pause_menu_container/buttons_container/menu_options_quit/quit_confirm_button" unique_id=96804569]
+script = ExtResource("4_yd8pb")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="quit_deny_button" type="Button" parent="pause_menu_container/buttons_container/menu_options_quit" unique_id=2073496359]
+layout_mode = 2
+theme_type_variation = &"ExpandOnHoverButton"
+text = "No, stay."
+alignment = 0
+script = ExtResource("3_27lmx")
+
+[node name="button_sfx" type="Node" parent="pause_menu_container/buttons_container/menu_options_quit/quit_deny_button" unique_id=1884914061]
+script = ExtResource("4_yd8pb")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[connection signal="pressed" from="pause_menu_container/buttons_container/menu_options_main/continue_button" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="pause_menu_container/buttons_container/menu_options_main/options_button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="pause_menu_container/buttons_container/menu_options_main/main_menu_button" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="pause_menu_container/buttons_container/menu_options_main/quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="pause_menu_container/buttons_container/menu_options_mm/mm_confirm_button" to="." method="_on_mm_confirm_button_pressed"]
+[connection signal="pressed" from="pause_menu_container/buttons_container/menu_options_mm/mm_deny_button" to="." method="_on_mm_deny_button_pressed"]
+[connection signal="pressed" from="pause_menu_container/buttons_container/menu_options_quit/quit_confirm_button" to="." method="_on_quit_confirm_button_pressed"]
+[connection signal="pressed" from="pause_menu_container/buttons_container/menu_options_quit/quit_deny_button" to="." method="_on_quit_deny_button_pressed"]

@@ -11,33 +11,32 @@ var tag_targeted_texture: Texture2D = preload("res://assets/textures/tags/tag_ta
 @onready var tag_label: RichTextLabel = $tag_panel/tag_label
 
 
-func _physics_process(_delta) -> void:
+func _process(_delta) -> void:
 	if not tag.in_visible_range:
 		hide()
 		return
 
-	var cam = get_viewport().get_camera_3d()
-	var depth = -cam.global_basis.z.dot(tag.global_position - cam.global_position)
-
-	if depth <= cam.near:
-		hide()
-		return
-	
 	show()
 
 	if tag.targeted:
 		icon.texture = tag_targeted_texture
-		icon.self_modulate = Color(1.0, 1.0, 1.0, 0.85)
+		icon.size = Vector2(128.0, 128.0)
+		icon.position = Vector2(64.0, 192.0)
 		tag_panel.show()
 
 		if tag.interactible:
-			tag_label.text = "[img height=2.0em]res://assets/textures/input/e_key_dark.png[/img] " + tag.text
+			var prompt_path = InputPrompts.action_get_path(&"interact")
+			var button_prompt_text: String = ""
+			if prompt_path == "":
+				button_prompt_text = "[" + InputPrompts.action_get_string(&"interact") + "]"
+			else:
+				button_prompt_text = "[img height=2em]" + prompt_path + "[/img]"
+			
+			tag_label.text = button_prompt_text + " " + tag.text
 		else:
 			tag_label.text = tag.text
 	else:
 		icon.texture = tag_in_range_texture
-		icon.self_modulate = Color(1.0, 1.0, 1.0, 0.25)
+		icon.size = Vector2(256.0, 256.0)
+		icon.position = Vector2(0.0, 128.0)
 		tag_panel.hide()
-
-	position = cam.unproject_position(tag.global_position)
-	scale = Vector2.ONE / depth

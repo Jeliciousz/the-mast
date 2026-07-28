@@ -27,7 +27,7 @@ func _on_main_menu_pressed() -> void:
 
     await SceneTransition.transition_fully_faded
     
-    var pod_scene: PackedScene = load("res://scenes/regions/pod.scn")
+    var pod_scene: PackedScene = load("res://scenes/regions/pod.tscn")
 
     get_tree().change_scene_to_packed(pod_scene)
 

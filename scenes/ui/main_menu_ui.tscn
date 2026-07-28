@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://bhosoduhjp7c0"]
+
+[ext_resource type="Theme" uid="uid://c1e8rb47do3ni" path="res://themes/main_1x.res" id="1_oq2e2"]
+[ext_resource type="Script" uid="uid://yq7ttv8yomox" path="res://scripts/ui/main_menu_ui.gd" id="2_1xem4"]
+[ext_resource type="Script" uid="uid://c8wab4ohpiqg7" path="res://scripts/ui/ui_scaler.gd" id="3_02l8k"]
+[ext_resource type="Script" uid="uid://dxorvcedm6l2h" path="res://scripts/ui/extend_on_hover_button.gd" id="5_ij111"]
+[ext_resource type="Script" uid="uid://brcdcc6dpc68d" path="res://scripts/ui/button_sfx.gd" id="6_1cefk"]
+
+[node name="main_menu_ui" type="Control" unique_id=315032881 node_paths=PackedStringArray("menu_options_main_container", "menu_options_quit_container")]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("1_oq2e2")
+script = ExtResource("2_1xem4")
+menu_options_main_container = NodePath("main_menu_container/buttons_container/menu_options_main")
+menu_options_quit_container = NodePath("main_menu_container/buttons_container/menu_options_quit")
+
+[node name="ui_scaler" type="Node" parent="." unique_id=463970715]
+script = ExtResource("3_02l8k")
+
+[node name="main_menu_container" type="VBoxContainer" parent="." unique_id=478841453]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="title_container" type="HBoxContainer" parent="main_menu_container" unique_id=1183432914]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="padding" type="Control" parent="main_menu_container/title_container" unique_id=2010595596]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="title_label" type="Label" parent="main_menu_container/title_container" unique_id=1020856265]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.71
+theme_type_variation = &"MenuTitleLabel"
+text = "The Mast"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="buttons_container" type="HBoxContainer" parent="main_menu_container" unique_id=690031800]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="padding" type="Control" parent="main_menu_container/buttons_container" unique_id=1197086099]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="menu_options_main" type="VBoxContainer" parent="main_menu_container/buttons_container" unique_id=1418522090]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.71
+alignment = 1
+
+[node name="play_button" type="Button" parent="main_menu_container/buttons_container/menu_options_main" unique_id=341319313]
+layout_mode = 2
+theme_type_variation = &"ExpandOnHoverButton"
+text = "Play"
+alignment = 0
+script = ExtResource("5_ij111")
+
+[node name="button_sfx" type="Node" parent="main_menu_container/buttons_container/menu_options_main/play_button" unique_id=1735807806]
+script = ExtResource("6_1cefk")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="options_button" type="Button" parent="main_menu_container/buttons_container/menu_options_main" unique_id=1425624026]
+layout_mode = 2
+theme_type_variation = &"ExpandOnHoverButton"
+text = "Options"
+alignment = 0
+script = ExtResource("5_ij111")
+
+[node name="button_sfx" type="Node" parent="main_menu_container/buttons_container/menu_options_main/options_button" unique_id=870381394]
+script = ExtResource("6_1cefk")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="quit_button" type="Button" parent="main_menu_container/buttons_container/menu_options_main" unique_id=1856630512]
+layout_mode = 2
+theme_type_variation = &"ExpandOnHoverButton"
+text = "Quit"
+alignment = 0
+script = ExtResource("5_ij111")
+
+[node name="button_sfx" type="Node" parent="main_menu_container/buttons_container/menu_options_main/quit_button" unique_id=578455587]
+script = ExtResource("6_1cefk")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="menu_options_quit" type="VBoxContainer" parent="main_menu_container/buttons_container" unique_id=1394448241]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.71
+alignment = 1
+
+[node name="confirmation_label" type="Label" parent="main_menu_container/buttons_container/menu_options_quit" unique_id=1981457239]
+layout_mode = 2
+text = "Are you sure?"
+
+[node name="quit_confirm_button" type="Button" parent="main_menu_container/buttons_container/menu_options_quit" unique_id=295909407]
+layout_mode = 2
+theme_type_variation = &"ExpandOnHoverButton"
+text = "Yes, quit."
+alignment = 0
+script = ExtResource("5_ij111")
+
+[node name="button_sfx" type="Node" parent="main_menu_container/buttons_container/menu_options_quit/quit_confirm_button" unique_id=1803577110]
+script = ExtResource("6_1cefk")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="quit_deny_button" type="Button" parent="main_menu_container/buttons_container/menu_options_quit" unique_id=670496271]
+layout_mode = 2
+theme_type_variation = &"ExpandOnHoverButton"
+text = "No, stay."
+alignment = 0
+script = ExtResource("5_ij111")
+
+[node name="button_sfx" type="Node" parent="main_menu_container/buttons_container/menu_options_quit/quit_deny_button" unique_id=1972871761]
+script = ExtResource("6_1cefk")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[connection signal="pressed" from="main_menu_container/buttons_container/menu_options_main/play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="main_menu_container/buttons_container/menu_options_main/options_button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="main_menu_container/buttons_container/menu_options_main/quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="main_menu_container/buttons_container/menu_options_quit/quit_confirm_button" to="." method="_on_quit_confirm_button_pressed"]
+[connection signal="pressed" from="main_menu_container/buttons_container/menu_options_quit/quit_deny_button" to="." method="_on_quit_deny_button_pressed"]

@@ -1,0 +1,28 @@
+class_name UIScaler extends Node
+
+
+var parent_ui: Control
+
+
+func _ready() -> void:
+    if not get_parent() is Control:
+        printerr("UIScaler should only be added to top-level control nodes")
+
+    parent_ui = get_parent()
+
+    Settings.setting_changed.connect(_on_setting_changed)
+
+
+func _on_setting_changed(setting_name: StringName, new_value: Variant) -> void:
+    if setting_name == &"ui_scale":
+        match new_value:
+            0.75:
+                parent_ui.theme = preload("res://themes/main_1x.res")
+            1.0:
+                parent_ui.theme = preload("res://themes/main_1x.res")
+            2.0:
+                parent_ui.theme = preload("res://themes/main_2x.res")
+            3.0:
+                parent_ui.theme = preload("res://themes/main_2x.res")
+            4.0:
+                parent_ui.theme = preload("res://themes/main_2x.res")

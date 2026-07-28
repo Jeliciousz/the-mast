@@ -29,7 +29,7 @@ extends CharacterBody3D
 @export_group("Sprinting", "sprint_")
 
 ## How fast the player can _move while sprinting.
-@export_range(0.0, 100.0, 0.05, "suffix:m/s") var sprint_speed: float = 6.0
+@export_range(0.0, 100.0, 0.05, "suffix:m/s") var sprint_speed: float = 4.0
 
 ## How quickly the player accelerates while sprinting.
 @export_range(0.0, 500.0, 1.0, "suffix:m/s/s") var sprint_acceleration: float = 20.0
@@ -69,10 +69,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
     _get_input_vector(event)
 
-    wish_direction = basis * Vector3(input_vector.x, 0.0, input_vector.y).normalized()
 
-
-func _physics_process(_delta: float) -> void:
+func _physics_process(_delta) -> void:
     if not active:
         input_vector = Vector2.ZERO
         wish_direction = Vector3.ZERO
@@ -83,49 +81,40 @@ func _physics_process(_delta: float) -> void:
 
 
 func _get_input_vector(event: InputEvent) -> void:
-    #	I didn't want to use Input.get_vector(...), because when opposing movement keys are pressed at the same time, it treats it as if the player hasn't pressed anything at all
-    #
-    #	What usually is happening when opposing movement keys are pressed at the same time, is that the player is switching between either key rapidly
-    #	This happens a lot in fast-paced games
-    #	But when opposing movement keys cancel each other out, it makes the player stand still in the small amount of time between pushing the new key, and releasing the old key
-    #	This is the opposite of what the player wants: to keep moving
-    #
-    #	To fix this, I wrote it so that new inputs overwrite the previous ones, instead of canceling them out
-    #	Then when the new input is released, it'll go back to the old input if it's still pressed, and only if it isn't, will it go to 0
-    #
-    #	-Jeliciousz
+    if Global.active_input_method == Global.ACTIVE_INPUT_KEYBOARD_MOUSE:
+        #	I didn't want to use Input.get_vector(...), because when opposing movement keys are pressed at the same time, it treats it as if the player hasn't pressed anything at all
+        #
+        #	What usually is happening when opposing movement keys are pressed at the same time, is that the player is switching between either key rapidly
+        #	This happens a lot in fast-paced games
+        #	But when opposing movement keys cancel each other out, it makes the player stand still in the small amount of time between pushing the new key, and releasing the old key
+        #	This is the opposite of what the player wants: to keep moving
+        #
+        #	To fix this, I wrote it so that new inputs overwrite the previous ones, instead of canceling them out
+        #	Then when the new input is released, it'll go back to the old input if it's still pressed, and only if it isn't, will it go to 0
+        #
+        #	-Jeliciousz
 
-    if event.is_action_pressed(&"move_forward"):
-        input_vector.y = -1.0
-        return
-
-    if event.is_action_released(&"move_forward"):
-        input_vector.y = 1.0 if Input.is_action_pressed(&"move_back") else 0.0
-        return
-
-    if event.is_action_pressed(&"move_back"):
-        input_vector.y = 1.0
-        return
-
-    if event.is_action_released(&"move_back"):
-        input_vector.y = -1.0 if Input.is_action_pressed(&"move_forward") else 0.0
-        return
-
-    if event.is_action_pressed(&"move_left"):
-        input_vector.x = -1.0
-        return
-
-    if event.is_action_released(&"move_left"):
-        input_vector.x = 1.0 if Input.is_action_pressed(&"move_right") else 0.0
-        return
-
-    if event.is_action_pressed(&"move_right"):
-        input_vector.x = 1.0
-        return
-
-    if event.is_action_released(&"move_right"):
-        input_vector.x = -1.0 if Input.is_action_pressed(&"move_left") else 0.0
-        return
+        if event.is_action_pressed(&"move_forward"):
+            input_vector.y = -1.0
+        elif event.is_action_released(&"move_forward"):
+            input_vector.y = 1.0 if Input.is_action_pressed(&"move_back") else 0.0
+        elif event.is_action_pressed(&"move_back"):
+            input_vector.y = 1.0
+        elif event.is_action_released(&"move_back"):
+            input_vector.y = -1.0 if Input.is_action_pressed(&"move_forward") else 0.0
+        elif event.is_action_pressed(&"move_left"):
+            input_vector.x = -1.0
+        elif event.is_action_released(&"move_left"):
+            input_vector.x = 1.0 if Input.is_action_pressed(&"move_right") else 0.0
+        elif event.is_action_pressed(&"move_right"):
+            input_vector.x = 1.0
+        elif event.is_action_released(&"move_right"):
+            input_vector.x = -1.0 if Input.is_action_pressed(&"move_left") else 0.0
+        
+        wish_direction = basis * Vector3(input_vector.x, 0.0, input_vector.y).normalized()
+    else:
+        input_vector = Input.get_vector(&"move_left", &"move_right", &"move_forward", &"move_back")
+        wish_direction = basis * Vector3(input_vector.x, 0.0, input_vector.y)
 
 
 func _update_physics() -> void:

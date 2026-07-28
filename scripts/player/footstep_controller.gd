@@ -25,8 +25,8 @@ class_name FootstepController extends Node
 @export var head_move_speed: float = 25.0
 
 
-var sound_effect_3d = preload("res://scenes/sound_effect_3d.scn")
-var footsteps_concrete_stream = preload("res://assets/streams/footsteps_concrete.res")
+@export var footsteps_concrete_stream: AudioStream
+
 var _last_step_time: float = 0.0
 var _last_step_position := Vector3.ZERO
 var _steps_taken: int = 0
@@ -44,20 +44,12 @@ func _physics_process(delta: float) -> void:
         _last_step_position = player.global_position + (velocity_influence_on_step * player.velocity).limit_length(step_max_distance)
         _last_step_time = GlobalTime.get_time()
         
-        _spawn_footstep_sound_effect()
+        var lr_foot_position := player.basis.x * (-0.1 + _steps_taken % 2 * 0.2)
+        var volume_db := lerpf(-43.0, -36.0, clampf(0.15 * player.velocity.length_squared(), 0.0, 1.0))
+        
+        SoundEffectsManager.spawn_sound_effect_3d(footsteps_concrete_stream, _last_step_position + lr_foot_position, volume_db, &"Player")
         
         _steps_taken += 1
-
-
-func _spawn_footstep_sound_effect() -> void:
-    var footstep_sound_effect: SoundEffect3D = sound_effect_3d.instantiate()
-    footstep_sound_effect.stream = footsteps_concrete_stream
-    footstep_sound_effect.volume_db = lerpf(-43.0, -36.0, clampf(0.15 * player.velocity.length_squared(), 0.0, 1.0))
-
-    get_tree().root.add_child(footstep_sound_effect)
-    
-    var lr_foot_position := player.basis.x * (-0.1 + _steps_taken % 2 * 0.2)
-    footstep_sound_effect.global_position = _last_step_position + lr_foot_position
 
 
 func reset() -> void:

@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://dw4t350jfjiuh"]
+
+[ext_resource type="Script" uid="uid://r1f0i2vqcgxd" path="res://scripts/tags/tag.gd" id="1_mqmul"]
+[ext_resource type="Script" uid="uid://dt7sqf3oe6q47" path="res://scripts/ui/tag_ui.gd" id="2_a2x8w"]
+[ext_resource type="Theme" uid="uid://c1e8rb47do3ni" path="res://themes/main_1x.res" id="2_kvos3"]
+[ext_resource type="Texture2D" uid="uid://cx4urgmmclpvn" path="res://assets/textures/tags/tag_in_range.png" id="4_mqmul"]
+[ext_resource type="Theme" uid="uid://bbw6saxp1kboo" path="res://themes/tag_panel.tres" id="5_mqmul"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_j060n"]
+viewport_path = NodePath("sub_viewport")
+
+[node name="tag" type="Sprite3D" unique_id=2083848964 groups=["tags"]]
+layers = 2
+offset = Vector2(896, 0)
+pixel_size = 0.001
+billboard = 1
+double_sided = false
+no_depth_test = true
+fixed_size = true
+texture = SubResource("ViewportTexture_j060n")
+script = ExtResource("1_mqmul")
+
+[node name="sub_viewport" type="SubViewport" parent="." unique_id=890346540]
+transparent_bg = true
+handle_input_locally = false
+scaling_3d_scale = 1.0
+size = Vector2i(2048, 512)
+
+[node name="tag_ui" type="Control" parent="sub_viewport" unique_id=363858748 node_paths=PackedStringArray("tag")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_kvos3")
+script = ExtResource("2_a2x8w")
+tag = NodePath("../..")
+
+[node name="icon" type="TextureRect" parent="sub_viewport/tag_ui" unique_id=1908111020]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 192.0
+offset_right = 192.0
+offset_bottom = 320.0
+texture = ExtResource("4_mqmul")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="tag_panel" type="PanelContainer" parent="sub_viewport/tag_ui" unique_id=633501351]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 224.0
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("5_mqmul")
+
+[node name="tag_label" type="RichTextLabel" parent="sub_viewport/tag_ui/tag_panel" unique_id=496688503]
+clip_contents = false
+layout_mode = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "Tag"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+vertical_alignment = 1

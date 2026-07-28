@@ -1,0 +1,17 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://j5dbf8m6ifws"]
+
+[ext_resource type="AudioStream" uid="uid://xv4cqkjjljr6" path="res://assets/audio/footsteps/footstep_concrete0.wav" id="1_urjrh"]
+[ext_resource type="AudioStream" uid="uid://dwdjneutp3c0g" path="res://assets/audio/footsteps/footstep_concrete1.wav" id="2_a56fk"]
+[ext_resource type="AudioStream" uid="uid://dlitrpafbq3jt" path="res://assets/audio/footsteps/footstep_concrete2.wav" id="3_g3aka"]
+[ext_resource type="AudioStream" uid="uid://p5ficf0br72p" path="res://assets/audio/footsteps/footstep_concrete3.wav" id="4_67n1w"]
+[ext_resource type="AudioStream" uid="uid://ok514dr8hmfi" path="res://assets/audio/footsteps/footstep_concrete4.wav" id="5_flj6p"]
+
+[resource]
+random_pitch = 1.0594631
+random_volume_offset_db = 1.0
+streams_count = 5
+stream_0/stream = ExtResource("1_urjrh")
+stream_1/stream = ExtResource("2_a56fk")
+stream_2/stream = ExtResource("3_g3aka")
+stream_3/stream = ExtResource("4_67n1w")
+stream_4/stream = ExtResource("5_flj6p")

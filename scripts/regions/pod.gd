@@ -53,7 +53,7 @@ func _on_main_menu_pressed() -> void:
     camera_fly_tween.tween_property(menu_camera, "global_transform", menu_view_target.global_transform, pan_duration).set_trans(Tween.TRANS_CUBIC)
 
 
-func _on_continue_game_tag_interacted() -> void:
+func _on_continue_tag_interacted() -> void:
     pause_menu_ui.process_mode = Node.PROCESS_MODE_DISABLED
 
     player.deactivate()
@@ -62,6 +62,6 @@ func _on_continue_game_tag_interacted() -> void:
 
     await SceneTransition.transition_fully_faded
 
-    var start_scene: PackedScene = load("res://scenes/regions/start.scn")
+    var start_scene: PackedScene = load("res://scenes/regions/start.tscn")
 
     get_tree().change_scene_to_packed(start_scene)
