@@ -111,10 +111,10 @@ func _get_input_vector(event: InputEvent) -> void:
         elif event.is_action_released(&"move_right"):
             input_vector.x = -1.0 if Input.is_action_pressed(&"move_left") else 0.0
         
-        wish_direction = basis * Vector3(input_vector.x, 0.0, input_vector.y).normalized()
+        wish_direction = Vector3(input_vector.x, 0.0, input_vector.y).normalized()
     else:
         input_vector = Input.get_vector(&"move_left", &"move_right", &"move_forward", &"move_back")
-        wish_direction = basis * Vector3(input_vector.x, 0.0, input_vector.y)
+        wish_direction = Vector3(input_vector.x, 0.0, input_vector.y)
 
 
 func _update_physics() -> void:
@@ -160,7 +160,7 @@ func _add_movement(speed: float, acceleration: float) -> void:
     #	-Jeliciousz
 
     var old_horizontal_speed: float = get_horizontal_speed()
-    velocity += wish_direction * acceleration * get_physics_process_delta_time()
+    velocity += basis * wish_direction * acceleration * get_physics_process_delta_time()
     var new_horizontal_speed: float = get_horizontal_speed()
 
     if new_horizontal_speed <= old_horizontal_speed:
