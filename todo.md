@@ -23,11 +23,11 @@
   - start region
   - ...
 
-- Implement UI scaling to support increasing resolution:
-  - make increasingly scaled themes - complete: 1x, 2x
-  - ~~implement system to automatically swap out the active theme~~
-
 ## Done
 
 - ~~Finish rearranging options menu:~~
   - ~~put each label and button pair in a horizontal container inside of a bigger vertical container that contains all options, instead of 2 separate vertical containers that contain labels and buttons respectively~~
+
+- ~~Implement UI scaling to support increasing resolution:~~
+  - ~~make increasingly scaled themes - complete: 0.75x, 1x, 2x, 3x, 4x~~
+  - ~~implement system to automatically swap out the active theme~~

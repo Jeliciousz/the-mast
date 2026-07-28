@@ -90,6 +90,7 @@ mouse_filter = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.71
+theme_type_variation = &"MenuOptionsContainer"
 alignment = 1
 
 [node name="continue_button" type="Button" parent="pause_menu_container/buttons_container/menu_options_main" unique_id=341319313]
@@ -144,6 +145,7 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.71
+theme_type_variation = &"MenuOptionsContainer"
 alignment = 1
 
 [node name="confirmation_label" type="Label" parent="pause_menu_container/buttons_container/menu_options_mm" unique_id=1410643574]
@@ -178,6 +180,7 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.71
+theme_type_variation = &"MenuOptionsContainer"
 alignment = 1
 
 [node name="confirmation_label" type="Label" parent="pause_menu_container/buttons_container/menu_options_quit" unique_id=499038469]
