@@ -30,4 +30,4 @@
 
 - ~~Implement UI scaling to support increasing resolution:~~
   - ~~make increasingly scaled themes - complete: 0.75x, 1x, 2x, 3x, 4x~~
-  - ~~implement system to automatically swap out the active theme~~
+  - ~~implement system to automatically swap out the active theme~~  
