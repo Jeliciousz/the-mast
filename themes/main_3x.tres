@@ -179,7 +179,44 @@ content_margin_bottom = 15.0
 content_margin_top = 15.0
 content_margin_bottom = 15.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ijyo"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3jwre"]
+content_margin_left = 24.0
+content_margin_right = 24.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_07700"]
+content_margin_left = 24.0
+content_margin_right = 24.0
+bg_color = Color(0.0712, 0.0756, 0.08, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5b7e5"]
+content_margin_left = 24.0
+content_margin_right = 24.0
+bg_color = Color(0.0712, 0.0756, 0.08, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oo45h"]
+content_margin_left = 24.0
+content_margin_right = 24.0
+bg_color = Color(0.0637, 0.06685, 0.07, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmy5p"]
 content_margin_left = 24.0
 content_margin_right = 24.0
 bg_color = Color(0.089999996, 0.095, 0.1, 1)
@@ -347,8 +384,16 @@ OptionsChoicesLabel/constants/shadow_outline_size = 15
 OptionsChoicesLabel/font_sizes/font_size = 30
 OptionsChoicesLabel/styles/focus = SubResource("StyleBoxEmpty_6ijyo")
 OptionsChoicesLabel/styles/normal = SubResource("StyleBoxEmpty_msb8d")
-OptionsChoicesOptionButton/base_type = &"OptionsChoicesButton"
-OptionsChoicesOptionButton/styles/pressed = SubResource("StyleBoxFlat_6ijyo")
+OptionsChoicesOptionButton/base_type = &"OptionButton"
+OptionsChoicesOptionButton/constants/align_to_largest_stylebox = 1
+OptionsChoicesOptionButton/constants/outline_size = 12
+OptionsChoicesOptionButton/font_sizes/font_size = 30
+OptionsChoicesOptionButton/icons/arrow = ExtResource("2_07700")
+OptionsChoicesOptionButton/styles/disabled = SubResource("StyleBoxEmpty_3jwre")
+OptionsChoicesOptionButton/styles/focus = SubResource("StyleBoxFlat_07700")
+OptionsChoicesOptionButton/styles/hover = SubResource("StyleBoxFlat_5b7e5")
+OptionsChoicesOptionButton/styles/normal = SubResource("StyleBoxFlat_oo45h")
+OptionsChoicesOptionButton/styles/pressed = SubResource("StyleBoxFlat_jmy5p")
 OptionsChoicesPanelContainer/base_type = &"PanelContainer"
 OptionsChoicesPanelContainer/styles/panel = SubResource("StyleBoxFlat_c53ci")
 OptionsChoicesVBoxContainer/base_type = &"VBoxContainer"
