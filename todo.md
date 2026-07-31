@@ -23,6 +23,11 @@
   - start region
   - ...
 
+- Reformat scripts:
+  - UI and unsorted scripts are remaining
+
+- Move input method management code out of Global into its own autoload
+
 ## Done
 
 - ~~Finish rearranging options menu:~~
