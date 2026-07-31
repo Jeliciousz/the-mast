@@ -2,22 +2,12 @@
 
 [ext_resource type="Theme" uid="uid://dbrjgfehw4dbl" path="res://themes/main_1x.tres" id="1_27lmx"]
 [ext_resource type="Script" uid="uid://k62amiuil41q" path="res://scripts/ui/pause_menu_ui.gd" id="1_8358y"]
-[ext_resource type="FontFile" uid="uid://dgwus8cwmn1np" path="res://assets/fonts/Montserrat-SemiBold.ttf" id="2_642b2"]
 [ext_resource type="Script" uid="uid://dxorvcedm6l2h" path="res://scripts/ui/extend_on_hover_button.gd" id="3_27lmx"]
 [ext_resource type="Script" uid="uid://c8wab4ohpiqg7" path="res://scripts/ui/ui_scaler.gd" id="3_yd8pb"]
 [ext_resource type="Script" uid="uid://brcdcc6dpc68d" path="res://scripts/ui/button_sfx.gd" id="4_yd8pb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j060n"]
 bg_color = Color(0, 0, 0, 0.25490198)
-
-[sub_resource type="LabelSettings" id="LabelSettings_fhvuy"]
-font = ExtResource("2_642b2")
-font_size = 20
-font_color = Color(0.98, 0.96040004, 0.9506, 1)
-outline_size = 4
-outline_color = Color(0.10830527, 0.1164479, 0.121329285, 1)
-shadow_size = 4
-shadow_color = Color(0.10980392, 0.11764706, 0.12156863, 1)
 
 [node name="pause_menu_ui" type="Control" unique_id=1402958210 node_paths=PackedStringArray("menu_options_main_container", "menu_options_mm_container", "menu_options_quit_container")]
 z_index = 5
@@ -151,7 +141,6 @@ alignment = 1
 [node name="confirmation_label" type="Label" parent="pause_menu_container/buttons_container/menu_options_mm" unique_id=1410643574]
 layout_mode = 2
 text = "Are you sure?"
-label_settings = SubResource("LabelSettings_fhvuy")
 
 [node name="mm_confirm_button" type="Button" parent="pause_menu_container/buttons_container/menu_options_mm" unique_id=729794888]
 layout_mode = 2
