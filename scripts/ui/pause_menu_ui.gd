@@ -94,6 +94,9 @@ func _on_quit_deny_button_pressed() -> void:
 	menu_options_main_container.show()
 
 
+# Events
+
+
 func _on_options_ui_opened(_event) -> void:
 	if process_mode == Node.PROCESS_MODE_DISABLED:
 		return
