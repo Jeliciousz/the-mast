@@ -1,5 +1,6 @@
 class_name FootstepController
 extends Node
+## Handle footstepping
 
 @export var player: Player
 
@@ -43,11 +44,11 @@ func _physics_process(delta: float) -> void:
 	var step_distance = _last_step_position.distance_to(player.global_position)
 
 	if step_distance > clampf(
-			step_distance * player.velocity.length(),
+			stepping_distance * player.velocity.length(),
 			step_min_distance,
 			step_max_distance
 	):
-		var new_step_distance := (step_distance * player.velocity).limit_length(step_max_distance)
+		var new_step_distance := (stepping_distance * player.velocity).limit_length(step_max_distance)
 		_last_step_position = player.global_position + new_step_distance
 		_last_step_time = GlobalTime.get_time()
 
