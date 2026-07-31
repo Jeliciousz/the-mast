@@ -1,6 +1,5 @@
 class_name PauseMenuUI extends Control
 
-
 @export var menu_options_main_container: VBoxContainer
 @export var menu_options_mm_container: VBoxContainer
 @export var menu_options_quit_container: VBoxContainer
@@ -43,6 +42,7 @@ func unpause() -> void:
 
 # Menu options: Main
 
+
 func _on_continue_button_pressed() -> void:
 	unpause()
 
@@ -62,6 +62,7 @@ func _on_quit_button_pressed() -> void:
 
 
 # Menu options: Main Menu
+
 
 func _on_mm_confirm_button_pressed() -> void:
 	menu_options_mm_container.hide()

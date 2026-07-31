@@ -1,6 +1,5 @@
 class_name MainMenuUI extends Control
 
-
 @export var menu_options_main_container: VBoxContainer
 @export var menu_options_quit_container: VBoxContainer
 
@@ -57,6 +56,7 @@ func _on_main_menu_pressed() -> void:
 
 # Menu options: Main
 
+
 func _on_play_button_pressed() -> void:
 	Events.play_button_pressed.emit()
 
@@ -71,6 +71,7 @@ func _on_quit_button_pressed() -> void:
 
 
 # Menu options: Quit
+
 
 func _on_quit_confirm_button_pressed() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED

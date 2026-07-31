@@ -15,10 +15,7 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if (
-			event is InputEventJoypadButton
-			or event is InputEventJoypadMotion and absf(event.axis_value) >= 0.5
-	):
+	if event is InputEventJoypadButton or event is InputEventJoypadMotion and absf(event.axis_value) >= 0.5:
 		if active_joypad_id == -1:
 			active_joypad_id = event.device
 		if active_joypad_id != event.device:

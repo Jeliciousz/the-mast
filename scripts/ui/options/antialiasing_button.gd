@@ -2,18 +2,11 @@ extends SettingOptionButton
 
 
 func _on_setting_changed(changed_setting_name: StringName, new_value: Variant) -> void:
-	if (
-			changed_setting_name == &"viewport_3d_scale"
-			or changed_setting_name == &"viewport_filtering"
-	):
+	if changed_setting_name == &"viewport_3d_scale" or changed_setting_name == &"viewport_filtering":
 		var viewport_3d_scale = Settings.get_setting(&"viewport_3d_scale")
 		var viewport_filtering = Settings.get_setting(&"viewport_filtering")
 
-		if (
-			viewport_3d_scale == Settings.SCALE_3D_150
-			or viewport_3d_scale == Settings.SCALE_3D_200
-			or viewport_filtering == Settings.FILTERING_FSR2
-		):
+		if viewport_3d_scale == Settings.SCALE_3D_150 or viewport_3d_scale == Settings.SCALE_3D_200 or viewport_filtering == Settings.FILTERING_FSR2:
 			disabled = true
 		else:
 			disabled = false

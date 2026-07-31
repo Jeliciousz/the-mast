@@ -25,9 +25,7 @@ func _on_play_game_pressed() -> void:
 	var relative_distance = distance / START_DIST_FROM_PLAYER
 	var pan_duration = BASE_PAN_TO_DURATION * clampf(relative_distance, 0.0, 1.0)
 	camera_fly_tween = create_tween()
-	camera_fly_tween.tween_property(
-			menu_camera, "global_transform", player.head.global_transform, pan_duration
-	).set_trans(Tween.TRANS_CUBIC)
+	camera_fly_tween.tween_property(menu_camera, "global_transform", player.head.global_transform, pan_duration).set_trans(Tween.TRANS_CUBIC)
 
 	await camera_fly_tween.finished
 
@@ -55,9 +53,7 @@ func _on_main_menu_pressed() -> void:
 	var relative_distance = distance / START_DIST_FROM_PLAYER
 	var pan_duration = BASE_PAN_FROM_DURATION * clampf(relative_distance, 0.0, 1.0)
 	camera_fly_tween = create_tween()
-	camera_fly_tween.tween_property(
-			menu_camera, "global_transform", menu_view_target.global_transform, pan_duration
-	).set_trans(Tween.TRANS_CUBIC)
+	camera_fly_tween.tween_property(menu_camera, "global_transform", menu_view_target.global_transform, pan_duration).set_trans(Tween.TRANS_CUBIC)
 
 
 func _on_continue_tag_interacted() -> void:

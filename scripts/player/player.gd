@@ -56,10 +56,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not active:
 		return
 
-	if (
-			(event is InputEventJoypadButton or event is InputEventJoypadMotion)
-			and event.device != Global.active_joypad_id
-	):
+	if (event is InputEventJoypadButton or event is InputEventJoypadMotion) and event.device != Global.active_joypad_id:
 		return
 
 	if event.is_action_pressed(&"sprint"):
@@ -153,9 +150,7 @@ func _update_physics() -> void:
 
 
 func _add_resistence() -> void:
-	velocity = velocity.move_toward(
-			Vector3.ZERO, physics_resistence * get_speed() * get_physics_process_delta_time()
-	)
+	velocity = velocity.move_toward(Vector3.ZERO, physics_resistence * get_speed() * get_physics_process_delta_time())
 
 
 func _add_movement(speed: float, acceleration: float) -> void:

@@ -22,9 +22,7 @@ func _physics_process(_delta) -> void:
 		return
 
 	var distance_to_head = player.head.global_position.distance_to(global_position)
-	looking_at_dot = player.head.global_position.direction_to(global_position).dot(
-		player.get_looking_direction()
-	)
+	looking_at_dot = player.head.global_position.direction_to(global_position).dot(player.get_looking_direction())
 
 	in_visible_range = distance_to_head <= visible_range
 	can_be_targeted = distance_to_head <= 1.5 and looking_at_dot >= 0.9

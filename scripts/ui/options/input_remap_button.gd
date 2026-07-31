@@ -1,6 +1,5 @@
 class_name InputRemapButton extends Button
 
-
 @export var action: StringName = ""
 @export var action_event_index: int = 0
 
@@ -32,12 +31,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		var action_events_list = InputMap.action_get_events(action)
 		if action_event_index >= action_events_list.size():
 			action_events_list.resize(action_event_index + 1)
-		
+
 		action_events_list[action_event_index] = event
 		InputMap.action_erase_events(action)
 		for action_event in action_events_list:
 			InputMap.action_add_event(action, action_event)
-		
+
 	button_pressed = false
 	release_focus()
 
@@ -45,17 +44,17 @@ func _unhandled_input(event: InputEvent) -> void:
 func _toggled(toggled_on: bool) -> void:
 	if not action or not InputMap.has_action(action):
 		return
-	
+
 	if toggled_on:
 		icon = null
 		text = "..."
 		return
-	
+
 	if action_event_index >= InputMap.action_get_events(action).size() or InputMap.action_get_events(action)[action_event_index] == null:
 		text = " "
 		icon = null
 		return
-	
+
 	var input_event = InputMap.action_get_events(action)[action_event_index]
 	if input_event is InputEventJoypadButton:
 		if InputPrompts.INPUT_PROMPT_XBOX_BUTTON_PATHS.has(input_event.button_index):

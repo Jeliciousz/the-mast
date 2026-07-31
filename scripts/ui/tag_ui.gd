@@ -1,6 +1,5 @@
 class_name TagUI extends Control
 
-
 @export var tag: Tag
 
 var tag_in_range_texture: Texture2D = preload("res://assets/textures/tags/tag_in_range.png")
@@ -31,7 +30,7 @@ func _process(_delta) -> void:
 				button_prompt_text = "[" + InputPrompts.action_get_string(&"interact") + "]"
 			else:
 				button_prompt_text = "[img height=2em]" + prompt_path + "[/img]"
-			
+
 			tag_label.text = button_prompt_text + " " + tag.text
 		else:
 			tag_label.text = tag.text
