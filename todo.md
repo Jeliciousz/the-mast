@@ -25,8 +25,11 @@
 
 - Reformat scripts:
   - UI and unsorted scripts are remaining
+  - Make scripts follow official style guides (use of gdtoolkit python scripts recommended)
 
 - Move input method management code out of Global into its own autoload
+
+- Replace naive events autoload with proper EventsBus implementation
 
 ## Done
 
