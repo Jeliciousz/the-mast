@@ -57,6 +57,10 @@ physics_interpolation_mode = 2
 cull_mask = 2
 script = ExtResource("10_t3ocs")
 
+[node name="welcome_screen_ui" parent="." unique_id=1163578512 instance=ExtResource("14_cu7xe")]
+process_mode = 4
+visible = false
+
 [node name="pause_menu_ui" parent="." unique_id=1402958210 instance=ExtResource("2_cu7xe")]
 process_mode = 4
 visible = false
@@ -123,6 +127,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7, 1.4000001, -0.5)
 texture = SubResource("ViewportTexture_t3ocs")
 visible_range = 3.0
 interactible = true
+event_id = &"welcome_tag_interacted"
 text = "Welcome"
 
 [node name="interact_audio" type="AudioStreamPlayer3D" parent="welcome_tag" unique_id=615030713]
@@ -131,10 +136,6 @@ stream = ExtResource("13_36am2")
 attenuation_model = 1
 bus = &"World"
 script = ExtResource("14_j55sj")
-
-[node name="welcome_screen_ui" parent="welcome_tag" unique_id=1163578512 instance=ExtResource("14_cu7xe")]
-process_mode = 4
-visible = false
 
 [node name="continue_tag" parent="." unique_id=627831639 instance=ExtResource("15_oahdy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 1.2, -8)
@@ -157,5 +158,3 @@ transform = Transform3D(0.29237166, -0.32707545, 0.89863247, 0, 0.93969256, 0.34
 [node name="player" parent="." unique_id=939442985 instance=ExtResource("17_ai5bp")]
 unique_name_in_owner = true
 transform = Transform3D(0.2923717, 0, 0.9563049, 0, 1.0000001, 0, -0.9563049, 0, 0.2923717, -0.65, 0, -0.07)
-
-[connection signal="interacted" from="welcome_tag" to="welcome_tag/welcome_screen_ui" method="_on_tag_interacted"]

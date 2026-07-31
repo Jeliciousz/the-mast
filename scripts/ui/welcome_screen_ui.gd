@@ -1,6 +1,11 @@
+class_name WelcomeScreenUI
 extends Control
 
 @onready var player: Player = %player
+
+
+func _ready() -> void:
+	EventsBus.subscribe(&"welcome_tag_interacted", _on_welcome_tag_interacted)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -13,7 +18,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		hide()
 
 
-func _on_tag_interacted() -> void:
+func _on_welcome_tag_interacted(_event) -> void:
 	player.deactivate()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	process_mode = Node.PROCESS_MODE_INHERIT
