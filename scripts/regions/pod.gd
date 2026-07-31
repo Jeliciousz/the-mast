@@ -49,7 +49,7 @@ func _on_main_menu_pressed() -> void:
 	if camera_fly_tween:
 		camera_fly_tween.kill()
 
-	var distance = menu_camera.global_position.distance_to(player.head.global_position)
+	var distance = menu_camera.global_position.distance_to(menu_view_target.global_position)
 	var relative_distance = distance / START_DIST_FROM_PLAYER
 	var pan_duration = BASE_PAN_FROM_DURATION * clampf(relative_distance, 0.0, 1.0)
 	camera_fly_tween = create_tween()
