@@ -80,9 +80,7 @@ func _on_mm_deny_button_pressed() -> void:
 func _on_quit_confirm_button_pressed() -> void:
 	menu_options_quit_container.hide()
 	menu_options_main_container.show()
-
 	unpause()
-
 	Events.quit_button_pressed.emit()
 
 

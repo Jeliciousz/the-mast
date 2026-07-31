@@ -41,6 +41,10 @@ func _input(event: InputEvent) -> void:
 
 
 func _quit_game() -> void:
+	SceneTransition.start_transition(0.5, 0.0, 0.0)
+
+	await SceneTransition.transition_fully_faded
+
 	get_tree().quit()
 
 

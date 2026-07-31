@@ -17,9 +17,9 @@ func _ready() -> void:
 		mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_DISABLED
 
 		await SceneTransition.transition_wait_finished
-		
+
 		mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_INHERITED
-	
+
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
@@ -73,6 +73,8 @@ func _on_quit_button_pressed() -> void:
 # Menu options: Quit
 
 func _on_quit_confirm_button_pressed() -> void:
+	process_mode = Node.PROCESS_MODE_DISABLED
+	menu_options_quit_container.hide()
 	Events.quit_button_pressed.emit()
 
 
@@ -84,12 +86,12 @@ func _on_quit_deny_button_pressed() -> void:
 func _on_options_window_opened() -> void:
 	if process_mode == Node.PROCESS_MODE_DISABLED:
 		return
-	
+
 	menu_options_main_container.hide()
 
 
 func _on_options_window_closed() -> void:
 	if process_mode == Node.PROCESS_MODE_DISABLED:
 		return
-	
+
 	menu_options_main_container.show()
