@@ -18,9 +18,6 @@ func _ready() -> void:
 
 
 func _on_pressed() -> void:
-	if parent_button.disabled:
-		return
-
 	SoundEffectsManager.spawn_sound_effect(press_stream, linear_to_db(0.25), &"UI")
 
 
