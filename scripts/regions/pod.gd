@@ -8,6 +8,7 @@ extends Node3D
 func _ready() -> void:
 	EventsBus.subscribe(&"play_button_pressed", _on_play_button_pressed)
 	EventsBus.subscribe(&"main_menu_button_pressed", _on_main_menu_button_pressed)
+	EventsBus.subscribe(&"continue_tag_interacted", _on_continue_tag_interacted)
 
 
 func _on_play_button_pressed(_event) -> void:
@@ -31,7 +32,7 @@ func _on_main_menu_button_pressed(_event) -> void:
 	menu_camera.fly_out_tween()
 
 
-func _on_continue_tag_interacted() -> void:
+func _on_continue_tag_interacted(_event) -> void:
 	pause_menu_ui.process_mode = Node.PROCESS_MODE_DISABLED
 	player.deactivate()
 	SceneTransition.start_transition(2.0, 2.0, 0.0)

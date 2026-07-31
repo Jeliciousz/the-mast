@@ -5,6 +5,7 @@ signal interacted
 
 @export var visible_range: float = 2.0
 @export var interactible: bool = false
+@export var event_id: StringName = ""
 @export_multiline() var text: String = "Example Tag Text"
 
 var in_visible_range: bool = false

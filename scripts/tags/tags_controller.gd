@@ -12,6 +12,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if event.is_action_pressed(&"interact"):
 		targeted_tag.interacted.emit()
+		EventsBus.broadcast(Event.new(targeted_tag.event_id))
 
 
 func _physics_process(_delta) -> void:
