@@ -1,15 +1,15 @@
 extends Node3D
 
-const START_DIST_FROM_PLAYER: float = 2.10759902000427
 const BASE_PAN_TO_DURATION: float = 6.0
 const BASE_PAN_FROM_DURATION: float = 4.0
 
 var camera_fly_tween: Tween
 
 @onready var player: Player = %player
+@onready var pause_menu_ui: PauseMenuUI = $pause_menu_ui
 @onready var menu_view_target: Marker3D = $menu_view_target
 @onready var menu_camera: Camera3D = $menu_camera
-@onready var pause_menu_ui: PauseMenuUI = $pause_menu_ui
+@onready var start_dist_from_player: float = menu_camera.global_position.distance_to(player.head.global_position)
 
 
 func _ready() -> void:
@@ -22,7 +22,7 @@ func _on_play_button_pressed(_event) -> void:
 		camera_fly_tween.kill()
 
 	var distance = menu_camera.global_position.distance_to(player.head.global_position)
-	var relative_distance = distance / START_DIST_FROM_PLAYER
+	var relative_distance = distance / start_dist_from_player
 	var pan_duration = BASE_PAN_TO_DURATION * clampf(relative_distance, 0.0, 1.0)
 	camera_fly_tween = create_tween()
 	camera_fly_tween.tween_property(menu_camera, "global_transform", player.head.global_transform, pan_duration).set_trans(Tween.TRANS_CUBIC)
@@ -49,7 +49,7 @@ func _on_main_menu_button_pressed(_event) -> void:
 		camera_fly_tween.kill()
 
 	var distance = menu_camera.global_position.distance_to(menu_view_target.global_position)
-	var relative_distance = distance / START_DIST_FROM_PLAYER
+	var relative_distance = distance / start_dist_from_player
 	var pan_duration = BASE_PAN_FROM_DURATION * clampf(relative_distance, 0.0, 1.0)
 	camera_fly_tween = create_tween()
 	camera_fly_tween.tween_property(menu_camera, "global_transform", menu_view_target.global_transform, pan_duration).set_trans(Tween.TRANS_CUBIC)
