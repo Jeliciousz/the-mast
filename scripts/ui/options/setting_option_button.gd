@@ -1,4 +1,5 @@
-class_name SettingOptionButton extends OptionButton
+class_name SettingOptionButton
+extends OptionButton
 
 @export var setting_name: StringName
 

@@ -1,4 +1,5 @@
-class_name MainMenuUI extends Control
+class_name MainMenuUI
+extends Control
 
 @export var menu_options_main_container: VBoxContainer
 @export var menu_options_quit_container: VBoxContainer

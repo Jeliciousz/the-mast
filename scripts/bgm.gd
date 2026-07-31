@@ -1,4 +1,5 @@
-class_name BGM extends AudioStreamPlayer
+class_name BGM
+extends AudioStreamPlayer
 
 
 func _ready() -> void:

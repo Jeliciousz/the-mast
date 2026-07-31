@@ -1,4 +1,5 @@
-class_name InputRemapButton extends Button
+class_name InputRemapButton
+extends Button
 
 @export var action: StringName = ""
 @export var action_event_index: int = 0

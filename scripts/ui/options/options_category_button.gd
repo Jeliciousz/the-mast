@@ -1,4 +1,5 @@
-class_name OptionsCategoryButton extends Button
+class_name OptionsCategoryButton
+extends Button
 
 @export var category: StringName
 

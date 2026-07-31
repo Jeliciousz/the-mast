@@ -1,4 +1,5 @@
-class_name TagUI extends Control
+class_name TagUI
+extends Control
 
 @export var tag: Tag
 

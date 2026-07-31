@@ -1,4 +1,5 @@
-class_name SettingToggleButton extends Button
+class_name SettingToggleButton
+extends Button
 
 @export var setting_name: StringName
 @export var true_text: String = "True"

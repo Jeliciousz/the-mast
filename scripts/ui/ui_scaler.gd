@@ -1,4 +1,5 @@
-class_name UIScaler extends Node
+class_name UIScaler
+extends Node
 
 var parent_ui: Control
 

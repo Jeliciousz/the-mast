@@ -1,4 +1,5 @@
-class_name SettingOptionSlider extends Slider
+class_name SettingOptionSlider
+extends Slider
 
 @export var setting_name: StringName
 

@@ -1,4 +1,5 @@
-class_name PauseMenuUI extends Control
+class_name PauseMenuUI
+extends Control
 
 @export var menu_options_main_container: VBoxContainer
 @export var menu_options_mm_container: VBoxContainer

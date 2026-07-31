@@ -1,4 +1,5 @@
-class_name ExtendOnHoverButton extends Button
+class_name ExtendOnHoverButton
+extends Button
 
 @export var extend_amount: float = -20.0
 

@@ -1,4 +1,5 @@
-class_name ButtonSFX extends Node
+class_name ButtonSFX
+extends Node
 
 @export var hover_stream: AudioStream = preload("res://assets/audio/ui/hover.ogg")
 @export var press_stream: AudioStream = preload("res://assets/audio/ui/click.ogg")

@@ -1,4 +1,5 @@
-class_name OptionsCategoryContainer extends VBoxContainer
+class_name OptionsCategoryContainer
+extends VBoxContainer
 
 @export var category: StringName
 

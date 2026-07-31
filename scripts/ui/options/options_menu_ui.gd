@@ -1,4 +1,5 @@
-class_name OptionsMenuUI extends Control
+class_name OptionsMenuUI
+extends Control
 
 
 func _ready() -> void:
