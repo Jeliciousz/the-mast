@@ -23,10 +23,6 @@
   - start region
   - ...
 
-- Reformat scripts:
-  - UI and unsorted scripts are remaining
-  - Make scripts follow official style guides (use of gdtoolkit python scripts recommended)
-
 - Move input method management code out of Global into its own autoload
 
 - Replace naive events autoload with proper EventsBus implementation
@@ -39,3 +35,7 @@
 - ~~Implement UI scaling to support increasing resolution:~~
   - ~~make increasingly scaled themes - complete: 0.75x, 1x, 2x, 3x, 4x~~
   - ~~implement system to automatically swap out the active theme~~  
+
+- ~~Reformat scripts:~~
+  - ~~UI and unsorted scripts are remaining~~
+  - ~~Make scripts follow official style guides (use of gdtoolkit python scripts recommended)~~
