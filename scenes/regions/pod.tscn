@@ -122,7 +122,7 @@ visible_range = 3.0
 interactible = true
 text = "Welcome"
 
-[node name="welcome_tag_interact_audio" type="AudioStreamPlayer3D" parent="welcome_tag" unique_id=615030713]
+[node name="interact_audio" type="AudioStreamPlayer3D" parent="welcome_tag" unique_id=615030713]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.14999998, -2.5)
 stream = ExtResource("13_36am2")
 attenuation_model = 1
@@ -140,7 +140,7 @@ visible_range = 4.0
 interactible = true
 text = "Continue..."
 
-[node name="continue_tag_interact_audio" type="AudioStreamPlayer3D" parent="continue_tag" unique_id=680734491]
+[node name="interact_audio" type="AudioStreamPlayer3D" parent="continue_tag" unique_id=680734491]
 stream = ExtResource("13_36am2")
 attenuation_model = 1
 bus = &"World"
@@ -154,7 +154,7 @@ transform = Transform3D(0.29237166, -0.32707545, 0.89863247, 0, 0.93969256, 0.34
 unique_name_in_owner = true
 transform = Transform3D(0.2923717, 0, 0.9563049, 0, 1.0000001, 0, -0.9563049, 0, 0.2923717, -0.65, 0, -0.07)
 
-[connection signal="interacted" from="welcome_tag" to="welcome_tag/welcome_tag_interact_audio" method="_on_tag_interacted"]
+[connection signal="interacted" from="welcome_tag" to="welcome_tag/interact_audio" method="_on_tag_interacted"]
 [connection signal="interacted" from="welcome_tag" to="welcome_tag/welcome_screen_ui" method="_on_tag_interacted"]
 [connection signal="interacted" from="continue_tag" to="." method="_on_continue_tag_interacted"]
-[connection signal="interacted" from="continue_tag" to="continue_tag/continue_tag_interact_audio" method="_on_tag_interacted"]
+[connection signal="interacted" from="continue_tag" to="continue_tag/interact_audio" method="_on_tag_interacted"]
