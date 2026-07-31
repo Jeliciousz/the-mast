@@ -10,7 +10,7 @@ var active_joypad_id: int = -1
 
 
 func _ready() -> void:
-	Events.quit_button_pressed.connect(_quit_game)
+	EventsBus.subscribe(&"quit_button_pressed", _quit_game)
 	Input.joy_connection_changed.connect(_on_joy_connection_changed)
 
 
@@ -37,7 +37,7 @@ func _input(event: InputEvent) -> void:
 		active_input_method = ACTIVE_INPUT_KEYBOARD_MOUSE
 
 
-func _quit_game() -> void:
+func _quit_game(_event) -> void:
 	SceneTransition.start_transition(0.5, 0.0, 0.0)
 
 	await SceneTransition.transition_fully_faded

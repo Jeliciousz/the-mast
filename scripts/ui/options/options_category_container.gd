@@ -5,11 +5,11 @@ extends VBoxContainer
 
 
 func _ready() -> void:
-	Events.options_category_button_pressed.connect(_on_options_category_button_pressed)
+	EventsBus.subscribe(&"options_category_button_pressed", _on_options_category_button_pressed)
 
 
-func _on_options_category_button_pressed(category_pressed: StringName) -> void:
-	if category_pressed == category:
+func _on_options_category_button_pressed(event: OptionsCategoryButton.OptionsCategoryButtonEvent) -> void:
+	if event.category_pressed == category:
 		show()
 	else:
 		hide()

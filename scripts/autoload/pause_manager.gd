@@ -14,7 +14,7 @@ func pause() -> void:
 
 	_paused = true
 	Engine.time_scale = 0.0
-	Events.game_paused.emit()
+	EventsBus.broadcast(Event.new(&"paused"))
 
 
 func unpause() -> void:
@@ -23,4 +23,4 @@ func unpause() -> void:
 
 	_paused = false
 	Engine.time_scale = 1.0
-	Events.game_unpaused.emit()
+	EventsBus.broadcast(Event.new(&"unpaused"))

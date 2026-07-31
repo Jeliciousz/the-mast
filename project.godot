@@ -20,7 +20,7 @@ config/icon="uid://cskacs38mld6x"
 
 GlobalTime="*uid://chlhr4yvr5218"
 Global="*uid://c4own47ghtysx"
-Events="*uid://bja7i3ci5cu0n"
+EventsBus="*uid://bwb8nyn0k4ehk"
 PauseManager="*uid://cxi1qnu1rfkqx"
 GlobalUI="*uid://4urhegdrouq2"
 SceneTransition="*uid://caltyn7p6ee1y"

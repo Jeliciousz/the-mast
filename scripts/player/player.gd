@@ -46,9 +46,6 @@ var sprinting: bool = false
 
 
 func _ready() -> void:
-	Events.game_paused.connect(deactivate)
-	Events.game_unpaused.connect(activate)
-
 	reset()
 
 
@@ -78,6 +75,66 @@ func _physics_process(_delta) -> void:
 
 	_update_physics()
 	_move()
+
+
+func deactivate() -> void:
+	active = false
+
+
+func activate() -> void:
+	active = true
+
+
+func reset() -> void:
+	position = start_target.position
+	rotation.y = start_target.rotation.y
+	head.rotation.x = start_target.rotation.x
+	footstep_controller.reset()
+
+
+## Returns the forward direction of the player.
+func get_forward_direction() -> Vector3:
+	return -basis.z
+
+
+## Returns the looking direction of the player.
+func get_looking_direction() -> Vector3:
+	return -head.global_basis.z
+
+
+## Returns the vertical velocity of the player.
+func get_vertical_velocity() -> Vector3:
+	return Vector3(0.0, velocity.y, 0.0)
+
+
+## Returns the horizontal velocity of the player.
+func get_horizontal_velocity() -> Vector3:
+	return Vector3(velocity.x, 0.0, velocity.z)
+
+
+## Returns the speed of the player.
+func get_speed() -> float:
+	return velocity.length()
+
+
+## Returns the horizontal speed of the player.
+func get_horizontal_speed() -> float:
+	return Vector2(velocity.x, velocity.z).length()
+
+
+## Returns the direction of the velocity of the player.
+func get_direction_of_velocity() -> Vector3:
+	return velocity.normalized()
+
+
+## Returns the direction of the horizontal velocity of the player.
+func get_direction_of_horizontal_velocity() -> Vector3:
+	return get_horizontal_velocity().normalized()
+
+
+## Returns the player's center of mass.
+func get_center_of_mass() -> Vector3:
+	return collision_shape.global_position
 
 
 func _get_input_vector(event: InputEvent) -> void:
@@ -215,63 +272,3 @@ func _add_movement(speed: float, acceleration: float) -> void:
 func _move() -> void:
 	move_and_slide()
 	apply_floor_snap()
-
-
-func deactivate() -> void:
-	active = false
-
-
-func activate() -> void:
-	active = true
-
-
-func reset() -> void:
-	position = start_target.position
-	rotation.y = start_target.rotation.y
-	head.rotation.x = start_target.rotation.x
-	footstep_controller.reset()
-
-
-## Returns the forward direction of the player.
-func get_forward_direction() -> Vector3:
-	return -basis.z
-
-
-## Returns the looking direction of the player.
-func get_looking_direction() -> Vector3:
-	return -head.global_basis.z
-
-
-## Returns the vertical velocity of the player.
-func get_vertical_velocity() -> Vector3:
-	return Vector3(0.0, velocity.y, 0.0)
-
-
-## Returns the horizontal velocity of the player.
-func get_horizontal_velocity() -> Vector3:
-	return Vector3(velocity.x, 0.0, velocity.z)
-
-
-## Returns the speed of the player.
-func get_speed() -> float:
-	return velocity.length()
-
-
-## Returns the horizontal speed of the player.
-func get_horizontal_speed() -> float:
-	return Vector2(velocity.x, velocity.z).length()
-
-
-## Returns the direction of the velocity of the player.
-func get_direction_of_velocity() -> Vector3:
-	return velocity.normalized()
-
-
-## Returns the direction of the horizontal velocity of the player.
-func get_direction_of_horizontal_velocity() -> Vector3:
-	return get_horizontal_velocity().normalized()
-
-
-## Returns the player's center of mass.
-func get_center_of_mass() -> Vector3:
-	return collision_shape.global_position

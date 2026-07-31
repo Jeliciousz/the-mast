@@ -13,11 +13,11 @@ var camera_fly_tween: Tween
 
 
 func _ready() -> void:
-	Events.play_button_pressed.connect(_on_play_game_pressed)
-	Events.main_menu_button_pressed.connect(_on_main_menu_pressed)
+	EventsBus.subscribe(&"play_button_pressed", _on_play_button_pressed)
+	EventsBus.subscribe(&"main_menu_button_pressed", _on_main_menu_button_pressed)
 
 
-func _on_play_game_pressed() -> void:
+func _on_play_button_pressed(_event) -> void:
 	if camera_fly_tween:
 		camera_fly_tween.kill()
 
@@ -39,9 +39,8 @@ func _on_play_game_pressed() -> void:
 		pause_menu_ui.pause()
 
 
-func _on_main_menu_pressed() -> void:
+func _on_main_menu_button_pressed(_event) -> void:
 	pause_menu_ui.process_mode = Node.PROCESS_MODE_DISABLED
-	player.deactivate()
 	menu_camera.global_transform = player.head.global_transform
 	player.camera.current = false
 	menu_camera.current = true

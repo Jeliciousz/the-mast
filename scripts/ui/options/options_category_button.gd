@@ -5,15 +5,27 @@ extends Button
 
 
 func _ready() -> void:
-	Events.options_category_button_pressed.connect(_on_options_category_button_pressed)
+	EventsBus.subscribe(&"options_category_button_pressed", _on_options_category_button_pressed)
 
 
 func _pressed() -> void:
-	Events.options_category_button_pressed.emit(category)
+	EventsBus.broadcast(OptionsCategoryButtonEvent.new(category))
 
 
-func _on_options_category_button_pressed(category_pressed: StringName) -> void:
-	if category_pressed == category:
+func _on_options_category_button_pressed(event: OptionsCategoryButtonEvent) -> void:
+	if event.category_pressed == category:
 		disabled = true
 	else:
 		disabled = false
+
+
+class OptionsCategoryButtonEvent extends Event:
+	const ID: StringName = &"options_category_button_pressed"
+
+	var category_pressed: StringName
+
+
+	func _init(category: StringName):
+		super(ID)
+
+		category_pressed = category

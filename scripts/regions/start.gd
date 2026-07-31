@@ -7,7 +7,7 @@ extends Node3D
 
 
 func _ready() -> void:
-	Events.main_menu_button_pressed.connect(_on_main_menu_pressed)
+	EventsBus.subscribe(&"main_menu_button_pressed", _on_main_menu_button_pressed)
 
 	if SceneTransition.in_transition:
 		await SceneTransition.transition_wait_finished
@@ -17,7 +17,7 @@ func _ready() -> void:
 	_start_opening_cinematic()
 
 
-func _on_main_menu_pressed() -> void:
+func _on_main_menu_button_pressed(_event) -> void:
 	pause_menu_ui.process_mode = Node.PROCESS_MODE_DISABLED
 
 	player.deactivate()

@@ -5,6 +5,8 @@ extends Control
 @export var menu_options_mm_container: VBoxContainer
 @export var menu_options_quit_container: VBoxContainer
 
+@onready var player: Player = %player
+
 
 func _notification(what: int) -> void:
 	if process_mode == PROCESS_MODE_DISABLED:
@@ -25,20 +27,22 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _ready() -> void:
-	Events.options_window_opened.connect(_on_options_window_opened)
-	Events.options_window_closed.connect(_on_options_window_closed)
+	EventsBus.subscribe(&"options_ui_opened", _on_options_ui_opened)
+	EventsBus.subscribe(&"options_ui_closed", _on_options_ui_closed)
 
 
 func pause() -> void:
 	PauseManager.pause()
 	show()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	player.deactivate()
 
 
 func unpause() -> void:
 	PauseManager.unpause()
 	hide()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	player.activate()
 
 
 # Menu options: Main
@@ -49,7 +53,7 @@ func _on_continue_button_pressed() -> void:
 
 
 func _on_options_button_pressed() -> void:
-	Events.options_window_opened.emit()
+	EventsBus.broadcast(Event.new(&"options_ui_opened"))
 
 
 func _on_main_menu_button_pressed() -> void:
@@ -66,12 +70,11 @@ func _on_quit_button_pressed() -> void:
 
 
 func _on_mm_confirm_button_pressed() -> void:
-	menu_options_mm_container.hide()
 	menu_options_main_container.show()
-
-	unpause()
-
-	Events.main_menu_button_pressed.emit()
+	menu_options_mm_container.hide()
+	PauseManager.unpause()
+	hide()
+	EventsBus.broadcast(Event.new(&"main_menu_button_pressed"))
 
 
 func _on_mm_deny_button_pressed() -> void:
@@ -80,10 +83,10 @@ func _on_mm_deny_button_pressed() -> void:
 
 
 func _on_quit_confirm_button_pressed() -> void:
+	process_mode = Node.PROCESS_MODE_DISABLED
 	menu_options_quit_container.hide()
-	menu_options_main_container.show()
-	unpause()
-	Events.quit_button_pressed.emit()
+	PauseManager.unpause()
+	EventsBus.broadcast(Event.new(&"quit_button_pressed"))
 
 
 func _on_quit_deny_button_pressed() -> void:
@@ -91,14 +94,14 @@ func _on_quit_deny_button_pressed() -> void:
 	menu_options_main_container.show()
 
 
-func _on_options_window_opened() -> void:
+func _on_options_ui_opened(_event) -> void:
 	if process_mode == Node.PROCESS_MODE_DISABLED:
 		return
 
 	menu_options_main_container.hide()
 
 
-func _on_options_window_closed() -> void:
+func _on_options_ui_closed(_event) -> void:
 	if process_mode == Node.PROCESS_MODE_DISABLED:
 		return
 
