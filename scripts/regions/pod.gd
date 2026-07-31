@@ -10,8 +10,8 @@ var camera_fly_tween: Tween
 
 
 func _ready() -> void:
-    Events.play_game_pressed.connect(_on_play_game_pressed)
-    Events.main_menu_pressed.connect(_on_main_menu_pressed)
+    Events.play_button_pressed.connect(_on_play_game_pressed)
+    Events.main_menu_button_pressed.connect(_on_main_menu_pressed)
 
 
 func _on_play_game_pressed() -> void:

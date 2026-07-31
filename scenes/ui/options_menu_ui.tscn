@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://dpdy5jwowmojm" path="res://scripts/ui/options/filtering_button.gd" id="8_pv740"]
 [ext_resource type="Script" uid="uid://cc0aqan1to3ka" path="res://scripts/ui/options/antialiasing_button.gd" id="9_h4f51"]
 [ext_resource type="Script" uid="uid://ci42gthqhv2x" path="res://scripts/ui/options/max_fps_slider.gd" id="10_726te"]
+[ext_resource type="Script" uid="uid://u4bnodr7dcfr" path="res://scripts/ui/options/max_fps_display.gd" id="11_1ms61"]
 [ext_resource type="Script" uid="uid://c8bg87sofqbpt" path="res://scripts/ui/options/setting_display.gd" id="11_21rqc"]
 [ext_resource type="Script" uid="uid://b6lqvtbsawmj8" path="res://scripts/ui/options/setting_toggle_button.gd" id="12_dq6vn"]
 [ext_resource type="Texture2D" uid="uid://n7h0i64sgmog" path="res://assets/textures/input_prompts/keyboard_and_mouse/keyboard_q.png" id="13_7it14"]
@@ -329,7 +330,7 @@ custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"OptionsChoicesLabel"
-text = "VSync"
+text = "V-Sync"
 vertical_alignment = 1
 
 [node name="vsync_button" type="OptionButton" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container/vsync_option_container" unique_id=1276870324]
@@ -349,7 +350,7 @@ popup/item_2/id = 2
 popup/item_3/text = "Mailbox"
 popup/item_3/id = 3
 script = ExtResource("7_kr0nk")
-setting_name = &"vsync"
+setting_name = &"viewport_vsync"
 
 [node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container/vsync_option_container/vsync_button" unique_id=1941824106]
 script = ExtResource("2_1ms61")
@@ -396,12 +397,12 @@ size_flags_stretch_ratio = 0.5
 theme_type_variation = &"OptionsChoicesLabel"
 text = "max_fps"
 horizontal_alignment = 1
-script = ExtResource("11_21rqc")
+script = ExtResource("11_1ms61")
 setting_name = &"max_fps"
 type = 1
 precision = 0
 special_values = Dictionary[Variant, String]({
-0: "No limit"
+0: "Unlimited"
 })
 
 [node name="43_aspect_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/options_video_container" unique_id=1031173366]
@@ -423,7 +424,7 @@ size_flags_horizontal = 3
 theme_type_variation = &"OptionsChoicesButton"
 toggle_mode = true
 script = ExtResource("12_dq6vn")
-setting_name = &"window_43_aspect"
+setting_name = &"viewport_43_aspect"
 true_text = "Locked"
 false_text = "Unlocked"
 

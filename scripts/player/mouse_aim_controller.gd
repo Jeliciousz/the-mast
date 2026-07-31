@@ -2,7 +2,8 @@ class_name MouseAimController
 extends Node
 ## Rotates a player and a head for FPS camera control with the mouse.
 ##
-## Code courtesy of [url=https://yosoyfreeman.github.io/article/godot/tutorial/achieving-better-mouse-input-in-godot-4-the-perfect-camera-controller/]Yo Soy Freeman[/url]. Edited by Jeliciousz
+## [url=https://yosoyfreeman.github.io/article/godot/tutorial/achieving-better-mouse-input-in-godot-4-the-perfect-camera-controller/]Yo Soy Freeman[/url].
+## Edited by Jeliciousz
 
 ## How many radians should the camera rotate per dot of mouse movement.
 const RADIANS_PER_DOT: float = deg_to_rad(0.1)
@@ -74,7 +75,7 @@ func _physics_process(delta: float) -> void:
 
     if look_vector.length() < 0.1:
         look_vector = Vector2.ZERO
-    
+
     look_vector *= ease(look_vector.length(), 2.0)
 
     add_yaw(1.5 * PI * look_vector.x * delta)

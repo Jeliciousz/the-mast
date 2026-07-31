@@ -58,14 +58,14 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
     if not active:
         return
-    
+
     if (event is InputEventJoypadButton or event is InputEventJoypadMotion) and event.device != Global.active_joypad_id:
         return
 
     if event.is_action_pressed(&"sprint"):
         sprinting = true
         return
-    
+
     if event.is_action_released(&"sprint"):
         sprinting = false
         return
@@ -116,7 +116,7 @@ func _get_input_vector(event: InputEvent) -> void:
             input_vector.x = 1.0
         elif event.is_action_released(&"move_right"):
             input_vector.x = -1.0 if Input.is_action_pressed(&"move_left") else 0.0
-        
+    
         wish_direction = Vector3(input_vector.x, 0.0, input_vector.y).normalized()
     else:
         if not event is InputEventJoypadMotion:

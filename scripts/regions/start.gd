@@ -8,7 +8,7 @@ extends Node3D
 
 
 func _ready() -> void:
-    Events.main_menu_pressed.connect(_on_main_menu_pressed)
+    Events.main_menu_button_pressed.connect(_on_main_menu_pressed)
 
     if SceneTransition.in_transition:
         await SceneTransition.transition_wait_finished

@@ -69,7 +69,7 @@ func _on_mm_confirm_button_pressed() -> void:
 
 	unpause()
 
-	Events.main_menu_pressed.emit()
+	Events.main_menu_button_pressed.emit()
 
 
 func _on_mm_deny_button_pressed() -> void:
@@ -83,7 +83,7 @@ func _on_quit_confirm_button_pressed() -> void:
 
 	unpause()
 
-	Events.quit_game_pressed.emit()
+	Events.quit_button_pressed.emit()
 
 
 func _on_quit_deny_button_pressed() -> void:

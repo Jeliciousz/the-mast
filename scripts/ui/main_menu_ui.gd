@@ -8,8 +8,8 @@ var fade_tween: Tween
 
 
 func _ready() -> void:
-	Events.play_game_pressed.connect(_on_play_game_pressed)
-	Events.main_menu_pressed.connect(_on_main_menu_pressed)
+	Events.play_button_pressed.connect(_on_play_game_pressed)
+	Events.main_menu_button_pressed.connect(_on_main_menu_pressed)
 	Events.options_window_opened.connect(_on_options_window_opened)
 	Events.options_window_closed.connect(_on_options_window_closed)
 
@@ -58,7 +58,7 @@ func _on_main_menu_pressed() -> void:
 # Menu options: Main
 
 func _on_play_button_pressed() -> void:
-	Events.play_game_pressed.emit()
+	Events.play_button_pressed.emit()
 
 
 func _on_options_button_pressed() -> void:
@@ -73,7 +73,7 @@ func _on_quit_button_pressed() -> void:
 # Menu options: Quit
 
 func _on_quit_confirm_button_pressed() -> void:
-	Events.quit_game_pressed.emit()
+	Events.quit_button_pressed.emit()
 
 
 func _on_quit_deny_button_pressed() -> void:
