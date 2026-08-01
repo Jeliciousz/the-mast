@@ -57,10 +57,6 @@ physics_interpolation_mode = 2
 cull_mask = 2
 script = ExtResource("10_t3ocs")
 
-[node name="welcome_screen_ui" parent="." unique_id=1163578512 instance=ExtResource("14_cu7xe")]
-process_mode = 4
-visible = false
-
 [node name="pause_menu_ui" parent="." unique_id=1402958210 instance=ExtResource("2_cu7xe")]
 process_mode = 4
 visible = false
@@ -68,6 +64,10 @@ visible = false
 [node name="main_menu_ui" parent="." unique_id=315032881 instance=ExtResource("5_t3ocs")]
 
 [node name="options_menu_ui" parent="." unique_id=1074080114 instance=ExtResource("5_oahdy")]
+process_mode = 4
+visible = false
+
+[node name="welcome_screen_ui" parent="." unique_id=1163578512 instance=ExtResource("14_cu7xe")]
 process_mode = 4
 visible = false
 
