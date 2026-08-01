@@ -19,7 +19,9 @@ func _notification(what: int) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed(&"pause"):
+	if event.is_action_pressed(&"ui_close_dialog"):
+		get_viewport().set_input_as_handled()
+
 		if PauseManager.is_paused():
 			unpause()
 		else:
