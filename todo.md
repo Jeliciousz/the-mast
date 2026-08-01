@@ -23,9 +23,6 @@
   - start region
   - ...
 
-- Move input method management code out of Global into its own autoload
-  - Improve input prompts script and merge it into the new input method script
-
 ## Done
 
 - ~~Finish rearranging options menu:~~
@@ -40,3 +37,6 @@
   - ~~Make scripts follow official style guides (use of gdtoolkit python scripts recommended)~~
 
 - ~~Replace naive events autoload with proper EventsBus implementation~~
+
+- ~~Move input method management code out of Global into its own autoload~~
+  - ~~Improve input prompts script and merge it into the new input method script~~ (nah nvm lol)

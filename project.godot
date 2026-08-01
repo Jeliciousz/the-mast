@@ -27,6 +27,7 @@ SceneTransition="*uid://caltyn7p6ee1y"
 SoundEffectsManager="*uid://bxv8euyl6tdg4"
 Settings="*uid://dehtncl703tir"
 InputPrompts="*uid://dc1doyedgos"
+InputMethod="*uid://6cy2uaxvq7fo"
 
 [display]
 

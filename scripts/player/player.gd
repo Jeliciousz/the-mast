@@ -53,7 +53,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not active:
 		return
 
-	if (event is InputEventJoypadButton or event is InputEventJoypadMotion) and event.device != Global.active_joypad_id:
+	if (event is InputEventJoypadButton or event is InputEventJoypadMotion) and event.device != InputMethod.active_joypad_id:
 		return
 
 	if event.is_action_pressed(&"sprint"):
@@ -138,7 +138,7 @@ func get_center_of_mass() -> Vector3:
 
 
 func _get_input_vector(event: InputEvent) -> void:
-	if Global.active_input_method == Global.ACTIVE_INPUT_KEYBOARD_MOUSE:
+	if InputMethod.active_input_method == InputMethod.ACTIVE_INPUT_KEYBOARD_AND_MOUSE:
 		if not event is InputEventKey:
 			return
 

@@ -370,22 +370,22 @@ const INPUT_PROMPT_MOUSE_BUTTON_STRINGS: Dictionary[MouseButton, String] = {
 func action_get_path(action: StringName) -> String:
 	var event_type: int
 
-	if Global.active_input_method == Global.ACTIVE_INPUT_KEYBOARD_MOUSE:
-		event_type = Global.active_input_method
-	elif Global.active_input_method == Global.ACTIVE_INPUT_XBOX:
+	if InputMethod.active_input_method == InputMethod.ACTIVE_INPUT_KEYBOARD_AND_MOUSE:
+		event_type = InputMethod.active_input_method
+	elif InputMethod.active_input_method == InputMethod.ACTIVE_INPUT_XBOX:
 		if _action_has_path(action):
-			event_type = Global.active_input_method
+			event_type = InputMethod.active_input_method
 		else:
-			event_type = Global.ACTIVE_INPUT_KEYBOARD_MOUSE
-	elif Global.active_input_method == Global.ACTIVE_INPUT_XBOX360:
+			event_type = InputMethod.ACTIVE_INPUT_KEYBOARD_AND_MOUSE
+	elif InputMethod.active_input_method == InputMethod.ACTIVE_INPUT_XBOX_360:
 		if _action_has_path(action):
-			event_type = Global.active_input_method
+			event_type = InputMethod.active_input_method
 		else:
-			event_type = Global.ACTIVE_INPUT_KEYBOARD_MOUSE
+			event_type = InputMethod.ACTIVE_INPUT_KEYBOARD_AND_MOUSE
 	else:
-		event_type = Global.ACTIVE_INPUT_KEYBOARD_MOUSE
+		event_type = InputMethod.ACTIVE_INPUT_KEYBOARD_AND_MOUSE
 
-	if event_type == Global.ACTIVE_INPUT_XBOX:
+	if event_type == InputMethod.ACTIVE_INPUT_XBOX:
 		var event = InputMap.action_get_events(action)[1]
 
 		if event is InputEventJoypadButton:
@@ -395,7 +395,7 @@ func action_get_path(action: StringName) -> String:
 			if INPUT_PROMPT_XBOX_MOTION_PATHS.has(event.button_index):
 				return INPUT_PROMPT_XBOX_MOTION_PATHS.get(event.button_index)
 
-	elif event_type == Global.ACTIVE_INPUT_XBOX360:
+	elif event_type == InputMethod.ACTIVE_INPUT_XBOX_360:
 		var event = InputMap.action_get_events(action)[1]
 
 		if event is InputEventJoypadButton:
@@ -405,7 +405,7 @@ func action_get_path(action: StringName) -> String:
 			if INPUT_PROMPT_XBOX360_MOTION_PATHS.has(event.button_index):
 				return INPUT_PROMPT_XBOX360_MOTION_PATHS.get(event.button_index)
 
-	elif event_type == Global.ACTIVE_INPUT_KEYBOARD_MOUSE:
+	elif event_type == InputMethod.ACTIVE_INPUT_KEYBOARD_AND_MOUSE:
 		var event = InputMap.action_get_events(action)[0]
 
 		if event is InputEventKey:
@@ -423,22 +423,22 @@ func action_get_path(action: StringName) -> String:
 func action_get_string(action: StringName) -> String:
 	var event_type: int
 
-	if Global.active_input_method == Global.ACTIVE_INPUT_KEYBOARD_MOUSE:
-		event_type = Global.active_input_method
-	elif Global.active_input_method == Global.ACTIVE_INPUT_XBOX:
+	if InputMethod.active_input_method == InputMethod.ACTIVE_INPUT_KEYBOARD_AND_MOUSE:
+		event_type = InputMethod.active_input_method
+	elif InputMethod.active_input_method == InputMethod.ACTIVE_INPUT_XBOX:
 		if _action_has_path(action):
-			event_type = Global.active_input_method
+			event_type = InputMethod.active_input_method
 		else:
-			event_type = Global.ACTIVE_INPUT_KEYBOARD_MOUSE
-	elif Global.active_input_method == Global.ACTIVE_INPUT_XBOX360:
+			event_type = InputMethod.ACTIVE_INPUT_KEYBOARD_AND_MOUSE
+	elif InputMethod.active_input_method == InputMethod.ACTIVE_INPUT_XBOX_360:
 		if _action_has_path(action):
-			event_type = Global.active_input_method
+			event_type = InputMethod.active_input_method
 		else:
-			event_type = Global.ACTIVE_INPUT_KEYBOARD_MOUSE
+			event_type = InputMethod.ACTIVE_INPUT_KEYBOARD_AND_MOUSE
 	else:
-		event_type = Global.ACTIVE_INPUT_KEYBOARD_MOUSE
+		event_type = InputMethod.ACTIVE_INPUT_KEYBOARD_AND_MOUSE
 
-	if event_type == Global.ACTIVE_INPUT_XBOX:
+	if event_type == InputMethod.ACTIVE_INPUT_XBOX:
 		var event = InputMap.action_get_events(action)[1]
 
 		if event is InputEventJoypadButton:
@@ -448,7 +448,7 @@ func action_get_string(action: StringName) -> String:
 			if INPUT_PROMPT_XBOX_MOTION_STRINGS.has(event.button_index):
 				return INPUT_PROMPT_XBOX_MOTION_STRINGS.get(event.button_index)
 
-	elif event_type == Global.ACTIVE_INPUT_XBOX360:
+	elif event_type == InputMethod.ACTIVE_INPUT_XBOX_360:
 		var event = InputMap.action_get_events(action)[1]
 
 		if event is InputEventJoypadButton:
@@ -458,7 +458,7 @@ func action_get_string(action: StringName) -> String:
 			if INPUT_PROMPT_XBOX360_MOTION_STRINGS.has(event.button_index):
 				return INPUT_PROMPT_XBOX360_MOTION_STRINGS.get(event.button_index)
 
-	elif event_type == Global.ACTIVE_INPUT_KEYBOARD_MOUSE:
+	elif event_type == InputMethod.ACTIVE_INPUT_KEYBOARD_AND_MOUSE:
 		var event = InputMap.action_get_events(action)[0]
 
 		if event is InputEventKey:
@@ -472,21 +472,21 @@ func action_get_string(action: StringName) -> String:
 
 
 func _action_has_path(action: StringName) -> bool:
-	if Global.active_input_method == Global.ACTIVE_INPUT_XBOX:
+	if InputMethod.active_input_method == InputMethod.ACTIVE_INPUT_XBOX:
 		var event = InputMap.action_get_events(action)[1]
 
 		if event is InputEventJoypadButton:
 			return INPUT_PROMPT_XBOX_BUTTON_PATHS.has(event.button_index)
 		if event is InputEventJoypadMotion:
 			return INPUT_PROMPT_XBOX_MOTION_PATHS.has(event.button_index)
-	elif Global.active_input_method == Global.ACTIVE_INPUT_XBOX360:
+	elif InputMethod.active_input_method == InputMethod.ACTIVE_INPUT_XBOX_360:
 		var event = InputMap.action_get_events(action)[1]
 
 		if event is InputEventJoypadButton:
 			return INPUT_PROMPT_XBOX360_BUTTON_PATHS.has(event.button_index)
 		if event is InputEventJoypadMotion:
 			return INPUT_PROMPT_XBOX360_MOTION_PATHS.has(event.button_index)
-	elif Global.active_input_method == Global.ACTIVE_INPUT_KEYBOARD_MOUSE:
+	elif InputMethod.active_input_method == InputMethod.ACTIVE_INPUT_KEYBOARD_AND_MOUSE:
 		var event = InputMap.action_get_events(action)[0]
 
 		if event is InputEventKey:
