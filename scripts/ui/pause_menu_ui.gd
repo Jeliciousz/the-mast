@@ -51,7 +51,7 @@ func _notification(what: int) -> void:
 func pause() -> void:
 	PauseManager.pause()
 	show()
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	InputMethod.desired_mouse_mode = Input.MOUSE_MODE_VISIBLE
 	player.deactivate()
 
 
@@ -61,7 +61,7 @@ func unpause() -> void:
 	menu_options_main_container.show()
 	PauseManager.unpause()
 	hide()
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	InputMethod.desired_mouse_mode = Input.MOUSE_MODE_CAPTURED
 	player.activate()
 
 

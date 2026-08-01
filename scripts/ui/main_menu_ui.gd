@@ -19,7 +19,7 @@ func _ready() -> void:
 
 		mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_INHERITED
 
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	InputMethod.desired_mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -33,7 +33,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _on_main_menu_button_pressed(_event) -> void:
 	process_mode = Node.PROCESS_MODE_INHERIT
 	show()
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	InputMethod.desired_mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 	if fade_tween:
 		fade_tween.kill()
@@ -53,7 +53,7 @@ func _on_play_button_pressed() -> void:
 	EventsBus.broadcast(Event.new(&"play_button_pressed"))
 
 	mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_DISABLED
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	InputMethod.desired_mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 	if fade_tween:
 		fade_tween.kill()

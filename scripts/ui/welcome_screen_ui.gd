@@ -13,13 +13,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 		player.activate()
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		InputMethod.desired_mouse_mode = Input.MOUSE_MODE_CAPTURED
 		process_mode = Node.PROCESS_MODE_DISABLED
 		hide()
 
 
 func _on_welcome_tag_interacted(_event) -> void:
 	player.deactivate()
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	InputMethod.desired_mouse_mode = Input.MOUSE_MODE_VISIBLE
 	process_mode = Node.PROCESS_MODE_INHERIT
 	show()

@@ -13,7 +13,7 @@ func _ready() -> void:
 	if SceneTransition.in_transition:
 		await SceneTransition.transition_wait_finished
 
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	InputMethod.desired_mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 	_start_opening_cinematic()
 
