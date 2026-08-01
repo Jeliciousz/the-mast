@@ -6,7 +6,7 @@
   - ~~give player control to the first controller that input is received from, lose it if the controller disconnects so control may be given to a new controller~~
   - ~~track the active method of input~~
   - ~~add "look_(up/down/left/right)" actions to the input map with m&k and joystick events~~
-  - rework mouse_aim_controller into more general purpose aim_controller that robustly handles mouse, keyboard, and controller aiming (new look_(up/down/left/right) actions), with settings for sensitivity curves and turn speed ramp up
+  - ~~rework mouse_aim_controller into more general purpose aim_controller that robustly handles mouse, keyboard, and controller aiming (new look_(up/down/left/right) actions), with settings for sensitivity curves and turn speed ramp up~~
   - ~~rework player input_vector code to swap between null-canceling and joystick input handling depending on active input method to allow using the InputMap for joystick mappings~~
   - add category in options menu for controller settings, separate from m&k settings
   - ~~make input prompts use the new tracked input method, using this to adjust the input prompts shown~~

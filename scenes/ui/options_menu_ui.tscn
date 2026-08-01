@@ -717,13 +717,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_type_variation = &"OptionsChoicesHSlider"
-min_value = 0.01
 max_value = 10.0
-step = 0.01
+step = 0.02
 value = 1.0
 scrollable = false
 script = ExtResource("13_q5xht")
-setting_name = &"player_look_sensitivity"
+setting_name = &"look_sensitivity_mouse"
 
 [node name="margin" type="MarginContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/sensitivity_option_container/sensitivity_slider" unique_id=100290597]
 layout_mode = 1
@@ -738,10 +737,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 theme_type_variation = &"OptionsChoicesLabel"
-text = "player_look_sensitivity"
+text = "look_sensitivity_mouse"
 horizontal_alignment = 1
 script = ExtResource("11_21rqc")
-setting_name = &"player_look_sensitivity"
+setting_name = &"look_sensitivity_mouse"
 type = 2
 
 [node name="separator" type="HSeparator" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container" unique_id=1454783286]

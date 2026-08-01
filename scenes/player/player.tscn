@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c886qh3d7klmj" path="res://scripts/player/player.gd" id="1_0owmy"]
 [ext_resource type="Script" uid="uid://nue11y7uj6mv" path="res://scripts/player/camera.gd" id="2_qek5x"]
-[ext_resource type="Script" uid="uid://bmue5wxpr551v" path="res://scripts/player/mouse_aim_controller.gd" id="3_5gtgg"]
+[ext_resource type="Script" uid="uid://bmue5wxpr551v" path="res://scripts/player/aim_controller.gd" id="3_5gtgg"]
 [ext_resource type="Script" uid="uid://b5m03qwvj3nua" path="res://scripts/player/footstep_controller.gd" id="4_h17s1"]
 [ext_resource type="AudioStream" uid="uid://j5dbf8m6ifws" path="res://streams/footsteps_concrete.tres" id="5_je7p5"]
 
@@ -29,7 +29,7 @@ fov = 94.0
 script = ExtResource("2_qek5x")
 player = NodePath("../..")
 
-[node name="mouse_aim_controller" type="Node" parent="." unique_id=2045645389 node_paths=PackedStringArray("player", "head")]
+[node name="aim_controller" type="Node" parent="." unique_id=2045645389 node_paths=PackedStringArray("player", "head")]
 script = ExtResource("3_5gtgg")
 max_pitch = 1.4835298641951802
 min_pitch = -1.4835298641951802

@@ -1,6 +1,6 @@
-class_name MouseAimController
+class_name AimController
 extends Node
-## Rotates a player and a head for FPS camera control with the mouse.
+## Rotates a player and a head for FPS camera control with the mouse, keyboard, or joypad.
 ##
 ## [url=https://yosoyfreeman.github.io/article/godot/tutorial/achieving-better-mouse-input-in-godot-4-the-perfect-camera-controller/]Yo Soy Freeman[/url].
 ## Edited by Jeliciousz
@@ -8,7 +8,7 @@ extends Node
 ## How many radians should the camera rotate per dot of mouse movement.
 const RADIANS_PER_DOT: float = deg_to_rad(0.1)
 
-## Is mouse aiming currently enabled
+## Is aiming currently enabled
 @export var active: bool = true
 
 ## Settings.
@@ -18,7 +18,19 @@ const RADIANS_PER_DOT: float = deg_to_rad(0.1)
 @export_subgroup("Mouse")
 
 ## How sensitive aiming is.
-@export var sensitivity: Vector2 = Vector2(1.0, 1.0)
+@export var mouse_sensitivity: Vector2 = Vector2(1.0, 1.0)
+
+## Keyboard/Joystick settings.
+@export_subgroup("Look")
+
+## How sensitive aiming is.
+@export var look_sensitivity: Vector2 = Vector2(2.0, 2.0)
+
+@export var look_response_curve: float = 2.0
+
+@export var look_full_deflection_boost: float = 3.0
+
+@export var look_full_deflection_duration: float = 1.5
 
 ## Camera pitch clamping.
 @export_subgroup("Clamping")
@@ -41,19 +53,15 @@ const RADIANS_PER_DOT: float = deg_to_rad(0.1)
 ## The head.
 @export var head: Node3D
 
+var full_deflection: bool = false
+var full_deflection_time: float = 0.0
+
 
 func _ready() -> void:
 	Settings.setting_changed.connect(_on_setting_changed)
 
-	if Settings.setting_exists(&"player_look_sensitivity"):
-		var sens = Settings.get_setting(&"player_look_sensitivity")
-		sensitivity = Vector2(sens, sens)
-
-
-func _on_setting_changed(setting_name: StringName, new_value: Variant) -> void:
-	if setting_name == &"player_look_sensitivity":
-		var sens = new_value
-		sensitivity = Vector2(sens, sens)
+	mouse_sensitivity.x = Settings.get_setting(&"look_sensitivity_mouse")
+	mouse_sensitivity.y = Settings.get_setting(&"look_sensitivity_mouse")
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -61,47 +69,53 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 
 	if event is InputEventMouseMotion:
-		aim(event)
+		_aim_mouse(event)
 
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	if not (active and player.active):
 		return
 
-	var look_vector := Vector2.ZERO
+	var look_vector := Input.get_vector(&"look_left", &"look_right", &"look_up", &"look_down")
+	var look_deflection = look_vector.length()
 
-	look_vector.x = Input.get_joy_axis(0, JOY_AXIS_RIGHT_X)
-	look_vector.y = Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)
+	if not full_deflection:
+		if look_deflection >= 0.98:
+			full_deflection = true
+			full_deflection_time = GlobalTime.get_time()
+		else:
+			look_vector *= ease(clampf(look_deflection, 0.0, 1.0), look_response_curve)
+	else:
+		if look_deflection < 0.98:
+			full_deflection = false
+			look_vector *= ease(clampf(look_deflection, 0.0, 1.0), look_response_curve)
+		else:
+			look_vector *= lerpf(1.0, look_full_deflection_boost, clampf((GlobalTime.get_time() - full_deflection_time) / look_full_deflection_duration, 0.0, 1.0))
 
-	if look_vector.length() < 0.1:
-		look_vector = Vector2.ZERO
-
-	look_vector *= ease(look_vector.length(), 2.0)
-
-	add_yaw(1.5 * PI * look_vector.x * delta)
-	add_pitch(1.5 * PI * look_vector.y * delta)
+	_add_yaw(look_sensitivity.x * PI * look_vector.x * delta)
+	_add_pitch(look_sensitivity.y * PI * look_vector.y * delta)
 
 	if clamping_enabled:
-		clamp_pitch()
+		_clamp_pitch()
 
 
 ## Handles aiming with the mouse.
-func aim(event: InputEventMouseMotion) -> void:
+func _aim_mouse(event: InputEventMouseMotion) -> void:
 	var viewport_transform: Transform2D = get_tree().get_root().get_final_transform()
 	var motion: Vector2 = event.xformed_by(viewport_transform).relative
 
 	motion *= RADIANS_PER_DOT
-	motion *= sensitivity
+	motion *= mouse_sensitivity
 
-	add_yaw(motion.x)
-	add_pitch(motion.y)
+	_add_yaw(motion.x)
+	_add_pitch(motion.y)
 
 	if clamping_enabled:
-		clamp_pitch()
+		_clamp_pitch()
 
 
 ## Rotates the player around the local Y axis by a given amount (in radians) to achieve yaw.
-func add_yaw(amount: float) -> void:
+func _add_yaw(amount: float) -> void:
 	if is_zero_approx(amount):
 		return
 
@@ -110,7 +124,7 @@ func add_yaw(amount: float) -> void:
 
 
 ## Rotates the head around the local x axis by a given amount (in radians) to achieve pitch.
-func add_pitch(amount: float) -> void:
+func _add_pitch(amount: float) -> void:
 	if is_zero_approx(amount):
 		return
 
@@ -119,9 +133,15 @@ func add_pitch(amount: float) -> void:
 
 
 ## Clamps the pitch between min_pitch and max_pitch.
-func clamp_pitch() -> void:
+func _clamp_pitch() -> void:
 	if head.rotation.x > min_pitch and head.rotation.x < max_pitch:
 		return
 
 	head.rotation.x = clamp(head.rotation.x, min_pitch, max_pitch)
 	head.orthonormalize()
+
+
+func _on_setting_changed(setting_name: StringName, new_value: Variant) -> void:
+	if setting_name == &"look_sensitivity_mouse":
+		mouse_sensitivity.x = new_value
+		mouse_sensitivity.y = new_value

@@ -40,7 +40,7 @@ var sprinting: bool = false
 @onready var collision_shape: CollisionShape3D = $collision_shape
 @onready var footstep_controller: FootstepController = $footstep_controller
 @onready var camera: Camera3D = $head/camera
-@onready var mouse_aim_controller: MouseAimController = $mouse_aim_controller
+@onready var aim_controller: AimController = $aim_controller
 @onready var start_target: Marker3D = %player_start_target
 @onready var standing_head_height: float = head.position.y
 

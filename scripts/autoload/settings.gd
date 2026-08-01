@@ -44,7 +44,7 @@ enum {
 }
 
 var _settings: Dictionary[StringName, Variant] = {
-	&"player_look_sensitivity": 1.0,
+	&"look_sensitivity_mouse": 1.0,
 	&"viewport_resolution": RESOLUTION_360,
 	&"viewport_3d_scale": SCALE_3D_50,
 	&"viewport_filtering": FILTERING_NEAREST,
