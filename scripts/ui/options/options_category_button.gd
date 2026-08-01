@@ -27,7 +27,8 @@ func _pressed() -> void:
 func _on_options_category_button_pressed(event: OptionsCategoryButtonEvent) -> void:
 	if event.category_pressed == category:
 		disabled = true
-		grab_focus()
+		if InputMethod.active_input_method != InputMethod.ACTIVE_INPUT_KEYBOARD_AND_MOUSE:
+			grab_focus()
 	else:
 		disabled = false
 
