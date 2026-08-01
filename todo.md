@@ -24,6 +24,7 @@
   - ...
 
 - Move input method management code out of Global into its own autoload
+  - Improve input prompts script and merge it into the new input method script
 
 ## Done
 
