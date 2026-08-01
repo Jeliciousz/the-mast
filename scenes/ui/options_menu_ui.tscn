@@ -126,17 +126,29 @@ category = &"audio"
 script = ExtResource("2_1ms61")
 metadata/_custom_type_script = "uid://brcdcc6dpc68d"
 
-[node name="controls_category_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_top_bar/scroll_container/options_categories" unique_id=42787756]
+[node name="mouse_and_key_category_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_top_bar/scroll_container/options_categories" unique_id=42787756]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
 theme_type_variation = &"OptionsTopBarButton"
-text = "Controls
-"
+text = "Mouse/Key"
 script = ExtResource("3_7it14")
-category = &"controls"
+category = &"mouse_and_key"
 
-[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_top_bar/scroll_container/options_categories/controls_category_button" unique_id=433454571]
+[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_top_bar/scroll_container/options_categories/mouse_and_key_category_button" unique_id=433454571]
+script = ExtResource("2_1ms61")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="joypad_category_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_top_bar/scroll_container/options_categories" unique_id=985763274]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_type_variation = &"OptionsTopBarButton"
+text = "Joypad"
+script = ExtResource("3_7it14")
+category = &"joypad"
+
+[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_top_bar/scroll_container/options_categories/joypad_category_button" unique_id=791076079]
 script = ExtResource("2_1ms61")
 metadata/_custom_type_script = "uid://brcdcc6dpc68d"
 
@@ -690,20 +702,20 @@ script = ExtResource("11_21rqc")
 setting_name = &"volume_player"
 type = 2
 
-[node name="option_controls_container" type="VBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container" unique_id=325042313]
+[node name="option_mouse_and_key_container" type="VBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container" unique_id=325042313]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"OptionsChoicesVBoxContainer"
 script = ExtResource("4_xt5fk")
-category = &"controls"
+category = &"mouse_and_key"
 
-[node name="sensitivity_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container" unique_id=1067013343]
+[node name="sensitivity_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container" unique_id=1067013343]
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="sensitivity_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/sensitivity_option_container" unique_id=1633202731]
+[node name="sensitivity_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/sensitivity_option_container" unique_id=1633202731]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -711,7 +723,7 @@ theme_type_variation = &"OptionsChoicesLabel"
 text = "Sensitivity"
 vertical_alignment = 1
 
-[node name="sensitivity_slider" type="HSlider" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/sensitivity_option_container" unique_id=1975223234]
+[node name="sensitivity_slider" type="HSlider" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/sensitivity_option_container" unique_id=1975223234]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -724,7 +736,7 @@ scrollable = false
 script = ExtResource("13_q5xht")
 setting_name = &"look_sensitivity_mouse"
 
-[node name="margin" type="MarginContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/sensitivity_option_container/sensitivity_slider" unique_id=100290597]
+[node name="margin" type="MarginContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/sensitivity_option_container/sensitivity_slider" unique_id=100290597]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -732,7 +744,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="sensitivity_display" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/sensitivity_option_container/sensitivity_slider/margin" unique_id=1653320650]
+[node name="sensitivity_display" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/sensitivity_option_container/sensitivity_slider/margin" unique_id=1653320650]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
@@ -743,23 +755,23 @@ script = ExtResource("11_21rqc")
 setting_name = &"look_sensitivity_mouse"
 type = 2
 
-[node name="separator" type="HSeparator" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container" unique_id=1454783286]
+[node name="separator" type="HSeparator" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container" unique_id=1454783286]
 layout_mode = 2
 
-[node name="forward_remap_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container" unique_id=1735650361]
+[node name="move_forward_remap_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container" unique_id=1735650361]
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="forward_remap_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/forward_remap_option_container" unique_id=750913477]
+[node name="forward_remap_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/move_forward_remap_option_container" unique_id=750913477]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"OptionsChoicesLabel"
-text = "Forward"
+text = "Move Forward"
 vertical_alignment = 1
 
-[node name="forward_remap_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/forward_remap_option_container" unique_id=1577319812]
+[node name="forward_remap_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/move_forward_remap_option_container" unique_id=1577319812]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -772,24 +784,24 @@ action = &"move_forward"
 joypad_button_events_allowed = false
 mouse_button_events_allowed = false
 
-[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/forward_remap_option_container/forward_remap_button" unique_id=788113442]
+[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/move_forward_remap_option_container/forward_remap_button" unique_id=788113442]
 script = ExtResource("2_1ms61")
 metadata/_custom_type_script = "uid://brcdcc6dpc68d"
 
-[node name="left_remap_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container" unique_id=1629120832]
+[node name="move_left_remap_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container" unique_id=1629120832]
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="left_remap_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/left_remap_option_container" unique_id=1422632841]
+[node name="left_remap_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/move_left_remap_option_container" unique_id=1422632841]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"OptionsChoicesLabel"
-text = "Left"
+text = "Move Left"
 vertical_alignment = 1
 
-[node name="left_remap_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/left_remap_option_container" unique_id=1440388730]
+[node name="left_remap_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/move_left_remap_option_container" unique_id=1440388730]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -803,24 +815,24 @@ action = &"move_left"
 joypad_button_events_allowed = false
 mouse_button_events_allowed = false
 
-[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/left_remap_option_container/left_remap_button" unique_id=264699877]
+[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/move_left_remap_option_container/left_remap_button" unique_id=264699877]
 script = ExtResource("2_1ms61")
 metadata/_custom_type_script = "uid://brcdcc6dpc68d"
 
-[node name="back_remap_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container" unique_id=2019611638]
+[node name="move_back_remap_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container" unique_id=2019611638]
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="back_remap_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/back_remap_option_container" unique_id=1407896824]
+[node name="back_remap_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/move_back_remap_option_container" unique_id=1407896824]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"OptionsChoicesLabel"
-text = "Back"
+text = "Move Back"
 vertical_alignment = 1
 
-[node name="back_remap_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/back_remap_option_container" unique_id=286197907]
+[node name="back_remap_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/move_back_remap_option_container" unique_id=286197907]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -834,24 +846,24 @@ action = &"move_back"
 joypad_button_events_allowed = false
 mouse_button_events_allowed = false
 
-[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/back_remap_option_container/back_remap_button" unique_id=483662596]
+[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/move_back_remap_option_container/back_remap_button" unique_id=483662596]
 script = ExtResource("2_1ms61")
 metadata/_custom_type_script = "uid://brcdcc6dpc68d"
 
-[node name="right_remap_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container" unique_id=1831357021]
+[node name="move_right_remap_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container" unique_id=1831357021]
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="right_remap_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/right_remap_option_container" unique_id=721904358]
+[node name="right_remap_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/move_right_remap_option_container" unique_id=721904358]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"OptionsChoicesLabel"
-text = "Right"
+text = "Move Right"
 vertical_alignment = 1
 
-[node name="right_remap_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/right_remap_option_container" unique_id=1555426475]
+[node name="right_remap_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/move_right_remap_option_container" unique_id=1555426475]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -865,16 +877,16 @@ action = &"move_right"
 joypad_button_events_allowed = false
 mouse_button_events_allowed = false
 
-[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/right_remap_option_container/right_remap_button" unique_id=1609828516]
+[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/move_right_remap_option_container/right_remap_button" unique_id=1609828516]
 script = ExtResource("2_1ms61")
 metadata/_custom_type_script = "uid://brcdcc6dpc68d"
 
-[node name="sprint_remap_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container" unique_id=310920294]
+[node name="sprint_remap_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container" unique_id=310920294]
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="sprint_remap_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/sprint_remap_option_container" unique_id=1237618291]
+[node name="sprint_remap_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/sprint_remap_option_container" unique_id=1237618291]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -882,7 +894,7 @@ theme_type_variation = &"OptionsChoicesLabel"
 text = "Sprint"
 vertical_alignment = 1
 
-[node name="sprint_remap_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/sprint_remap_option_container" unique_id=1195866220]
+[node name="sprint_remap_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/sprint_remap_option_container" unique_id=1195866220]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -896,16 +908,16 @@ action = &"sprint"
 joypad_button_events_allowed = false
 mouse_button_events_allowed = false
 
-[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/sprint_remap_option_container/sprint_remap_button" unique_id=1888250137]
+[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/sprint_remap_option_container/sprint_remap_button" unique_id=1888250137]
 script = ExtResource("2_1ms61")
 metadata/_custom_type_script = "uid://brcdcc6dpc68d"
 
-[node name="interact_remap_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container" unique_id=1144618128]
+[node name="interact_remap_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container" unique_id=1144618128]
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="interact_remap_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/interact_remap_option_container" unique_id=1783422990]
+[node name="interact_remap_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/interact_remap_option_container" unique_id=1783422990]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -913,7 +925,7 @@ theme_type_variation = &"OptionsChoicesLabel"
 text = "Interact"
 vertical_alignment = 1
 
-[node name="interact_remap_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/interact_remap_option_container" unique_id=1400713669]
+[node name="interact_remap_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/interact_remap_option_container" unique_id=1400713669]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -927,7 +939,127 @@ action = &"interact"
 joypad_button_events_allowed = false
 mouse_button_events_allowed = false
 
-[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_controls_container/interact_remap_option_container/interact_remap_button" unique_id=219987995]
+[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/interact_remap_option_container/interact_remap_button" unique_id=219987995]
+script = ExtResource("2_1ms61")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="option_joypad_container" type="VBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container" unique_id=1811034015]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesVBoxContainer"
+script = ExtResource("4_xt5fk")
+category = &"joypad"
+
+[node name="sensitivity_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_joypad_container" unique_id=549986486]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="sensitivity_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_joypad_container/sensitivity_option_container" unique_id=1866237064]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesLabel"
+text = "Sensitivity"
+vertical_alignment = 1
+
+[node name="sensitivity_slider" type="HSlider" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_joypad_container/sensitivity_option_container" unique_id=334078654]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"OptionsChoicesHSlider"
+max_value = 10.0
+step = 0.02
+value = 1.0
+scrollable = false
+script = ExtResource("13_q5xht")
+setting_name = &"look_sensitivity"
+
+[node name="margin" type="MarginContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_joypad_container/sensitivity_option_container/sensitivity_slider" unique_id=2000013602]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="sensitivity_display" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_joypad_container/sensitivity_option_container/sensitivity_slider/margin" unique_id=767677624]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+theme_type_variation = &"OptionsChoicesLabel"
+text = "look_sensitivity"
+horizontal_alignment = 1
+script = ExtResource("11_21rqc")
+setting_name = &"look_sensitivity"
+type = 2
+
+[node name="separator" type="HSeparator" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_joypad_container" unique_id=846526769]
+layout_mode = 2
+
+[node name="sprint_remap_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_joypad_container" unique_id=14912142]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="sprint_remap_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_joypad_container/sprint_remap_option_container" unique_id=461540031]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesLabel"
+text = "Sprint"
+vertical_alignment = 1
+
+[node name="sprint_remap_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_joypad_container/sprint_remap_option_container" unique_id=1228870972]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_type_variation = &"OptionsChoicesButton"
+icon = ExtResource("13_7it14")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("15_1vrwu")
+action = &"sprint"
+action_event_index = 1
+key_events_allowed = false
+mouse_button_events_allowed = false
+
+[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_joypad_container/sprint_remap_option_container/sprint_remap_button" unique_id=986355858]
+script = ExtResource("2_1ms61")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="interact_remap_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_joypad_container" unique_id=144360408]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="interact_remap_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_joypad_container/interact_remap_option_container" unique_id=1521513433]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesLabel"
+text = "Interact"
+vertical_alignment = 1
+
+[node name="interact_remap_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_joypad_container/interact_remap_option_container" unique_id=58054909]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_type_variation = &"OptionsChoicesButton"
+icon = ExtResource("13_7it14")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("15_1vrwu")
+action = &"interact"
+action_event_index = 1
+key_events_allowed = false
+mouse_button_events_allowed = false
+
+[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_joypad_container/interact_remap_option_container/interact_remap_button" unique_id=922279083]
 script = ExtResource("2_1ms61")
 metadata/_custom_type_script = "uid://brcdcc6dpc68d"
 

@@ -60,6 +60,8 @@ var full_deflection_time: float = 0.0
 func _ready() -> void:
 	Settings.setting_changed.connect(_on_setting_changed)
 
+	look_sensitivity.x = Settings.get_setting(&"look_sensitivity")
+	look_sensitivity.y = Settings.get_setting(&"look_sensitivity")
 	mouse_sensitivity.x = Settings.get_setting(&"look_sensitivity_mouse")
 	mouse_sensitivity.y = Settings.get_setting(&"look_sensitivity_mouse")
 
@@ -145,3 +147,7 @@ func _on_setting_changed(setting_name: StringName, new_value: Variant) -> void:
 	if setting_name == &"look_sensitivity_mouse":
 		mouse_sensitivity.x = new_value
 		mouse_sensitivity.y = new_value
+		return
+	if setting_name == &"look_sensitivity":
+		look_sensitivity.x = new_value
+		look_sensitivity.y = new_value
