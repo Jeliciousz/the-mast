@@ -20,6 +20,7 @@ handle_input_locally = false
 scaling_3d_scale = 1.0
 gui_disable_input = true
 size = Vector2i(480, 360)
+render_target_update_mode = 4
 
 [node name="tag_sub_viewport_camera" type="Camera3D" parent="tag_sub_viewport" unique_id=2073726756]
 physics_interpolation_mode = 2
