@@ -41,5 +41,5 @@ func _on_continue_tag_interacted(_event) -> void:
 
 	await SceneTransition.transition_fully_faded
 
-	var start_scene: PackedScene = load("res://scenes/regions/start.tscn")
+	var start_scene: PackedScene = load("res://scenes/regions/start_region.tscn")
 	get_tree().change_scene_to_packed(start_scene)
