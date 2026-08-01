@@ -30,7 +30,7 @@ func _on_main_menu_button_pressed(_event) -> void:
 	if fade_tween:
 		fade_tween.kill()
 
-	fade_tween = create_tween()
+	fade_tween = create_tween().set_ignore_time_scale(true)
 	fade_tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 1.0)
 
 	await fade_tween.finished
@@ -50,7 +50,7 @@ func _on_play_button_pressed() -> void:
 	if fade_tween:
 		fade_tween.kill()
 
-	fade_tween = create_tween()
+	fade_tween = create_tween().set_ignore_time_scale(true)
 	fade_tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 1.0)
 
 	await fade_tween.finished

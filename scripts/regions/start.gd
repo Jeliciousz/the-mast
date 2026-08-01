@@ -32,14 +32,14 @@ func _on_main_menu_button_pressed(_event) -> void:
 
 
 func _start_opening_cinematic() -> void:
-	var fov_tween = create_tween()
+	var fov_tween = create_tween().set_ignore_time_scale(true)
 	fov_tween.set_trans(Tween.TRANS_SINE)
 	fov_tween.tween_property(cinematic_camera, "fov", 94.0, 4.0)
 
-	var fade_tween = create_tween()
+	var fade_tween = create_tween().set_ignore_time_scale(true)
 	fade_tween.tween_property(fade_rect, "color", Color(0.0, 0.0, 0.0, 0.0), 10.0)
 
-	var camera_tween = create_tween()
+	var camera_tween = create_tween().set_ignore_time_scale(true)
 	camera_tween.set_trans(Tween.TRANS_SINE)
 	camera_tween.tween_interval(5.0)
 	camera_tween.tween_property(cinematic_camera, "rotation_degrees", Vector3(65.0, -90.0, 0.0), 8.0)

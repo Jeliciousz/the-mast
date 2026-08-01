@@ -70,9 +70,9 @@ func _on_quit_button_pressed() -> void:
 
 
 func _on_mm_confirm_button_pressed() -> void:
-	menu_options_main_container.show()
+	process_mode = Node.PROCESS_MODE_DISABLED
 	menu_options_mm_container.hide()
-	PauseManager.unpause()
+	menu_options_main_container.show()
 	hide()
 	EventsBus.broadcast(Event.new(&"main_menu_button_pressed"))
 
@@ -85,7 +85,8 @@ func _on_mm_deny_button_pressed() -> void:
 func _on_quit_confirm_button_pressed() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
 	menu_options_quit_container.hide()
-	PauseManager.unpause()
+	menu_options_main_container.show()
+	hide()
 	EventsBus.broadcast(Event.new(&"quit_button_pressed"))
 
 

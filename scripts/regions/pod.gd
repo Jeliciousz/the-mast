@@ -25,7 +25,8 @@ func _on_play_button_pressed(_event) -> void:
 
 
 func _on_main_menu_button_pressed(_event) -> void:
-	pause_menu_ui.process_mode = Node.PROCESS_MODE_DISABLED
+	PauseManager.unpause()
+
 	player.camera.current = false
 	menu_camera.current = true
 

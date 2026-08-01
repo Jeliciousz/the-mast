@@ -13,7 +13,7 @@ var waiting: bool = false
 
 
 func start_transition(fade_in_duration: float, wait_duration: float, fade_out_duration: float) -> void:
-	var transition_tween = create_tween()
+	var transition_tween = create_tween().set_ignore_time_scale(true)
 	transition_tween.tween_callback(
 		func():
 			in_transition = true
