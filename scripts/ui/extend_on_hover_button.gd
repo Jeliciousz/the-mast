@@ -21,3 +21,4 @@ func _unscaled_process(delta: float) -> void:
 
 	position.x = lerp(position.x, _target_position_x, 10.0 * delta)
 	size.x = ceilf(get_viewport_rect().size.x + global_position.x)
+

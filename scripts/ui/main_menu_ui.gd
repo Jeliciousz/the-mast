@@ -22,6 +22,14 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed(&"ui_cancel"):
+		if menu_options_quit_container.is_visible_in_tree():
+			get_viewport().set_input_as_handled()
+			menu_options_quit_container.hide()
+			menu_options_main_container.show()
+
+
 func _on_main_menu_button_pressed(_event) -> void:
 	process_mode = Node.PROCESS_MODE_INHERIT
 	show()

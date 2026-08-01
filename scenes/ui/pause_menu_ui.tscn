@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://dxorvcedm6l2h" path="res://scripts/ui/extend_on_hover_button.gd" id="3_27lmx"]
 [ext_resource type="Script" uid="uid://c8wab4ohpiqg7" path="res://scripts/ui/ui_scaler.gd" id="3_yd8pb"]
 [ext_resource type="Script" uid="uid://brcdcc6dpc68d" path="res://scripts/ui/button_sfx.gd" id="4_yd8pb"]
+[ext_resource type="Script" uid="uid://m0oc382jdvks" path="res://scripts/ui/focus_grabber.gd" id="6_27lmx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j060n"]
 bg_color = Color(0, 0, 0, 0.25490198)
@@ -94,6 +95,10 @@ script = ExtResource("3_27lmx")
 script = ExtResource("4_yd8pb")
 metadata/_custom_type_script = "uid://brcdcc6dpc68d"
 
+[node name="focus_grabber" type="Node" parent="pause_menu_container/buttons_container/menu_options_main/continue_button" unique_id=1563409145]
+script = ExtResource("6_27lmx")
+metadata/_custom_type_script = "uid://m0oc382jdvks"
+
 [node name="options_button" type="Button" parent="pause_menu_container/buttons_container/menu_options_main" unique_id=1054154657]
 layout_mode = 2
 theme_type_variation = &"ExpandOnHoverButton"
@@ -164,6 +169,10 @@ script = ExtResource("3_27lmx")
 script = ExtResource("4_yd8pb")
 metadata/_custom_type_script = "uid://brcdcc6dpc68d"
 
+[node name="focus_grabber" type="Node" parent="pause_menu_container/buttons_container/menu_options_mm/mm_deny_button" unique_id=27789385]
+script = ExtResource("6_27lmx")
+metadata/_custom_type_script = "uid://m0oc382jdvks"
+
 [node name="menu_options_quit" type="VBoxContainer" parent="pause_menu_container/buttons_container" unique_id=283845778]
 visible = false
 layout_mode = 2
@@ -197,6 +206,10 @@ script = ExtResource("3_27lmx")
 [node name="button_sfx" type="Node" parent="pause_menu_container/buttons_container/menu_options_quit/quit_deny_button" unique_id=1884914061]
 script = ExtResource("4_yd8pb")
 metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="focus_grabber" type="Node" parent="pause_menu_container/buttons_container/menu_options_quit/quit_deny_button" unique_id=1012662815]
+script = ExtResource("6_27lmx")
+metadata/_custom_type_script = "uid://m0oc382jdvks"
 
 [connection signal="pressed" from="pause_menu_container/buttons_container/menu_options_main/continue_button" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="pause_menu_container/buttons_container/menu_options_main/options_button" to="." method="_on_options_button_pressed"]

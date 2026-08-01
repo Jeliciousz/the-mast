@@ -1,5 +1,7 @@
 extends Node
 
+signal input_method_changed
+
 const ACTIVE_INPUT_KEYBOARD_AND_MOUSE: int = 0
 const ACTIVE_INPUT_XBOX: int = 1
 const ACTIVE_INPUT_XBOX_360: int = 2
@@ -26,13 +28,20 @@ func _input(event: InputEvent) -> void:
 		# so let's just naively hope that all xbox-type controllers have "xbox" in their names
 		# And that all xbox 360 controllers, also have "360" in their names
 		if joy_name.containsn("xbox") and joy_name.containsn("360"):
-			active_input_method = ACTIVE_INPUT_XBOX_360
+			if active_input_method != ACTIVE_INPUT_XBOX_360:
+				active_input_method = ACTIVE_INPUT_XBOX_360
+				input_method_changed.emit()
 		else:
 			# Other controllers are intended to be recognized in the future,
 			# but XBOX will always be the fallback
-			active_input_method = ACTIVE_INPUT_XBOX
+			if active_input_method != ACTIVE_INPUT_XBOX:
+				active_input_method = ACTIVE_INPUT_XBOX
+				input_method_changed.emit()
 	elif event is InputEventMouse or event is InputEventKey:
-		active_input_method = ACTIVE_INPUT_KEYBOARD_AND_MOUSE
+		if active_input_method != ACTIVE_INPUT_KEYBOARD_AND_MOUSE:
+			active_input_method = ACTIVE_INPUT_KEYBOARD_AND_MOUSE
+			get_viewport().gui_release_focus()
+			input_method_changed.emit()
 
 
 func _on_joy_connection_changed(device: int, connected: bool) -> void:

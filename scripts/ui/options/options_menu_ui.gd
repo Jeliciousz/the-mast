@@ -1,6 +1,8 @@
 class_name OptionsMenuUI
 extends Control
 
+@export var starting_category: StringName
+
 
 func _ready() -> void:
 	EventsBus.subscribe(&"options_ui_opened", _on_options_ui_opened)
@@ -8,13 +10,14 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed(&"ui_close_dialog"):
+	if event.is_action_pressed(&"ui_close_dialog") or event.is_action_pressed(&"ui_cancel"):
 		get_viewport().set_input_as_handled()
 		EventsBus.broadcast(Event.new(&"options_ui_closed"))
 
 
 func _on_options_ui_opened(_event) -> void:
 	process_mode = Node.PROCESS_MODE_INHERIT
+	EventsBus.broadcast(OptionsCategoryButton.OptionsCategoryButtonEvent.new(starting_category))
 	show()
 
 

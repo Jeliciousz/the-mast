@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://c7os3h3jlv7xr" path="res://scripts/ui/options/options_category_button.gd" id="3_7it14"]
 [ext_resource type="Script" uid="uid://c8wab4ohpiqg7" path="res://scripts/ui/ui_scaler.gd" id="3_p1gu2"]
 [ext_resource type="Script" uid="uid://d07nahgs7syx0" path="res://scripts/ui/options/options_category_container.gd" id="4_xt5fk"]
+[ext_resource type="Script" uid="uid://m0oc382jdvks" path="res://scripts/ui/focus_grabber.gd" id="6_yb5vy"]
 [ext_resource type="Script" uid="uid://nsh0xw6fkecv" path="res://scripts/ui/options/setting_option_button.gd" id="7_kr0nk"]
 [ext_resource type="Script" uid="uid://dpdy5jwowmojm" path="res://scripts/ui/options/filtering_button.gd" id="8_pv740"]
 [ext_resource type="Script" uid="uid://cc0aqan1to3ka" path="res://scripts/ui/options/antialiasing_button.gd" id="9_h4f51"]
@@ -31,6 +32,7 @@ grow_vertical = 2
 mouse_filter = 1
 theme = ExtResource("1_p1gu2")
 script = ExtResource("2_627sf")
+starting_category = &"video"
 
 [node name="ui_scaler" type="Node" parent="." unique_id=1916630325]
 script = ExtResource("3_p1gu2")
@@ -92,6 +94,10 @@ theme_type_variation = &"OptionsTopBarContainer"
 [node name="scroll_container" type="ScrollContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_top_bar" unique_id=1210517582]
 layout_mode = 2
 size_flags_horizontal = 3
+follow_focus = true
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+scroll_horizontal_by_default = true
 
 [node name="options_categories" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_top_bar/scroll_container" unique_id=89769650]
 layout_mode = 2
@@ -102,25 +108,31 @@ theme_type_variation = &"OptionsTopBarContainer"
 [node name="video_category_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_top_bar/scroll_container/options_categories" unique_id=1970999326]
 layout_mode = 2
 size_flags_horizontal = 3
-focus_mode = 0
 theme_type_variation = &"OptionsTopBarButton"
 disabled = true
 text = "Video"
 script = ExtResource("3_7it14")
 category = &"video"
+next_category = &"audio"
+prev_category = &"joypad"
 
 [node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_top_bar/scroll_container/options_categories/video_category_button" unique_id=2015552014]
 script = ExtResource("2_1ms61")
 metadata/_custom_type_script = "uid://brcdcc6dpc68d"
 
+[node name="focus_grabber" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_top_bar/scroll_container/options_categories/video_category_button" unique_id=1321166001]
+script = ExtResource("6_yb5vy")
+metadata/_custom_type_script = "uid://m0oc382jdvks"
+
 [node name="audio_category_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_top_bar/scroll_container/options_categories" unique_id=1221711989]
 layout_mode = 2
 size_flags_horizontal = 3
-focus_mode = 0
 theme_type_variation = &"OptionsTopBarButton"
 text = "Audio"
 script = ExtResource("3_7it14")
 category = &"audio"
+next_category = &"mouse_and_key"
+prev_category = &"video"
 
 [node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_top_bar/scroll_container/options_categories/audio_category_button" unique_id=297550754]
 script = ExtResource("2_1ms61")
@@ -129,11 +141,12 @@ metadata/_custom_type_script = "uid://brcdcc6dpc68d"
 [node name="mouse_and_key_category_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_top_bar/scroll_container/options_categories" unique_id=42787756]
 layout_mode = 2
 size_flags_horizontal = 3
-focus_mode = 0
 theme_type_variation = &"OptionsTopBarButton"
 text = "Mouse/Key"
 script = ExtResource("3_7it14")
 category = &"mouse_and_key"
+next_category = &"joypad"
+prev_category = &"audio"
 
 [node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_top_bar/scroll_container/options_categories/mouse_and_key_category_button" unique_id=433454571]
 script = ExtResource("2_1ms61")
@@ -142,11 +155,12 @@ metadata/_custom_type_script = "uid://brcdcc6dpc68d"
 [node name="joypad_category_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_top_bar/scroll_container/options_categories" unique_id=985763274]
 layout_mode = 2
 size_flags_horizontal = 3
-focus_mode = 0
 theme_type_variation = &"OptionsTopBarButton"
 text = "Joypad"
 script = ExtResource("3_7it14")
 category = &"joypad"
+next_category = &"video"
+prev_category = &"mouse_and_key"
 
 [node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_top_bar/scroll_container/options_categories/joypad_category_button" unique_id=791076079]
 script = ExtResource("2_1ms61")
@@ -154,7 +168,6 @@ metadata/_custom_type_script = "uid://brcdcc6dpc68d"
 
 [node name="options_back_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_top_bar" unique_id=522474159]
 layout_mode = 2
-focus_mode = 0
 theme_type_variation = &"OptionsTopBarButton"
 text = "🞫"
 
@@ -169,6 +182,9 @@ theme_type_variation = &"OptionsChoicesPanelContainer"
 
 [node name="scroll_container" type="ScrollContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel" unique_id=884884854]
 layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
 
 [node name="options_video_container" type="VBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container" unique_id=358673407]
 layout_mode = 2
@@ -774,7 +790,6 @@ vertical_alignment = 1
 [node name="forward_remap_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/move_forward_remap_option_container" unique_id=1577319812]
 layout_mode = 2
 size_flags_horizontal = 3
-focus_mode = 0
 theme_type_variation = &"OptionsChoicesButton"
 icon = ExtResource("13_7it14")
 icon_alignment = 1
@@ -805,7 +820,6 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
-focus_mode = 0
 theme_type_variation = &"OptionsChoicesButton"
 icon = ExtResource("13_7it14")
 icon_alignment = 1
@@ -836,7 +850,6 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
-focus_mode = 0
 theme_type_variation = &"OptionsChoicesButton"
 icon = ExtResource("13_7it14")
 icon_alignment = 1
@@ -867,7 +880,6 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
-focus_mode = 0
 theme_type_variation = &"OptionsChoicesButton"
 icon = ExtResource("13_7it14")
 icon_alignment = 1
@@ -898,7 +910,6 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
-focus_mode = 0
 theme_type_variation = &"OptionsChoicesButton"
 icon = ExtResource("13_7it14")
 icon_alignment = 1
@@ -929,7 +940,6 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
-focus_mode = 0
 theme_type_variation = &"OptionsChoicesButton"
 icon = ExtResource("13_7it14")
 icon_alignment = 1
@@ -1016,7 +1026,6 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
-focus_mode = 0
 theme_type_variation = &"OptionsChoicesButton"
 icon = ExtResource("13_7it14")
 icon_alignment = 1
@@ -1048,7 +1057,6 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
-focus_mode = 0
 theme_type_variation = &"OptionsChoicesButton"
 icon = ExtResource("13_7it14")
 icon_alignment = 1

@@ -10,6 +10,7 @@ func _ready() -> void:
 	EventsBus.subscribe(&"play_button_pressed", _on_play_button_pressed)
 	EventsBus.subscribe(&"main_menu_button_pressed", _on_main_menu_button_pressed)
 	EventsBus.subscribe(&"continue_tag_interacted", _on_continue_tag_interacted)
+	PauseManager.unpause()
 
 
 func _on_play_button_pressed(_event) -> void:

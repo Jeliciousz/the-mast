@@ -9,7 +9,7 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed(&"ui_close_dialog") or event.is_action_pressed(&"interact"):
+	if event.is_action_pressed(&"ui_close_dialog") or event.is_action_pressed(&"ui_cancel") or event.is_action_pressed(&"interact"):
 		get_viewport().set_input_as_handled()
 
 		player.activate()

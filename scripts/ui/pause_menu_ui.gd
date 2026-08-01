@@ -8,14 +8,9 @@ extends Control
 @onready var player: Player = %player
 
 
-func _notification(what: int) -> void:
-	if process_mode == PROCESS_MODE_DISABLED:
-		return
-
-	match what:
-		NOTIFICATION_APPLICATION_FOCUS_OUT:
-			if not PauseManager.is_paused():
-				pause()
+func _ready() -> void:
+	EventsBus.subscribe(&"options_ui_opened", _on_options_ui_opened)
+	EventsBus.subscribe(&"options_ui_closed", _on_options_ui_closed)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -26,11 +21,31 @@ func _unhandled_input(event: InputEvent) -> void:
 			unpause()
 		else:
 			pause()
+		return
+	if event.is_action_pressed(&"ui_cancel"):
+		if menu_options_mm_container.is_visible_in_tree():
+			get_viewport().set_input_as_handled()
+			menu_options_mm_container.hide()
+			menu_options_main_container.show()
+			return
+		if menu_options_quit_container.is_visible_in_tree():
+			get_viewport().set_input_as_handled()
+			menu_options_quit_container.hide()
+			menu_options_main_container.show()
+			return
+		if PauseManager.is_paused():
+			get_viewport().set_input_as_handled()
+			unpause()
 
 
-func _ready() -> void:
-	EventsBus.subscribe(&"options_ui_opened", _on_options_ui_opened)
-	EventsBus.subscribe(&"options_ui_closed", _on_options_ui_closed)
+func _notification(what: int) -> void:
+	if process_mode == PROCESS_MODE_DISABLED:
+		return
+
+	match what:
+		NOTIFICATION_APPLICATION_FOCUS_OUT:
+			if not PauseManager.is_paused():
+				pause()
 
 
 func pause() -> void:
@@ -41,6 +56,9 @@ func pause() -> void:
 
 
 func unpause() -> void:
+	menu_options_mm_container.hide()
+	menu_options_quit_container.hide()
+	menu_options_main_container.show()
 	PauseManager.unpause()
 	hide()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

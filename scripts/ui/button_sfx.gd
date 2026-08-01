@@ -2,6 +2,7 @@ class_name ButtonSFX
 extends Node
 
 @export var hover_stream: AudioStream = preload("res://assets/audio/ui/hover.ogg")
+@export var focus_stream: AudioStream = preload("res://assets/audio/ui/hover.ogg")
 @export var press_stream: AudioStream = preload("res://assets/audio/ui/click.ogg")
 
 var parent_button: Button
@@ -15,6 +16,7 @@ func _ready() -> void:
 
 	parent_button.mouse_entered.connect(_on_mouse_entered)
 	parent_button.pressed.connect(_on_pressed)
+	parent_button.focus_entered.connect(_on_focused)
 
 
 func _on_pressed() -> void:
@@ -26,3 +28,10 @@ func _on_mouse_entered() -> void:
 		return
 
 	SoundEffectsManager.spawn_sound_effect(hover_stream, linear_to_db(0.25), &"UI")
+
+
+func _on_focused() -> void:
+	if parent_button.disabled:
+		return
+
+	SoundEffectsManager.spawn_sound_effect(focus_stream, linear_to_db(0.25), &"UI")

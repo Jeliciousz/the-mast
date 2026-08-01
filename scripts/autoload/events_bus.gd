@@ -26,11 +26,9 @@ func broadcast(event: Event) -> void:
 	while i < callbacks.size():
 		var callback: Callable = callbacks[i]
 		if not callback.is_valid():
-			if i < callbacks.size() - 1:
-				callbacks[i] = callbacks.pop_back()
-			else:
-				callbacks.pop_back()
-		i += 1
+			callbacks.remove_at(i)
+		else:
+			i += 1
 
 	subscriptions.set(id, callbacks)
 

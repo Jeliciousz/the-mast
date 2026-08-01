@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://c8wab4ohpiqg7" path="res://scripts/ui/ui_scaler.gd" id="3_02l8k"]
 [ext_resource type="Script" uid="uid://dxorvcedm6l2h" path="res://scripts/ui/extend_on_hover_button.gd" id="5_ij111"]
 [ext_resource type="Script" uid="uid://brcdcc6dpc68d" path="res://scripts/ui/button_sfx.gd" id="6_1cefk"]
+[ext_resource type="Script" uid="uid://m0oc382jdvks" path="res://scripts/ui/focus_grabber.gd" id="6_oq2e2"]
 
 [node name="main_menu_ui" type="Control" unique_id=315032881 node_paths=PackedStringArray("menu_options_main_container", "menu_options_quit_container")]
 z_index = 10
@@ -81,6 +82,10 @@ script = ExtResource("5_ij111")
 script = ExtResource("6_1cefk")
 metadata/_custom_type_script = "uid://brcdcc6dpc68d"
 
+[node name="focus_grabber" type="Node" parent="main_menu_container/buttons_container/menu_options_main/play_button" unique_id=2007682881]
+script = ExtResource("6_oq2e2")
+metadata/_custom_type_script = "uid://m0oc382jdvks"
+
 [node name="options_button" type="Button" parent="main_menu_container/buttons_container/menu_options_main" unique_id=1425624026]
 layout_mode = 2
 theme_type_variation = &"ExpandOnHoverButton"
@@ -137,6 +142,10 @@ script = ExtResource("5_ij111")
 [node name="button_sfx" type="Node" parent="main_menu_container/buttons_container/menu_options_quit/quit_deny_button" unique_id=1972871761]
 script = ExtResource("6_1cefk")
 metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="focus_grabber" type="Node" parent="main_menu_container/buttons_container/menu_options_quit/quit_deny_button" unique_id=884438728]
+script = ExtResource("6_oq2e2")
+metadata/_custom_type_script = "uid://m0oc382jdvks"
 
 [connection signal="pressed" from="main_menu_container/buttons_container/menu_options_main/play_button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="main_menu_container/buttons_container/menu_options_main/options_button" to="." method="_on_options_button_pressed"]

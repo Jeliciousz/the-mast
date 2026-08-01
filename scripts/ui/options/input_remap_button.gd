@@ -25,7 +25,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if event.is_action("ui_cancel"):
 		button_pressed = false
-		release_focus()
 		return
 
 	if (event is InputEventKey and key_events_allowed) or (event is InputEventJoypadButton and joypad_button_events_allowed) or (event is InputEventMouseButton and mouse_button_events_allowed):
@@ -39,7 +38,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			InputMap.action_add_event(action, action_event)
 
 	button_pressed = false
-	release_focus()
 
 
 func _toggled(toggled_on: bool) -> void:
