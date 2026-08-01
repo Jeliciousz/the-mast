@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bmme3wid86don"]
 
-[ext_resource type="Script" uid="uid://bpj1jw4s7x8pp" path="res://scripts/regions/start.gd" id="1_rkg0x"]
+[ext_resource type="Script" uid="uid://bpj1jw4s7x8pp" path="res://scripts/regions/start_region.gd" id="1_rkg0x"]
 [ext_resource type="PackedScene" uid="uid://scwfewhktdjv" path="res://scenes/ui/pause_menu_ui.tscn" id="2_d0wv4"]
 [ext_resource type="PackedScene" uid="uid://dtab14whalab3" path="res://scenes/ui/options_menu_ui.tscn" id="3_d0wv4"]
 [ext_resource type="Environment" uid="uid://cw57a1jbgkdtf" path="res://environments/underground_environment.tres" id="4_d0wv4"]
@@ -37,7 +37,7 @@ size = Vector3(40.2552, 14.75, 6)
 [sub_resource type="BoxShape3D" id="BoxShape3D_2ygar"]
 size = Vector3(22.2552, 12.5, 6.1427994)
 
-[node name="start" type="Node3D" unique_id=79098664]
+[node name="start_region" type="Node3D" unique_id=79098664]
 script = ExtResource("1_rkg0x")
 
 [node name="fade_rect" type="ColorRect" parent="." unique_id=1088451545]
