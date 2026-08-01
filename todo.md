@@ -5,7 +5,6 @@
 - Implement welcome screen:
   - welcome player to the game
   - show the player the controls
-  - give the player the option to change the controls/adjust sensitivity
   - tell the player they can change these settings in the options menu
 
 - Port over the rest of the game:
