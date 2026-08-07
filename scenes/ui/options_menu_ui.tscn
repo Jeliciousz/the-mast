@@ -886,36 +886,6 @@ mouse_button_events_allowed = false
 script = ExtResource("2_1ms61")
 metadata/_custom_type_script = "uid://brcdcc6dpc68d"
 
-[node name="sprint_remap_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container" unique_id=310920294]
-layout_mode = 2
-theme_override_constants/separation = 0
-alignment = 1
-
-[node name="sprint_remap_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/sprint_remap_option_container" unique_id=1237618291]
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"OptionsChoicesLabel"
-text = "Sprint"
-vertical_alignment = 1
-
-[node name="sprint_remap_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/sprint_remap_option_container" unique_id=1195866220]
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"OptionsChoicesButton"
-icon = ExtResource("13_7it14")
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("15_1vrwu")
-action = &"sprint"
-joypad_button_events_allowed = false
-mouse_button_events_allowed = false
-
-[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/sprint_remap_option_container/sprint_remap_button" unique_id=1888250137]
-script = ExtResource("2_1ms61")
-metadata/_custom_type_script = "uid://brcdcc6dpc68d"
-
 [node name="interact_remap_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container" unique_id=1144618128]
 layout_mode = 2
 theme_override_constants/separation = 0
@@ -943,6 +913,36 @@ joypad_button_events_allowed = false
 mouse_button_events_allowed = false
 
 [node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/interact_remap_option_container/interact_remap_button" unique_id=219987995]
+script = ExtResource("2_1ms61")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="run_remap_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container" unique_id=310920294]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="run_remap_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/run_remap_option_container" unique_id=1237618291]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesLabel"
+text = "Run"
+vertical_alignment = 1
+
+[node name="run_remap_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/run_remap_option_container" unique_id=1195866220]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesButton"
+icon = ExtResource("13_7it14")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("15_1vrwu")
+action = &"run"
+joypad_button_events_allowed = false
+mouse_button_events_allowed = false
+
+[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_mouse_and_key_container/run_remap_option_container/run_remap_button" unique_id=1888250137]
 script = ExtResource("2_1ms61")
 metadata/_custom_type_script = "uid://brcdcc6dpc68d"
 
@@ -1001,37 +1001,6 @@ type = 2
 [node name="separator" type="HSeparator" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_joypad_container" unique_id=846526769]
 layout_mode = 2
 
-[node name="sprint_remap_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_joypad_container" unique_id=14912142]
-layout_mode = 2
-theme_override_constants/separation = 0
-alignment = 1
-
-[node name="sprint_remap_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_joypad_container/sprint_remap_option_container" unique_id=461540031]
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"OptionsChoicesLabel"
-text = "Sprint"
-vertical_alignment = 1
-
-[node name="sprint_remap_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_joypad_container/sprint_remap_option_container" unique_id=1228870972]
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"OptionsChoicesButton"
-icon = ExtResource("13_7it14")
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("15_1vrwu")
-action = &"sprint"
-action_event_index = 1
-key_events_allowed = false
-mouse_button_events_allowed = false
-
-[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_joypad_container/sprint_remap_option_container/sprint_remap_button" unique_id=986355858]
-script = ExtResource("2_1ms61")
-metadata/_custom_type_script = "uid://brcdcc6dpc68d"
-
 [node name="interact_remap_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_joypad_container" unique_id=144360408]
 layout_mode = 2
 theme_override_constants/separation = 0
@@ -1060,6 +1029,37 @@ key_events_allowed = false
 mouse_button_events_allowed = false
 
 [node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_joypad_container/interact_remap_option_container/interact_remap_button" unique_id=922279083]
+script = ExtResource("2_1ms61")
+metadata/_custom_type_script = "uid://brcdcc6dpc68d"
+
+[node name="run_remap_option_container" type="HBoxContainer" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_joypad_container" unique_id=14912142]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="run_remap_label" type="Label" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_joypad_container/run_remap_option_container" unique_id=461540031]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesLabel"
+text = "Run"
+vertical_alignment = 1
+
+[node name="run_remap_button" type="Button" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_joypad_container/run_remap_option_container" unique_id=1228870972]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"OptionsChoicesButton"
+icon = ExtResource("13_7it14")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("15_1vrwu")
+action = &"run"
+action_event_index = 1
+key_events_allowed = false
+mouse_button_events_allowed = false
+
+[node name="button_sfx" type="Node" parent="vertical_padding/horizontal_padding/options_main_panel/options_main_container/options_choices_panel/scroll_container/option_joypad_container/run_remap_option_container/run_remap_button" unique_id=986355858]
 script = ExtResource("2_1ms61")
 metadata/_custom_type_script = "uid://brcdcc6dpc68d"
 

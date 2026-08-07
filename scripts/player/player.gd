@@ -56,11 +56,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	if (event is InputEventJoypadButton or event is InputEventJoypadMotion) and event.device != InputMethod.active_joypad_id:
 		return
 
-	if event.is_action_pressed(&"sprint"):
+	if event.is_action_pressed(&"run"):
 		sprinting = true
 		return
 
-	if event.is_action_released(&"sprint"):
+	if event.is_action_released(&"run"):
 		sprinting = false
 		return
 
