@@ -11,9 +11,8 @@
 [ext_resource type="Environment" uid="uid://dxsiqlwwdakly" path="res://environments/pod_environment.tres" id="9_oxgrs"]
 [ext_resource type="ArrayMesh" uid="uid://bx45rnsyo7h45" path="res://assets/meshes/pod.mesh" id="10_2xigl"]
 [ext_resource type="Script" uid="uid://hpgcp6ulr2uy" path="res://scripts/tags/tags_controller.gd" id="11_nqps1"]
-[ext_resource type="AudioStream" uid="uid://cyf8ndrqa72xt" path="res://assets/audio/world/tag_interact.mp3" id="13_36am2"]
+[ext_resource type="PackedScene" uid="uid://f0501226jusn" path="res://scenes/tags/tag_interact_audio.tscn" id="14_a55wj"]
 [ext_resource type="PackedScene" uid="uid://gg3rchmnk7h4" path="res://scenes/ui/welcome_screen_ui.tscn" id="14_cu7xe"]
-[ext_resource type="Script" uid="uid://cyl5srvsgrabd" path="res://scripts/tags/tag_interact_audio.gd" id="14_j55sj"]
 [ext_resource type="PackedScene" uid="uid://dw4t350jfjiuh" path="res://scenes/tags/tag.tscn" id="15_oahdy"]
 [ext_resource type="PackedScene" uid="uid://degpehp08qxhm" path="res://scenes/player/player.tscn" id="17_ai5bp"]
 
@@ -107,12 +106,8 @@ interactible = true
 event_id = &"welcome_tag_interacted"
 text = "Welcome"
 
-[node name="interact_audio" type="AudioStreamPlayer3D" parent="welcome_tag" unique_id=615030713]
+[node name="tag_interact_audio" parent="welcome_tag" unique_id=985718141 instance=ExtResource("14_a55wj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.14999998, -2.5)
-stream = ExtResource("13_36am2")
-attenuation_model = 1
-bus = &"World"
-script = ExtResource("14_j55sj")
 
 [node name="continue_tag" parent="." unique_id=627831639 instance=ExtResource("15_oahdy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 1.2, -8)
@@ -122,11 +117,7 @@ interactible = true
 event_id = &"continue_tag_interacted"
 text = "Continue..."
 
-[node name="interact_audio" type="AudioStreamPlayer3D" parent="continue_tag" unique_id=680734491]
-stream = ExtResource("13_36am2")
-attenuation_model = 1
-bus = &"World"
-script = ExtResource("14_j55sj")
+[node name="tag_interact_audio" parent="continue_tag" unique_id=303446026 instance=ExtResource("14_a55wj")]
 
 [node name="player_start_target" type="Marker3D" parent="." unique_id=1168502527]
 unique_name_in_owner = true

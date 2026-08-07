@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://f0501226jusn"]
+
+[ext_resource type="AudioStream" uid="uid://cyf8ndrqa72xt" path="res://assets/audio/world/tag_interact.mp3" id="1_qql1q"]
+[ext_resource type="Script" uid="uid://cyl5srvsgrabd" path="res://scripts/tags/tag_interact_audio.gd" id="2_mt4bs"]
+
+[node name="tag_interact_audio" type="AudioStreamPlayer3D" unique_id=985718141]
+stream = ExtResource("1_qql1q")
+attenuation_model = 1
+bus = &"World"
+script = ExtResource("2_mt4bs")
