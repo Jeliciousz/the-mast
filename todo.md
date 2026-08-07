@@ -2,9 +2,44 @@
 
 ## Need to do
 
-- Port over the rest of the game:
-  - start region
-  - ...
+- start region:
+  - letter-boxing in the opening cinematic
+  - background audio in stasis chamber, fades out as you leave it
+  - room temp tag in stasis chamber: "Room temperature: 20.5 C"-"AC off."
+  - open stasis door tag: "< locked >"-"see terminal for information" when haven't checked terminal, "open door" otherwise
+  - terminal tag in stasis chamber: "view automated logs", in document:
+    "ERROR 4a:
+    Critical stasis failure... repair required.
+    Refer to maintenance handbook for more information.
+
+    Recorded stasis duration: 2829 sols (56580.3 standard hours).
+
+    Global notices:
+    . Facility in low-power mode. Essential lighting and systems
+    available only. Restore power via electrics room.
+    . All operations ceased planet-wide. Details available on
+    operation room of floor 2, outpost main complex building."
+  - stasis door opens on tag interaction, slides to the left, has audio
+  - stasis chambers 1-10 (not including 3) tags
+  - tag in generator room to "start generator", switches to "starting...", after 5 seconds it switches to "generator running" and swaps the region out for the powered on variant, there is background audio from the generator room, fades the farther away you get
+  - tags in generator room saying "Generator running"-"Power available for basement" and "Rated to 10 KW"
+  - tags in corridor saying "control room", "electrical switch room"-"DANGER"-"DO NOT ACCESS", "secure chambers 1-10" (stasis chambers are now closed off), "secure chambers 11-20", "storage", and "surface access stairs"-"(emergency exit)"
+  - control (purple) room, "view stasis info" tag has map image:
+    "CHAMBER STATUS:
+
+    . 01: Nominal. Uptime: 56580.1
+    . 02: Nominal. Uptime: 56580.2
+    . 03: FAILURE
+    . 04: Nominal. Uptime: 56580.1
+    . 05: Nominal. Uptime: 56581.1
+    . 06: Nominal. Uptime: 56580.3
+    . 07: Nominal. Uptime: 56580.2
+    . 08: Nominal. Uptime: 56580.3
+    . 09: Nominal. Uptime: 56580.5
+    . 10: Nominal. Uptime: 56580.8
+
+    Viewing pg. 1/2"
+  - "elevator" tag that opens elevator door, "close door" tag to close elevator door and be taken to the next region, door has audio, elevator has audio
 
 ## Done
 
