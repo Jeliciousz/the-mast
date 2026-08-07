@@ -6,6 +6,7 @@ extends Control
 
 func _ready() -> void:
 	EventsBus.subscribe(&"welcome_tag_interacted", _on_welcome_tag_interacted)
+	EventsBus.subscribe(&"paused", _on_paused)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -23,3 +24,8 @@ func _on_welcome_tag_interacted(_event) -> void:
 	InputMethod.desired_mouse_mode = Input.MOUSE_MODE_VISIBLE
 	process_mode = Node.PROCESS_MODE_INHERIT
 	show()
+
+
+func _on_paused(_event) -> void:
+	process_mode = Node.PROCESS_MODE_DISABLED
+	hide()
