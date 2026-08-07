@@ -2,8 +2,10 @@
 
 [ext_resource type="Theme" uid="uid://dbrjgfehw4dbl" path="res://themes/main_1x.tres" id="1_7n36r"]
 [ext_resource type="Script" uid="uid://cmq6j4nbgdtl6" path="res://scripts/ui/welcome_screen_ui.gd" id="1_e0plf"]
-[ext_resource type="Texture2D" uid="uid://dgn0b6fccyp13" path="res://assets/textures/monitor.png" id="2_5y1tx"]
 [ext_resource type="Script" uid="uid://c8wab4ohpiqg7" path="res://scripts/ui/ui_scaler.gd" id="3_7n36r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7n36r"]
+bg_color = Color(0, 0, 0, 0.5019608)
 
 [node name="welcome_screen_ui" type="Control" unique_id=1163578512]
 z_index = 1
@@ -13,12 +15,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 theme = ExtResource("1_7n36r")
 script = ExtResource("1_e0plf")
 
 [node name="ui_scaler" type="Node" parent="." unique_id=1396442524]
 script = ExtResource("3_7n36r")
+
+[node name="background" type="Panel" parent="." unique_id=132653808]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7n36r")
 
 [node name="horizontal_padding" type="HBoxContainer" parent="." unique_id=1169213168]
 layout_mode = 1
@@ -27,6 +39,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/separation = 0
 
 [node name="left_padding" type="Control" parent="horizontal_padding" unique_id=169591445]
@@ -38,6 +51,7 @@ mouse_filter = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 6.0
+mouse_filter = 2
 theme_override_constants/separation = 0
 alignment = 1
 
@@ -47,14 +61,21 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="screen_texture" type="TextureRect" parent="horizontal_padding/vertical_padding" unique_id=1592527122]
+[node name="welcome_text" type="RichTextLabel" parent="horizontal_padding/vertical_padding" unique_id=907575844]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_vertical = 3
 size_flags_stretch_ratio = 5.95
-mouse_filter = 0
-texture = ExtResource("2_5y1tx")
-expand_mode = 5
-stretch_mode = 5
+theme_type_variation = &"DocumentTextLabel"
+bbcode_enabled = true
+text = "Welcome.
+This is a recreation of a game made by awesome-llama on Scratch, made in Godot.
+You are currently situated in a pod.
+Use this opportunity to get used to the controls before the game is started.
+
+[color=#ffe283]By default, you can use the [ W, A, S, D ] keys to move around, Shift to run, and, as you just saw, you can press [ E ] to interact.
+You can change these controls, mouse sensitivity, and more in the Options menu, which you can find by pressing [ Esc ].[/color]
+
+[color=#ffe900]You may press [ E ] to close this screen.[/color]"
 
 [node name="bottom_padding" type="Control" parent="horizontal_padding/vertical_padding" unique_id=337847871]
 layout_mode = 2

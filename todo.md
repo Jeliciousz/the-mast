@@ -2,11 +2,6 @@
 
 ## Need to do
 
-- Implement welcome screen:
-  - welcome player to the game
-  - show the player the controls
-  - tell the player they can change these settings in the options menu
-
 - Port over the rest of the game:
   - start region
   - ...
@@ -39,3 +34,8 @@
   - ~~make input prompts use the new tracked input method, using this to adjust the input prompts shown~~
   - ~~make input prompts swap out prompts depending on the kind of controller that is being used~~
   - ~~make ui navigatable with controller~~
+
+- ~~Implement welcome screen:~~
+  - ~~welcome player to the game~~
+  - ~~show the player the controls~~
+  - ~~tell the player they can change these settings in the options menu~~
