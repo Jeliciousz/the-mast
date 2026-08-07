@@ -19,7 +19,7 @@
 [ext_resource type="Script" uid="uid://bcr0t82k861x3" path="res://scripts/ui/options/input_remap_button.gd" id="15_1vrwu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qntjp"]
-bg_color = Color(0, 0, 0, 0.25490198)
+bg_color = Color(0, 0, 0, 0.5019608)
 
 [node name="options_menu_ui" type="Control" unique_id=1074080114]
 z_index = 15
