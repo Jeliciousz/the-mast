@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bpj1jw4s7x8pp" path="res://scripts/regions/start_region.gd" id="1_rkg0x"]
 [ext_resource type="PackedScene" uid="uid://scwfewhktdjv" path="res://scenes/ui/pause_menu_ui.tscn" id="2_d0wv4"]
+[ext_resource type="PackedScene" uid="uid://bw1fsqu843iq6" path="res://scenes/ui/letterboxing.tscn" id="2_stbgh"]
 [ext_resource type="PackedScene" uid="uid://dtab14whalab3" path="res://scenes/ui/options_menu_ui.tscn" id="3_d0wv4"]
 [ext_resource type="Environment" uid="uid://cw57a1jbgkdtf" path="res://environments/underground_environment.tres" id="4_d0wv4"]
 [ext_resource type="ArrayMesh" uid="uid://tr7m7i1b64xu" path="res://assets/meshes/start_off_stasis_door.mesh" id="4_hkdbf"]
@@ -40,7 +41,11 @@ size = Vector3(22.2552, 12.5, 6.1427994)
 [node name="start_region" type="Node3D" unique_id=79098664]
 script = ExtResource("1_rkg0x")
 
+[node name="letterboxing" parent="." unique_id=382661855 instance=ExtResource("2_stbgh")]
+process_mode = 4
+
 [node name="fade_rect" type="ColorRect" parent="." unique_id=1088451545]
+process_mode = 4
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

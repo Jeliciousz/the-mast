@@ -5,6 +5,9 @@ extends Node3D
 @onready var cinematic_camera: Camera3D = $cinematic_camera
 @onready var fade_rect: ColorRect = $fade_rect
 @onready var pause_menu_ui: PauseMenuUI = $pause_menu_ui
+@onready var letterboxing: Control = $letterboxing
+@onready var letterbox_top_bar: ColorRect = $letterboxing/vertical_padding/top_bar
+@onready var letterbox_bottom_bar: ColorRect = $letterboxing/vertical_padding/bottom_bar
 
 
 func _ready() -> void:
@@ -58,3 +61,11 @@ func _start_opening_cinematic() -> void:
 		player.activate()
 	else:
 		pause_menu_ui.pause()
+
+	var letterbox_tween = create_tween().set_ignore_time_scale(true)
+	letterbox_tween.tween_property(letterbox_top_bar, "size_flags_stretch_ratio", 0.0, 0.2)
+	letterbox_tween.parallel().tween_property(letterbox_bottom_bar, "size_flags_stretch_ratio", 0.0, 0.2)
+
+	await letterbox_tween.finished
+
+	letterboxing.hide()

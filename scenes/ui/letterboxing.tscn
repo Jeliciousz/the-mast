@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bw1fsqu843iq6"]
+
+[node name="letterboxing" type="Control" unique_id=382661855]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+
+[node name="vertical_padding" type="VBoxContainer" parent="." unique_id=1676439407]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="top_bar" type="ColorRect" parent="vertical_padding" unique_id=906976077]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="middle_padding" type="Control" parent="vertical_padding" unique_id=1318304979]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.0
+mouse_filter = 2
+
+[node name="bottom_bar" type="ColorRect" parent="vertical_padding" unique_id=847866026]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

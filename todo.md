@@ -3,7 +3,7 @@
 ## Need to do
 
 - start region:
-  - letter-boxing in the opening cinematic
+  - ~~letter-boxing in the opening cinematic~~
   - background audio in stasis chamber, fades out as you leave it
   - room temp tag in stasis chamber: "Room temperature: 20.5 C"-"AC off."
   - open stasis door tag: "< locked >"-"see terminal for information" when haven't checked terminal, "open door" otherwise
