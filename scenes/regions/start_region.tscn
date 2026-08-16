@@ -7,6 +7,7 @@
 [ext_resource type="Environment" uid="uid://cw57a1jbgkdtf" path="res://environments/underground_environment.tres" id="4_d0wv4"]
 [ext_resource type="ArrayMesh" uid="uid://tr7m7i1b64xu" path="res://assets/meshes/start_off_stasis_door.mesh" id="4_hkdbf"]
 [ext_resource type="ArrayMesh" uid="uid://bj47rblennboc" path="res://assets/meshes/start_off.mesh" id="5_catr0"]
+[ext_resource type="AudioStream" uid="uid://b60qi1syeunk8" path="res://assets/audio/world/stasis_ambience.mp3" id="6_wdsss"]
 [ext_resource type="ArrayMesh" uid="uid://cfjlyvhnu11c6" path="res://assets/meshes/start_off_corridor.mesh" id="6_xmcgj"]
 [ext_resource type="ArrayMesh" uid="uid://os7vb78t8urc" path="res://assets/meshes/start_off_generator.mesh" id="7_isr2g"]
 [ext_resource type="ArrayMesh" uid="uid://cfwc36dnanvvp" path="res://assets/meshes/start_off_stasis.mesh" id="8_pj7nx"]
@@ -70,6 +71,17 @@ fov = 90.0
 
 [node name="environment" type="WorldEnvironment" parent="." unique_id=1010740921]
 environment = ExtResource("4_d0wv4")
+
+[node name="stasis_ambience" type="AudioStreamPlayer3D" parent="." unique_id=144583590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -13.3, 1.9)
+stream = ExtResource("6_wdsss")
+attenuation_model = 3
+volume_db = -10.0
+autoplay = true
+max_distance = 10.0
+panning_strength = 0.0
+bus = &"World"
+attenuation_filter_cutoff_hz = 20500.0
 
 [node name="start_off_stasis_door" type="AnimatableBody3D" parent="." unique_id=568016758]
 transform = Transform3D(1, 0, 0, 0, -3.5762787e-07, -0.99999994, 0, 0.99999994, -3.5762787e-07, -3.1702, -14.000002, 0.9999982)
