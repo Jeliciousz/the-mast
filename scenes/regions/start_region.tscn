@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bmme3wid86don"]
 
 [ext_resource type="Script" uid="uid://bpj1jw4s7x8pp" path="res://scripts/regions/start_region.gd" id="1_rkg0x"]
+[ext_resource type="PackedScene" uid="uid://cbgugcyvvy83e" path="res://scenes/tags/tags_sub_viewport_container.tscn" id="2_65ji5"]
 [ext_resource type="PackedScene" uid="uid://scwfewhktdjv" path="res://scenes/ui/pause_menu_ui.tscn" id="2_d0wv4"]
 [ext_resource type="PackedScene" uid="uid://bw1fsqu843iq6" path="res://scenes/ui/letterboxing.tscn" id="2_stbgh"]
 [ext_resource type="PackedScene" uid="uid://dtab14whalab3" path="res://scenes/ui/options_menu_ui.tscn" id="3_d0wv4"]
@@ -11,12 +12,17 @@
 [ext_resource type="ArrayMesh" uid="uid://cfjlyvhnu11c6" path="res://assets/meshes/start_off_corridor.mesh" id="6_xmcgj"]
 [ext_resource type="ArrayMesh" uid="uid://os7vb78t8urc" path="res://assets/meshes/start_off_generator.mesh" id="7_isr2g"]
 [ext_resource type="ArrayMesh" uid="uid://cfwc36dnanvvp" path="res://assets/meshes/start_off_stasis.mesh" id="8_pj7nx"]
+[ext_resource type="Script" uid="uid://hpgcp6ulr2uy" path="res://scripts/tags/tags_controller.gd" id="8_qehuw"]
 [ext_resource type="ArrayMesh" uid="uid://k1r2wj6qumxo" path="res://assets/meshes/start_on_lift_door.mesh" id="9_2mjea"]
 [ext_resource type="ArrayMesh" uid="uid://bluqgrc2pvit7" path="res://assets/meshes/start_on.mesh" id="10_p75rm"]
 [ext_resource type="ArrayMesh" uid="uid://w185pglsttil" path="res://assets/meshes/start_on_generator.mesh" id="11_x2r6x"]
 [ext_resource type="ArrayMesh" uid="uid://dn2bdwilfihpj" path="res://assets/meshes/start_on_main.mesh" id="12_y6pvm"]
 [ext_resource type="ArrayMesh" uid="uid://udkg8oas5kkb" path="res://assets/meshes/start_on_purple.mesh" id="13_m0ah6"]
 [ext_resource type="PackedScene" uid="uid://degpehp08qxhm" path="res://scenes/player/player.tscn" id="14_v4ug2"]
+[ext_resource type="PackedScene" uid="uid://dw4t350jfjiuh" path="res://scenes/tags/tag.tscn" id="18_wyedb"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_65ji5"]
+viewport_path = NodePath("sub_viewport")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_y8v5c"]
 data = PackedVector3Array(0, -0.5, -1, 0, 0.5, -1, 0, 0.5, 1, 0, -0.5, -1, 0, 0.5, 1, 0, -0.5, 1)
@@ -41,6 +47,8 @@ size = Vector3(22.2552, 12.5, 6.1427994)
 
 [node name="start_region" type="Node3D" unique_id=79098664]
 script = ExtResource("1_rkg0x")
+
+[node name="tags_sub_viewport_container" parent="." unique_id=1003288849 instance=ExtResource("2_65ji5")]
 
 [node name="letterboxing" parent="." unique_id=382661855 instance=ExtResource("2_stbgh")]
 process_mode = 4
@@ -82,6 +90,17 @@ max_distance = 10.0
 panning_strength = 0.0
 bus = &"World"
 attenuation_filter_cutoff_hz = 20500.0
+
+[node name="tags_controller" type="Node" parent="." unique_id=874429394]
+script = ExtResource("8_qehuw")
+metadata/_custom_type_script = "uid://hpgcp6ulr2uy"
+
+[node name="temperature_reading_tag" parent="." unique_id=2083848964 instance=ExtResource("18_wyedb")]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 2.842171e-14, 0, -2.842171e-14, 0.99999994, -6.9, -13.700002, -1.500001)
+texture = SubResource("ViewportTexture_65ji5")
+visible_range = 1.5
+text = "Room temperature: 20.5 C
+AC off."
 
 [node name="start_off_stasis_door" type="AnimatableBody3D" parent="." unique_id=568016758]
 transform = Transform3D(1, 0, 0, 0, -3.5762787e-07, -0.99999994, 0, 0.99999994, -3.5762787e-07, -3.1702, -14.000002, 0.9999982)
