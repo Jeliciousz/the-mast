@@ -68,14 +68,14 @@ size_flags_stretch_ratio = 5.95
 theme_type_variation = &"DocumentTextLabel"
 bbcode_enabled = true
 text = "Welcome.
-This is a recreation of a game made by awesome-llama on Scratch, made in Godot.
+This is a Godot recreation of a Scratch game made by awesome-llama.
 You are currently situated in a pod.
 Use this opportunity to get used to the controls before the game is started.
 
-[color=#ffe283]By default, you can use the [ W, A, S, D ] keys to move around, Shift to run, and, as you just saw, you can press [ E ] to interact.
-You can change these controls, mouse sensitivity, and more in the Options menu, which you can find by pressing [ Esc ].[/color]
+[color=#ffe283]By default, you can use the [img height=2em]res://assets/textures/input_prompts/keyboard_and_mouse/keyboard_w.png[/img][img height=2em]res://assets/textures/input_prompts/keyboard_and_mouse/keyboard_a.png[/img][img height=2em]res://assets/textures/input_prompts/keyboard_and_mouse/keyboard_s.png[/img][img height=2em]res://assets/textures/input_prompts/keyboard_and_mouse/keyboard_d.png[/img] keys to move around, [img height=3em]res://assets/textures/input_prompts/keyboard_and_mouse/keyboard_shift.png[/img] to run, and, as you just saw, you can press [img height=2em]res://assets/textures/input_prompts/keyboard_and_mouse/keyboard_e.png[/img] to interact.
+You can change these controls, mouse sensitivity, and more in the Options menu, which you can find by pressing [img height=2em]res://assets/textures/input_prompts/keyboard_and_mouse/keyboard_escape.png[/img].[/color]
 
-[color=#ffe900]You may press [ E ] to close this screen.[/color]"
+[color=#ffe900]You may press [img height=2em]res://assets/textures/input_prompts/keyboard_and_mouse/keyboard_e.png[/img] to close this screen.[/color]"
 
 [node name="bottom_padding" type="Control" parent="horizontal_padding/vertical_padding" unique_id=337847871]
 layout_mode = 2
