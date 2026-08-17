@@ -14,14 +14,25 @@
 [ext_resource type="ArrayMesh" uid="uid://cfwc36dnanvvp" path="res://assets/meshes/start_off_stasis.mesh" id="8_pj7nx"]
 [ext_resource type="Script" uid="uid://hpgcp6ulr2uy" path="res://scripts/tags/tags_controller.gd" id="8_qehuw"]
 [ext_resource type="ArrayMesh" uid="uid://k1r2wj6qumxo" path="res://assets/meshes/start_on_lift_door.mesh" id="9_2mjea"]
+[ext_resource type="Script" uid="uid://v4sdcgblxg6i" path="res://scripts/regions/stasis_door_tag.gd" id="10_kxifs"]
 [ext_resource type="ArrayMesh" uid="uid://bluqgrc2pvit7" path="res://assets/meshes/start_on.mesh" id="10_p75rm"]
+[ext_resource type="Script" uid="uid://chkc6jgy1h4ms" path="res://scripts/regions/start_off_stasis_door.gd" id="11_k3xnt"]
+[ext_resource type="PackedScene" uid="uid://f0501226jusn" path="res://scenes/tags/tag_interact_audio.tscn" id="11_paylh"]
 [ext_resource type="ArrayMesh" uid="uid://w185pglsttil" path="res://assets/meshes/start_on_generator.mesh" id="11_x2r6x"]
+[ext_resource type="AudioStream" uid="uid://c8ucyrywlan53" path="res://assets/audio/world/stasis_door_open.mp3" id="12_3q6ac"]
 [ext_resource type="ArrayMesh" uid="uid://dn2bdwilfihpj" path="res://assets/meshes/start_on_main.mesh" id="12_y6pvm"]
+[ext_resource type="AudioStream" uid="uid://cuogq7ldfdjx6" path="res://assets/audio/world/tag_interact_2.mp3" id="13_3q6ac"]
 [ext_resource type="ArrayMesh" uid="uid://udkg8oas5kkb" path="res://assets/meshes/start_on_purple.mesh" id="13_m0ah6"]
 [ext_resource type="PackedScene" uid="uid://degpehp08qxhm" path="res://scenes/player/player.tscn" id="14_v4ug2"]
 [ext_resource type="PackedScene" uid="uid://dw4t350jfjiuh" path="res://scenes/tags/tag.tscn" id="18_wyedb"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_65ji5"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_3q6ac"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0yhxd"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_u53ik"]
 viewport_path = NodePath("sub_viewport")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_y8v5c"]
@@ -97,14 +108,39 @@ metadata/_custom_type_script = "uid://hpgcp6ulr2uy"
 
 [node name="temperature_reading_tag" parent="." unique_id=2083848964 instance=ExtResource("18_wyedb")]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 2.842171e-14, 0, -2.842171e-14, 0.99999994, -6.9, -13.700002, -1.500001)
-texture = SubResource("ViewportTexture_65ji5")
+texture = SubResource("ViewportTexture_3q6ac")
 visible_range = 1.5
 text = "Room temperature: 20.5 C
 AC off."
 
+[node name="stasis_door_tag" parent="." unique_id=1126691749 instance=ExtResource("18_wyedb")]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 2.842171e-14, 0, -2.842171e-14, 0.99999994, -3.9999998, -13.800001, 1.499999)
+texture = SubResource("ViewportTexture_0yhxd")
+script = ExtResource("10_kxifs")
+event_id = &"stasis_door_tag_interacted"
+text = "< locked >
+see terminal for information"
+
+[node name="tag_interact_audio" parent="stasis_door_tag" unique_id=985718141 instance=ExtResource("11_paylh")]
+stream = ExtResource("12_3q6ac")
+volume_db = -2.0
+
+[node name="terminal_tag" parent="." unique_id=1316439863 instance=ExtResource("18_wyedb")]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 2.842171e-14, 0, -2.842171e-14, 0.99999994, -7.4, -13.700002, 3.0999992)
+texture = SubResource("ViewportTexture_u53ik")
+interactible = true
+event_id = &"terminal_tag_interacted"
+text = "view automated logs"
+
+[node name="tag_interact_audio" parent="terminal_tag" unique_id=2083127976 instance=ExtResource("11_paylh")]
+stream = ExtResource("13_3q6ac")
+volume_db = -10.0
+
 [node name="start_off_stasis_door" type="AnimatableBody3D" parent="." unique_id=568016758]
 transform = Transform3D(1, 0, 0, 0, -3.5762787e-07, -0.99999994, 0, 0.99999994, -3.5762787e-07, -3.1702, -14.000002, 0.9999982)
 collision_mask = 4
+script = ExtResource("11_k3xnt")
+final_position = Vector3(-3.17, -14, 0)
 
 [node name="start_off_stasis_door_collision_shape" type="CollisionShape3D" parent="start_off_stasis_door" unique_id=2054106634]
 transform = Transform3D(1, 0, 0, 0, 0.9999999, 5.684342e-14, 0, -5.684342e-14, 0.9999999, 0, 0, 0)

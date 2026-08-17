@@ -6,7 +6,8 @@
   - ~~letter-boxing in the opening cinematic~~
   - ~~background audio in stasis chamber, fades out as you leave it~~
   - ~~room temp tag in stasis chamber: "Room temperature: 20.5 C"-"AC off."~~
-  - open stasis door tag: "< locked >"-"see terminal for information" when haven't checked terminal, "open door" otherwise
+  - ~~open stasis door tag: "< locked >"-"see terminal for information" when haven't checked terminal, "open door" otherwise~~
+  - ~~stasis door opens on tag interaction, slides to the left, has audio~~
   - terminal tag in stasis chamber: "view automated logs", in document:
     "ERROR 4a:
     Critical stasis failure... repair required.
@@ -19,7 +20,6 @@
     available only. Restore power via electrics room.
     . All operations ceased planet-wide. Details available on
     operation room of floor 2, outpost main complex building."
-  - stasis door opens on tag interaction, slides to the left, has audio
   - stasis chambers 1-10 (not including 3) tags
   - tag in generator room to "start generator", switches to "starting...", after 5 seconds it switches to "generator running" and swaps the region out for the powered on variant, there is background audio from the generator room, fades the farther away you get
   - tags in generator room saying "Generator running"-"Power available for basement" and "Rated to 10 KW"
