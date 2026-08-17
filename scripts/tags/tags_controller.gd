@@ -35,7 +35,7 @@ func _find_targeted_tag() -> void:
 			_reset_targeted_tag()
 
 	for tag: Tag in get_tree().get_nodes_in_group(&"tags"):
-		if not (tag.visible and tag.process_mode != PROCESS_MODE_DISABLED):
+		if not (tag.visible and tag.process_mode != PROCESS_MODE_DISABLED and tag.enabled):
 			continue
 
 		if targeted_tag and tag == targeted_tag:

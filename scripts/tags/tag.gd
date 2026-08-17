@@ -3,6 +3,7 @@ extends Node3D
 
 signal interacted
 
+@export var enabled: bool = true
 @export var visible_range: float = 2.0
 @export var interactible: bool = false
 @export var event_id: StringName = ""
@@ -17,6 +18,11 @@ var looking_at_dot: float = 0.0
 
 
 func _physics_process(_delta) -> void:
+	if not enabled:
+		in_visible_range = false
+		can_be_targeted = false
+		return
+
 	if not player.active:
 		in_visible_range = false
 		can_be_targeted = false
