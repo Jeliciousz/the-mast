@@ -10,6 +10,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if targeted_tag == null:
 		return
 
+	if not targeted_tag.interactible:
+		return
+
 	if event.is_action_pressed(&"interact"):
 		get_viewport().set_input_as_handled()
 		targeted_tag.interacted.emit()
@@ -32,6 +35,9 @@ func _find_targeted_tag() -> void:
 			_reset_targeted_tag()
 
 	for tag: Tag in get_tree().get_nodes_in_group(&"tags"):
+		if not (tag.visible and tag.process_mode != PROCESS_MODE_DISABLED):
+			continue
+
 		if targeted_tag and tag == targeted_tag:
 			continue
 
