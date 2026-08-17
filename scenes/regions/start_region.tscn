@@ -123,7 +123,6 @@ see terminal for information"
 
 [node name="tag_interact_audio" parent="stasis_door_tag" unique_id=985718141 instance=ExtResource("11_paylh")]
 stream = ExtResource("12_3q6ac")
-volume_db = -2.0
 
 [node name="terminal_tag" parent="." unique_id=1316439863 instance=ExtResource("18_wyedb")]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 2.842171e-14, 0, -2.842171e-14, 0.99999994, -7.4, -13.700002, 3.0999992)
