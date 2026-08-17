@@ -6,6 +6,7 @@
 [node name="tag_interact_audio" type="AudioStreamPlayer3D" unique_id=985718141]
 stream = ExtResource("1_qql1q")
 attenuation_model = 3
+volume_db = -2.0
 bus = &"World"
 attenuation_filter_cutoff_hz = 20500.0
 script = ExtResource("2_mt4bs")
