@@ -367,7 +367,6 @@ gi_mode = 0
 mesh = ExtResource("13_m0ah6")
 
 [node name="start_on_lift_door" type="AnimatableBody3D" parent="start_on" unique_id=24615397]
-process_mode = 4
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -18.84845, -13.999998, -28.000006)
 top_level = true
 collision_mask = 4
