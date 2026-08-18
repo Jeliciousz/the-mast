@@ -47,7 +47,10 @@ func _toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		icon = null
 		text = "..."
+		disabled = true
 		return
+
+	disabled = false
 
 	if action_event_index >= InputMap.action_get_events(action).size() or InputMap.action_get_events(action)[action_event_index] == null:
 		text = " "
