@@ -1,5 +1,5 @@
 class_name Tag
-extends Node3D
+extends Sprite3D
 
 signal interacted
 
@@ -29,7 +29,21 @@ func _physics_process(_delta) -> void:
 		return
 
 	var distance_to_head = player.head.global_position.distance_to(global_position)
-	looking_at_dot = player.head.global_position.direction_to(global_position).dot(player.get_looking_direction())
+	if distance_to_head > visible_range:
+		in_visible_range = false
+		can_be_targeted = false
+		return
 
-	in_visible_range = distance_to_head <= visible_range
+	var space_state = get_world_3d().direct_space_state
+	var query = PhysicsRayQueryParameters3D.create(global_position, player.head.global_position, 0b00000000_00000000_00000000_00000001)
+	var result = space_state.intersect_ray(query)
+
+	if result != {}:
+		in_visible_range = false
+		can_be_targeted = false
+		return
+
+	in_visible_range = true
+
+	looking_at_dot = player.head.global_position.direction_to(global_position).dot(player.get_looking_direction())
 	can_be_targeted = distance_to_head <= 1.5 and looking_at_dot >= 0.9
