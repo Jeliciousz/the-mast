@@ -59,7 +59,8 @@ current = true
 fov = 94.0
 script = ExtResource("6_oahdy")
 
-[node name="bgm" type="AudioStreamPlayer" parent="." unique_id=841281256]
+[node name="bgm" type="AudioStreamPlayer" parent="." unique_id=1616189304]
+process_mode = 3
 stream = ExtResource("7_pn2fy")
 volume_db = -10.0
 autoplay = true
