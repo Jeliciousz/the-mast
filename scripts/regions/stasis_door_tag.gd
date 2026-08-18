@@ -2,7 +2,6 @@ class_name StasisDoorTag
 extends Tag
 
 func _ready() -> void:
-	interacted.connect(_on_interacted)
 	EventsBus.subscribe(&"terminal_tag_interacted", _on_terminal_tag_interacted)
 
 
@@ -11,5 +10,5 @@ func _on_terminal_tag_interacted(_event) -> void:
 	interactible = true
 
 
-func _on_interacted() -> void:
+func _interacted() -> void:
 	enabled = false

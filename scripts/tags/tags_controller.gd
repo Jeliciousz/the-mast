@@ -15,6 +15,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if event.is_action_pressed(&"interact"):
 		get_viewport().set_input_as_handled()
+		targeted_tag._interacted()
 		targeted_tag.interacted.emit()
 		EventsBus.broadcast(Event.new(targeted_tag.event_id))
 
