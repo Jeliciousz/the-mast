@@ -34,11 +34,9 @@ func _physics_process(_delta) -> void:
 		can_be_targeted = false
 		return
 
-	var space_state = get_world_3d().direct_space_state
-	var query = PhysicsRayQueryParameters3D.create(global_position, player.head.global_position, 0b00000000_00000000_00000000_00000001)
-	var result = space_state.intersect_ray(query)
+	var tag_dir_dot: float = global_basis.z.dot(player.get_looking_direction())
 
-	if result != {}:
+	if tag_dir_dot <= 0:
 		in_visible_range = false
 		can_be_targeted = false
 		return

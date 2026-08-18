@@ -68,3 +68,5 @@ scroll_active = false
 autowrap_mode = 0
 shortcut_keys_enabled = false
 vertical_alignment = 1
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=327407803]
