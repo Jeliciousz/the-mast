@@ -10,4 +10,4 @@ func _process(_delta) -> void:
 	else:
 		button_prompt_text = "[img height=2em]" + prompt_path + "[/img]"
 
-	text = button_prompt_text + " to close"
+	text = "[color=#f0dc00]" + button_prompt_text + " to close[/color]"
