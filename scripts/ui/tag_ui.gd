@@ -11,6 +11,10 @@ var tag_targeted_texture: Texture2D = preload("res://assets/textures/tags/tag_ta
 @onready var tag_label: RichTextLabel = $tag_panel/tag_label
 
 
+func _ready() -> void:
+	hide()
+
+
 func _process(_delta) -> void:
 	if not tag.in_visible_range:
 		hide()
