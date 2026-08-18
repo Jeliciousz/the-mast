@@ -20,8 +20,8 @@ func _process(_delta) -> void:
 
 	if tag.targeted:
 		icon.texture = tag_targeted_texture
-		icon.size = Vector2(128.0, 128.0)
-		icon.position = Vector2(64.0, 192.0)
+		icon.size = Vector2(96.0, 96.0)
+		icon.position = Vector2(80.0, 208.0)
 		tag_panel.show()
 
 		if tag.interactible:
@@ -37,6 +37,6 @@ func _process(_delta) -> void:
 			tag_label.text = tag.text
 	else:
 		icon.texture = tag_in_range_texture
-		icon.size = Vector2(256.0, 256.0)
-		icon.position = Vector2(0.0, 128.0)
+		icon.size = Vector2(192.0, 192.0)
+		icon.position = Vector2(32.0, 160.0)
 		tag_panel.hide()
