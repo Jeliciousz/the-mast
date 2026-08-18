@@ -3,6 +3,8 @@
 [ext_resource type="Theme" uid="uid://dbrjgfehw4dbl" path="res://themes/main_1x.tres" id="1_7n36r"]
 [ext_resource type="Script" uid="uid://cmq6j4nbgdtl6" path="res://scripts/ui/welcome_screen_ui.gd" id="1_e0plf"]
 [ext_resource type="Script" uid="uid://c8wab4ohpiqg7" path="res://scripts/ui/ui_scaler.gd" id="3_7n36r"]
+[ext_resource type="Script" uid="uid://bgifl8256rln1" path="res://scripts/ui/close_document_text.gd" id="4_7n36r"]
+[ext_resource type="Script" uid="uid://js284nvtit66" path="res://scripts/ui/welcome_text.gd" id="4_e2m55"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7n36r"]
 bg_color = Color(0, 0, 0, 0.5019608)
@@ -76,14 +78,19 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 5.95
 theme_type_variation = &"DocumentTextLabel"
 bbcode_enabled = true
-text = "Welcome.
-This is a Godot recreation of a Scratch game made by awesome-llama.
-You are currently situated in a pod.
-Use this opportunity to get used to the controls before the game is started.
+text = "[color=#00ff76]Welcome.[br]
+You are currently situated in a pod.[br]
+Use this opportunity to get used to the controls before the game is started.[br]
+Please note: This is a Godot recreation of the Scratch game \"The Mast [3D]\" by awesome-llama. Please check out the original creator on Scratch.[/color]
 
-[color=#ffe283]By default, you can use the [ W ][ A ][ S ][ D ] keys to move around, [ Shift ] to run, and, as you just saw, you can press [ E ] to interact.
-You can change these controls, mouse sensitivity, and more in the Options menu, which you can find by pressing [ Esc ].[/color]"
+[color=#ffe283]Below are the default controls:[/color][br]
+	MOVE: WASD[br]
+	LOOK: Mouse / Arrow Keys[br]
+	INTERACT: E[br]
+	RUN: Shift[br]
+[color=#ffe283]You can change these controls, look sensitivity, and more in the Options menu, which you can find by pressing [Esc] after closing this screen.[/color]"
 vertical_alignment = 1
+script = ExtResource("4_e2m55")
 
 [node name="right_padding" type="Control" parent="vertical_padding/horizontal_padding" unique_id=975099641]
 layout_mode = 2
@@ -95,10 +102,11 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_type_variation = &"DocumentFooterMarginContainer"
 
-[node name="close_text" type="RichTextLabel" parent="vertical_padding/bottom_padding" unique_id=774718574]
+[node name="close_document_text" type="RichTextLabel" parent="vertical_padding/bottom_padding" unique_id=774718574]
 layout_mode = 2
 size_flags_vertical = 3
 theme_type_variation = &"DocumentTextLabel"
 bbcode_enabled = true
-text = "[color=#ffe900][ E ] to close[/color]"
+text = "[color=#ffe900][img height=2em]res://assets/textures/input_prompts/keyboard_and_mouse/keyboard_e.png[/img] to close[/color]"
 vertical_alignment = 1
+script = ExtResource("4_7n36r")
