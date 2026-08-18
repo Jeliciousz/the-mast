@@ -8,18 +8,7 @@
   - ~~room temp tag in stasis chamber: "Room temperature: 20.5 C"-"AC off."~~
   - ~~open stasis door tag: "< locked >"-"see terminal for information" when haven't checked terminal, "open door" otherwise~~
   - ~~stasis door opens on tag interaction, slides to the left, has audio~~
-  - terminal tag in stasis chamber: "view automated logs", in document:
-    "ERROR 4a:
-    Critical stasis failure... repair required.
-    Refer to maintenance handbook for more information.
-
-    Recorded stasis duration: 2829 sols (56580.3 standard hours).
-
-    Global notices:
-    . Facility in low-power mode. Essential lighting and systems
-    available only. Restore power via electrics room.
-    . All operations ceased planet-wide. Details available on
-    operation room of floor 2, outpost main complex building."
+  - ~~terminal tag in stasis chamber: "view automated logs"~~
   - stasis chambers 1-10 (not including 3) tags
   - tag in generator room to "start generator", switches to "starting...", after 5 seconds it switches to "generator running" and swaps the region out for the powered on variant, there is background audio from the generator room, fades the farther away you get
   - tags in generator room saying "Generator running"-"Power available for basement" and "Rated to 10 KW"

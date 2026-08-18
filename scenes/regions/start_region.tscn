@@ -8,6 +8,7 @@
 [ext_resource type="Environment" uid="uid://cw57a1jbgkdtf" path="res://environments/underground_environment.tres" id="4_d0wv4"]
 [ext_resource type="ArrayMesh" uid="uid://tr7m7i1b64xu" path="res://assets/meshes/start_off_stasis_door.mesh" id="4_hkdbf"]
 [ext_resource type="ArrayMesh" uid="uid://bj47rblennboc" path="res://assets/meshes/start_off.mesh" id="5_catr0"]
+[ext_resource type="PackedScene" uid="uid://cgosw5easj00p" path="res://scenes/ui/stasis_terminal_ui.tscn" id="6_0yhxd"]
 [ext_resource type="AudioStream" uid="uid://b60qi1syeunk8" path="res://assets/audio/world/stasis_ambience.mp3" id="6_wdsss"]
 [ext_resource type="ArrayMesh" uid="uid://cfjlyvhnu11c6" path="res://assets/meshes/start_off_corridor.mesh" id="6_xmcgj"]
 [ext_resource type="ArrayMesh" uid="uid://os7vb78t8urc" path="res://assets/meshes/start_off_generator.mesh" id="7_isr2g"]
@@ -26,13 +27,13 @@
 [ext_resource type="PackedScene" uid="uid://degpehp08qxhm" path="res://scenes/player/player.tscn" id="14_v4ug2"]
 [ext_resource type="PackedScene" uid="uid://dw4t350jfjiuh" path="res://scenes/tags/tag.tscn" id="18_wyedb"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3q6ac"]
-viewport_path = NodePath("sub_viewport")
-
 [sub_resource type="ViewportTexture" id="ViewportTexture_0yhxd"]
 viewport_path = NodePath("sub_viewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_u53ik"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_yx1yp"]
 viewport_path = NodePath("sub_viewport")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_y8v5c"]
@@ -82,6 +83,10 @@ visible = false
 process_mode = 4
 visible = false
 
+[node name="stasis_terminal_ui" parent="." unique_id=1163578512 instance=ExtResource("6_0yhxd")]
+process_mode = 4
+visible = false
+
 [node name="cinematic_camera" type="Camera3D" parent="." unique_id=525283441]
 physics_interpolation_mode = 2
 transform = Transform3D(-4.371139e-08, -0.9396926, -0.34202015, 0, 0.34202015, -0.9396926, 1, -4.1075268e-08, -1.4950176e-08, -9.9, -13.6, 0)
@@ -108,14 +113,14 @@ metadata/_custom_type_script = "uid://hpgcp6ulr2uy"
 
 [node name="temperature_reading_tag" parent="." unique_id=2083848964 instance=ExtResource("18_wyedb")]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 2.842171e-14, 0, -2.842171e-14, 0.99999994, -6.9, -13.700002, -1.500001)
-texture = SubResource("ViewportTexture_3q6ac")
+texture = SubResource("ViewportTexture_0yhxd")
 visible_range = 1.5
 text = "Room temperature: 20.5 C
 AC off."
 
 [node name="stasis_door_tag" parent="." unique_id=1126691749 instance=ExtResource("18_wyedb")]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 2.842171e-14, 0, -2.842171e-14, 0.99999994, -3.9999998, -13.800001, 1.499999)
-texture = SubResource("ViewportTexture_0yhxd")
+texture = SubResource("ViewportTexture_u53ik")
 script = ExtResource("10_kxifs")
 event_id = &"stasis_door_tag_interacted"
 text = "<locked>
@@ -126,7 +131,7 @@ stream = ExtResource("12_3q6ac")
 
 [node name="terminal_tag" parent="." unique_id=1316439863 instance=ExtResource("18_wyedb")]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 2.842171e-14, 0, -2.842171e-14, 0.99999994, -7.4, -13.700002, 3.0999992)
-texture = SubResource("ViewportTexture_u53ik")
+texture = SubResource("ViewportTexture_yx1yp")
 interactible = true
 event_id = &"terminal_tag_interacted"
 text = "view automated logs"
