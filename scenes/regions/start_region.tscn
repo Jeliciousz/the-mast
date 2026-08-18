@@ -152,10 +152,6 @@ visible = false
 process_mode = 4
 visible = false
 
-[node name="stasis_terminal_ui" parent="." unique_id=1163578512 instance=ExtResource("6_0yhxd")]
-process_mode = 4
-visible = false
-
 [node name="environment" type="WorldEnvironment" parent="." unique_id=1010740921]
 environment = ExtResource("4_d0wv4")
 
@@ -245,6 +241,10 @@ text = "view automated logs"
 [node name="tag_interact_audio" parent="start_off/terminal_tag" unique_id=2083127976 instance=ExtResource("11_paylh")]
 stream = ExtResource("13_3q6ac")
 volume_db = -10.0
+
+[node name="stasis_terminal_ui" parent="start_off/terminal_tag" unique_id=1163578512 instance=ExtResource("6_0yhxd")]
+process_mode = 4
+visible = false
 
 [node name="stasis_door_tag" parent="start_off" unique_id=1126691749 instance=ExtResource("18_wyedb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -13.8, 1.5)
