@@ -13,16 +13,20 @@ Please note: This is a Godot recreation of the Scratch game "The Mast [3D]" by a
 	RUN: %s
 [color=#ffe283]You can change these controls, look sensitivity, and more in the Options menu, which you can find by pressing %s after closing this screen.[/color]"""
 
+var mouse_img: String = "[img height=2em]res://assets/textures/input_prompts/keyboard_and_mouse/mouse.png[/img]"
+var xbox_stick_l_img: String = "[img height=2em]res://assets/textures/input_prompts/xbox/xbox_stick_top_l.png[/img]"
+var xbox_stick_r_img: String = "[img height=2em]res://assets/textures/input_prompts/xbox/xbox_stick_top_r.png[/img]"
+
 
 func _process(_delta) -> void:
 	var move_controls_string: String = ""
 	var look_controls_string: String = ""
 	if InputMethod.active_input_method == InputMethod.ACTIVE_INPUT_KEYBOARD_AND_MOUSE:
 		move_controls_string = _get_prompt_text(&"move_forward") + _get_prompt_text(&"move_left") + _get_prompt_text(&"move_back") + _get_prompt_text(&"move_right")
-		look_controls_string = "[img height=2em]res://assets/textures/input_prompts/keyboard_and_mouse/mouse.png[/img] / " + _get_prompt_text(&"look_up") + _get_prompt_text(&"look_left") + _get_prompt_text(&"look_down") + _get_prompt_text(&"look_right")
+		look_controls_string = mouse_img + " / " + _get_prompt_text(&"look_up") + _get_prompt_text(&"look_left") + _get_prompt_text(&"look_down") + _get_prompt_text(&"look_right")
 	elif InputMethod.active_input_method == InputMethod.ACTIVE_INPUT_XBOX or InputMethod.active_input_method == InputMethod.ACTIVE_INPUT_XBOX_360:
-		move_controls_string = "[img height=2em]res://assets/textures/input_prompts/xbox/xbox_stick_top_l.png[/img]"
-		look_controls_string = "[img height=2em]res://assets/textures/input_prompts/xbox/xbox_stick_top_r.png[/img]"
+		move_controls_string = xbox_stick_l_img
+		look_controls_string = xbox_stick_r_img
 
 	text = welcome_text_format % [move_controls_string, look_controls_string, _get_prompt_text(&"interact"), _get_prompt_text(&"run"), _get_prompt_text(&"ui_close_dialog")]
 
