@@ -1,16 +1,17 @@
-class_name WelcomeScreenUI
+class_name DocumentUI
 extends Control
 
+@export var tag_event_id: StringName = ""
 @onready var player: Player = %player
 
 
 func _ready() -> void:
-	EventsBus.subscribe(&"welcome_tag_interacted", _on_welcome_tag_interacted)
+	EventsBus.subscribe(tag_event_id, _on_tag_interacted)
 	EventsBus.subscribe(&"paused", _on_paused)
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed(&"ui_close_dialog") or event.is_action_pressed(&"ui_cancel") or event.is_action_pressed(&"interact"):
+	if event.is_action_pressed(&"ui_close_dialog") or event.is_action_pressed(&"interact"):
 		get_viewport().set_input_as_handled()
 
 		player.activate()
@@ -19,7 +20,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		hide()
 
 
-func _on_welcome_tag_interacted(_event) -> void:
+func _on_tag_interacted(_event) -> void:
 	player.deactivate()
 	InputMethod.desired_mouse_mode = Input.MOUSE_MODE_VISIBLE
 	process_mode = Node.PROCESS_MODE_INHERIT

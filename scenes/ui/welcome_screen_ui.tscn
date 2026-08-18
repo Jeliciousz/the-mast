@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://gg3rchmnk7h4"]
 
 [ext_resource type="Theme" uid="uid://dbrjgfehw4dbl" path="res://themes/main_1x.tres" id="1_7n36r"]
-[ext_resource type="Script" uid="uid://cmq6j4nbgdtl6" path="res://scripts/ui/welcome_screen_ui.gd" id="1_e0plf"]
+[ext_resource type="Script" uid="uid://cg21k8nvcl765" path="res://scripts/ui/document_ui.gd" id="2_e2m55"]
 [ext_resource type="Script" uid="uid://c8wab4ohpiqg7" path="res://scripts/ui/ui_scaler.gd" id="3_7n36r"]
 [ext_resource type="Script" uid="uid://bgifl8256rln1" path="res://scripts/ui/close_document_text.gd" id="4_7n36r"]
 [ext_resource type="Script" uid="uid://js284nvtit66" path="res://scripts/ui/welcome_text.gd" id="4_e2m55"]
@@ -19,7 +19,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("1_7n36r")
-script = ExtResource("1_e0plf")
+script = ExtResource("2_e2m55")
+tag_event_id = &"welcome_tag_interacted"
 
 [node name="ui_scaler" type="Node" parent="." unique_id=1396442524]
 script = ExtResource("3_7n36r")
