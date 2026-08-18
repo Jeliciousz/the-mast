@@ -1,7 +1,5 @@
 [gd_resource type="Theme" format=3 uid="uid://bbw6saxp1kboo"]
 
-[ext_resource type="FontFile" uid="uid://dgwus8cwmn1np" path="res://assets/fonts/Montserrat-SemiBold.ttf" id="1_heef7"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7ksl"]
 content_margin_left = 32.0
 content_margin_top = 16.0
@@ -14,7 +12,6 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 80
 
 [resource]
-default_font = ExtResource("1_heef7")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_u7ksl")
 RichTextLabel/constants/outline_size = 24
 RichTextLabel/constants/shadow_outline_size = 24

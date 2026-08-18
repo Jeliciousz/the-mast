@@ -32,37 +32,46 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7n36r")
 
-[node name="horizontal_padding" type="HBoxContainer" parent="." unique_id=1169213168]
+[node name="vertical_padding" type="VBoxContainer" parent="." unique_id=437236409]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-theme_override_constants/separation = 0
-
-[node name="left_padding" type="Control" parent="horizontal_padding" unique_id=169591445]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-
-[node name="vertical_padding" type="VBoxContainer" parent="horizontal_padding" unique_id=1965046036]
-layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 6.0
 mouse_filter = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="top_padding" type="Control" parent="horizontal_padding/vertical_padding" unique_id=1058469599]
+[node name="top_padding" type="Control" parent="vertical_padding" unique_id=1707080517]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="welcome_text" type="RichTextLabel" parent="horizontal_padding/vertical_padding" unique_id=907575844]
+[node name="horizontal_padding" type="HBoxContainer" parent="vertical_padding" unique_id=1697678878]
 layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.95
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="left_padding" type="Control" parent="vertical_padding/horizontal_padding" unique_id=1329155785]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="aspect_ratio_container" type="AspectRatioContainer" parent="vertical_padding/horizontal_padding" unique_id=1419753891]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+ratio = 1.3333
+
+[node name="welcome_text" type="RichTextLabel" parent="vertical_padding/horizontal_padding/aspect_ratio_container" unique_id=907575844]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.95
 theme_type_variation = &"DocumentTextLabel"
@@ -72,18 +81,24 @@ This is a Godot recreation of a Scratch game made by awesome-llama.
 You are currently situated in a pod.
 Use this opportunity to get used to the controls before the game is started.
 
-[color=#ffe283]By default, you can use the [img height=2em]res://assets/textures/input_prompts/keyboard_and_mouse/keyboard_w.png[/img][img height=2em]res://assets/textures/input_prompts/keyboard_and_mouse/keyboard_a.png[/img][img height=2em]res://assets/textures/input_prompts/keyboard_and_mouse/keyboard_s.png[/img][img height=2em]res://assets/textures/input_prompts/keyboard_and_mouse/keyboard_d.png[/img] keys to move around, [img height=3em]res://assets/textures/input_prompts/keyboard_and_mouse/keyboard_shift.png[/img] to run, and, as you just saw, you can press [img height=2em]res://assets/textures/input_prompts/keyboard_and_mouse/keyboard_e.png[/img] to interact.
-You can change these controls, mouse sensitivity, and more in the Options menu, which you can find by pressing [img height=2em]res://assets/textures/input_prompts/keyboard_and_mouse/keyboard_escape.png[/img].[/color]
+[color=#ffe283]By default, you can use the [ W ][ A ][ S ][ D ] keys to move around, [ Shift ] to run, and, as you just saw, you can press [ E ] to interact.
+You can change these controls, mouse sensitivity, and more in the Options menu, which you can find by pressing [ Esc ].[/color]"
+vertical_alignment = 1
 
-[color=#ffe900]You may press [img height=2em]res://assets/textures/input_prompts/keyboard_and_mouse/keyboard_e.png[/img] to close this screen.[/color]"
-
-[node name="bottom_padding" type="Control" parent="horizontal_padding/vertical_padding" unique_id=337847871]
+[node name="right_padding" type="Control" parent="vertical_padding/horizontal_padding" unique_id=975099641]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="bottom_padding" type="MarginContainer" parent="vertical_padding" unique_id=178177344]
+layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 2
+theme_type_variation = &"DocumentFooterMarginContainer"
 
-[node name="right_padding" type="Control" parent="horizontal_padding" unique_id=1101118225]
+[node name="close_text" type="RichTextLabel" parent="vertical_padding/bottom_padding" unique_id=774718574]
 layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
+size_flags_vertical = 3
+theme_type_variation = &"DocumentTextLabel"
+bbcode_enabled = true
+text = "[color=#ffe900][ E ] to close[/color]"
+vertical_alignment = 1

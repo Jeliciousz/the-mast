@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://btv4k34rgtl3j"
-path="res://.godot/imported/Montserrat-Regular.ttf-15e5248c373097bdb910cdf2cfc29eaa.fontdata"
+uid="uid://bme0r7ft42y0w"
+path="res://.godot/imported/whitrabt.ttf-653093d8222bbc8d8c9815770a08c092.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/Montserrat-Regular.ttf"
-dest_files=["res://.godot/imported/Montserrat-Regular.ttf-15e5248c373097bdb910cdf2cfc29eaa.fontdata"]
+source_file="res://assets/fonts/whitrabt.ttf"
+dest_files=["res://.godot/imported/whitrabt.ttf-653093d8222bbc8d8c9815770a08c092.fontdata"]
 
 [params]
 

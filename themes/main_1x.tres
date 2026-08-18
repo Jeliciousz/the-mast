@@ -1,8 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://dbrjgfehw4dbl"]
 
-[ext_resource type="FontFile" uid="uid://dgwus8cwmn1np" path="res://assets/fonts/Montserrat-SemiBold.ttf" id="1_inhu1"]
 [ext_resource type="Texture2D" uid="uid://dc7pcps0dbydc" path="res://assets/textures/blank.png" id="2_i5ylm"]
-[ext_resource type="FontFile" uid="uid://btv4k34rgtl3j" path="res://assets/fonts/Montserrat-Regular.ttf" id="3_btp7d"]
+[ext_resource type="FontFile" uid="uid://bme0r7ft42y0w" path="res://assets/fonts/whitrabt.ttf" id="3_inhu1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kkb12"]
 content_margin_top = 4.0
@@ -311,12 +310,15 @@ Button/colors/font_outline_color = Color(0.10980392, 0.11764706, 0.12156863, 1)
 Button/colors/font_pressed_color = Color(0.98039216, 0.9607843, 0.9490196, 1)
 Button/constants/outline_size = 6
 Button/font_sizes/font_size = 16
-Button/fonts/font = ExtResource("1_inhu1")
+Button/fonts/font = ExtResource("3_inhu1")
 Button/styles/disabled = SubResource("StyleBoxFlat_kkb12")
 Button/styles/focus = SubResource("StyleBoxFlat_r2oon")
 Button/styles/hover = SubResource("StyleBoxFlat_uy1wb")
 Button/styles/normal = SubResource("StyleBoxFlat_b2i0u")
 Button/styles/pressed = SubResource("StyleBoxFlat_5ygjn")
+DocumentFooterMarginContainer/base_type = &"MarginContainer"
+DocumentFooterMarginContainer/constants/margin_left = 16
+DocumentFooterMarginContainer/constants/margin_right = 16
 DocumentTextLabel/base_type = &"RichTextLabel"
 DocumentTextLabel/colors/default_color = Color(0, 1, 0.4627451, 1)
 DocumentTextLabel/colors/font_shadow_color = Color(0, 0, 0, 0)
@@ -352,7 +354,7 @@ Label/colors/font_shadow_color = Color(0.10980392, 0.11764706, 0.12156863, 1)
 Label/constants/outline_size = 6
 Label/constants/shadow_outline_size = 8
 Label/font_sizes/font_size = 16
-Label/fonts/font = ExtResource("1_inhu1")
+Label/fonts/font = ExtResource("3_inhu1")
 MenuOptionsContainer/base_type = &"VBoxContainer"
 MenuOptionsContainer/constants/separation = 4
 MenuTitleLabel/base_type = &"Label"
@@ -410,12 +412,17 @@ OptionsTopBarButton/styles/normal = SubResource("StyleBoxFlat_yy688")
 OptionsTopBarButton/styles/pressed = SubResource("StyleBoxFlat_xjo8n")
 OptionsTopBarContainer/base_type = &"HBoxContainer"
 OptionsTopBarContainer/constants/separation = 4
+PopupMenu/colors/font_color = Color(0.98039216, 0.9607843, 0.9490196, 1)
+PopupMenu/colors/font_hover_color = Color(0.98039216, 0.9607843, 0.9490196, 1)
+PopupMenu/colors/font_outline_color = Color(0.10980392, 0.11764706, 0.12156863, 1)
+PopupMenu/constants/outline_size = 4
 PopupMenu/font_sizes/font_size = 10
-PopupMenu/fonts/font = ExtResource("3_btp7d")
+PopupMenu/fonts/font = ExtResource("3_inhu1")
 PopupMenu/styles/panel = SubResource("StyleBoxFlat_j7ff1")
 RichTextLabel/colors/default_color = Color(0.98039216, 0.9607843, 0.9490196, 1)
 RichTextLabel/colors/font_outline_color = Color(0.10980392, 0.11764706, 0.12156863, 1)
 RichTextLabel/colors/font_shadow_color = Color(0.10980392, 0.11764706, 0.12156863, 1)
 RichTextLabel/constants/outline_size = 6
 RichTextLabel/constants/shadow_outline_size = 8
-RichTextLabel/fonts/normal_font = ExtResource("1_inhu1")
+RichTextLabel/fonts/mono_font = ExtResource("3_inhu1")
+RichTextLabel/fonts/normal_font = ExtResource("3_inhu1")
