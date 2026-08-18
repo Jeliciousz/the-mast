@@ -33,6 +33,7 @@
 [ext_resource type="Script" uid="uid://b7dalkl1ydmsl" path="res://scripts/regions/start/start_on.gd" id="25_3v8pa"]
 [ext_resource type="AudioStream" uid="uid://bl02ynudv4i4f" path="res://assets/audio/world/generator_ambience_start.wav" id="29_7ynr2"]
 [ext_resource type="AudioStream" uid="uid://c825lgkx0a1x7" path="res://assets/audio/world/generator_ambience_loop.wav" id="30_i31o8"]
+[ext_resource type="PackedScene" uid="uid://p7sympgqkhad" path="res://scenes/ui/documents/stasis_info_ui.tscn" id="31_vn5mc"]
 [ext_resource type="Script" uid="uid://8p5nv8map6mw" path="res://scripts/regions/start/generator_ambience.gd" id="33_3y8a7"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_mh5kf"]
@@ -170,7 +171,6 @@ metadata/_custom_type_script = "uid://hpgcp6ulr2uy"
 
 [node name="start_off" type="StaticBody3D" parent="." unique_id=562817703]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1.3822609, -14.136363, -13.77685)
-visible = false
 collision_mask = 4
 script = ExtResource("9_vn5mc")
 
@@ -339,6 +339,7 @@ stream = ExtResource("23_q81jg")
 [node name="start_on" type="StaticBody3D" parent="." unique_id=921157829]
 process_mode = 4
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.20421517, -14.254236, -24.100906)
+visible = false
 collision_mask = 4
 script = ExtResource("25_3v8pa")
 
@@ -414,15 +415,19 @@ texture = SubResource("ViewportTexture_16gw3")
 text = "control room"
 
 [node name="stasis_info_tag" parent="start_on" unique_id=1713555129 instance=ExtResource("18_wyedb")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.8999996, -14.099999, -28)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 6.7, -14, -32)
 top_level = true
 texture = SubResource("ViewportTexture_m7kiy")
 visible_range = 4.0
 interactible = true
-event_id = &"view stasis info"
+event_id = &"stasis_info_tag_interacted"
 text = "view stasis info"
 
 [node name="tag_interact_audio" parent="start_on/stasis_info_tag" unique_id=1390960413 instance=ExtResource("11_paylh")]
+
+[node name="stasis_info_ui" parent="start_on/stasis_info_tag" unique_id=1254798812 instance=ExtResource("31_vn5mc")]
+process_mode = 4
+visible = false
 
 [node name="secure_chambers_1_10_tag" parent="start_on" unique_id=1467556300 instance=ExtResource("18_wyedb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3000004, -14.099999, -24)

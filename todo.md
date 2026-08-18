@@ -13,21 +13,7 @@
   - ~~tag in generator room to "start generator", switches to "starting...", after 5 seconds it switches to "generator running" and swaps the region out for the powered on variant, there is background audio from the generator room, fades the farther away you get~~
   - ~~tags in generator room saying "Generator running"-"Power available for basement" and "Rated to 10 KW"~~
   - ~~tags in corridor saying "control room", "electrical switch room"-"DANGER"-"DO NOT ACCESS", "secure chambers 1-10" (stasis chambers are now closed off), "secure chambers 11-20", "storage", and "surface access stairs"-"(emergency exit)"~~
-  - control (purple) room, "view stasis info" tag has map image:
-    "CHAMBER STATUS:
-
-    . 01: Nominal. Uptime: 56580.1
-    . 02: Nominal. Uptime: 56580.2
-    . 03: FAILURE
-    . 04: Nominal. Uptime: 56580.1
-    . 05: Nominal. Uptime: 56581.1
-    . 06: Nominal. Uptime: 56580.3
-    . 07: Nominal. Uptime: 56580.2
-    . 08: Nominal. Uptime: 56580.3
-    . 09: Nominal. Uptime: 56580.5
-    . 10: Nominal. Uptime: 56580.8
-
-    Viewing pg. 1/2"
+  - ~~control (purple) room, "view stasis info" tag has map image~~
   - "elevator" tag that opens elevator door, "close door" tag to close elevator door and be taken to the next region, door has audio, elevator has audio
 
 ## Done
