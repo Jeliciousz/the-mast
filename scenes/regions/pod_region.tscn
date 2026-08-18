@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://dioqgd1np5xtu"]
 
-[ext_resource type="Script" uid="uid://cpd2f46ydfpaf" path="res://scripts/regions/pod_region.gd" id="1_t3ocs"]
+[ext_resource type="Script" uid="uid://cpd2f46ydfpaf" path="res://scripts/regions/pod/pod_region.gd" id="1_t3ocs"]
 [ext_resource type="PackedScene" uid="uid://cbgugcyvvy83e" path="res://scenes/tags/tags_sub_viewport_container.tscn" id="2_30w1e"]
 [ext_resource type="PackedScene" uid="uid://scwfewhktdjv" path="res://scenes/ui/pause_menu_ui.tscn" id="2_cu7xe"]
 [ext_resource type="PackedScene" uid="uid://dtab14whalab3" path="res://scenes/ui/options_menu_ui.tscn" id="5_oahdy"]
 [ext_resource type="PackedScene" uid="uid://bhosoduhjp7c0" path="res://scenes/ui/main_menu_ui.tscn" id="5_t3ocs"]
-[ext_resource type="Script" uid="uid://dgi1cqms1x7lp" path="res://scripts/regions/menu_camera.gd" id="6_oahdy"]
+[ext_resource type="Script" uid="uid://dgi1cqms1x7lp" path="res://scripts/regions/pod/menu_camera.gd" id="6_oahdy"]
 [ext_resource type="AudioStream" uid="uid://bg6a6a7cwxoqm" path="res://assets/audio/music/Jameson Nathan Jones - No Shelter.ogg" id="7_pn2fy"]
 [ext_resource type="Script" uid="uid://841xoop5rwwa" path="res://scripts/bgm.gd" id="8_kssr7"]
 [ext_resource type="Environment" uid="uid://dxsiqlwwdakly" path="res://environments/pod_environment.tres" id="9_oxgrs"]
