@@ -11,8 +11,8 @@
   - ~~terminal tag in stasis chamber: "view automated logs"~~
   - ~~stasis chambers 1-10 (not including 3) tags~~
   - ~~tag in generator room to "start generator", switches to "starting...", after 5 seconds it switches to "generator running" and swaps the region out for the powered on variant, there is background audio from the generator room, fades the farther away you get~~
-  - tags in generator room saying "Generator running"-"Power available for basement" and "Rated to 10 KW"
-  - tags in corridor saying "control room", "electrical switch room"-"DANGER"-"DO NOT ACCESS", "secure chambers 1-10" (stasis chambers are now closed off), "secure chambers 11-20", "storage", and "surface access stairs"-"(emergency exit)"
+  - ~~tags in generator room saying "Generator running"-"Power available for basement" and "Rated to 10 KW"~~
+  - ~~tags in corridor saying "control room", "electrical switch room"-"DANGER"-"DO NOT ACCESS", "secure chambers 1-10" (stasis chambers are now closed off), "secure chambers 11-20", "storage", and "surface access stairs"-"(emergency exit)"~~
   - control (purple) room, "view stasis info" tag has map image:
     "CHAMBER STATUS:
 

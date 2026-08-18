@@ -89,6 +89,33 @@ data = PackedVector3Array(11.2042, 8.1009, 1.7457999, 10.4161, 5.4666, 1.7457999
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_kdxxx"]
 data = PackedVector3Array(0.101399995, -1, -1, 0.101399995, -1, 1, 0.101399995, 1, 1, 0.101399995, -1, -1, 0.101399995, 1, 1, 0.101399995, 1, -1, -0.101399995, 1, 1, -0.101399995, -1, 1, -0.101399995, -1, -1, -0.101399995, 1, 1, -0.101399995, -1, -1, -0.101399995, 1, -1, -0.101399995, 1, -1, 0.101399995, 1, -1, 0.101399995, 1, 1, -0.101399995, 1, -1, 0.101399995, 1, 1, -0.101399995, 1, 1)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_olm3r"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3pcvv"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_cmhje"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xmvup"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_16gw3"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_m7kiy"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_iom5x"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7v45o"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_yfilm"]
+viewport_path = NodePath("sub_viewport")
+
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_mjsu4"]
 clip_count = 2
 clip_0/name = &"start"
@@ -144,6 +171,7 @@ metadata/_custom_type_script = "uid://hpgcp6ulr2uy"
 
 [node name="start_off" type="StaticBody3D" parent="." unique_id=562817703]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1.3822609, -14.136363, -13.77685)
+visible = false
 collision_mask = 4
 script = ExtResource("9_vn5mc")
 
@@ -308,7 +336,6 @@ stream = ExtResource("23_q81jg")
 [node name="start_on" type="StaticBody3D" parent="." unique_id=921157829]
 process_mode = 4
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.20421517, -14.254236, -24.100906)
-visible = false
 collision_mask = 4
 script = ExtResource("25_3v8pa")
 
@@ -326,7 +353,7 @@ gi_mode = 0
 mesh = ExtResource("11_x2r6x")
 
 [node name="start_on_main" type="MeshInstance3D" parent="start_on" unique_id=1271836009]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.981653, -1.7882538, -0.61568356)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9784446, -1.7895756, -0.61568356)
 gi_mode = 0
 mesh = ExtResource("12_y6pvm")
 
@@ -339,7 +366,6 @@ mesh = ExtResource("13_m0ah6")
 process_mode = 4
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -18.84845, -13.999998, -28.000006)
 top_level = true
-visible = false
 collision_mask = 4
 
 [node name="start_on_lift_door_collision_shape" type="CollisionShape3D" parent="start_on/start_on_lift_door" unique_id=491627354]
@@ -348,6 +374,66 @@ shape = SubResource("ConcavePolygonShape3D_kdxxx")
 [node name="start_on_lift_door" type="MeshInstance3D" parent="start_on/start_on_lift_door" unique_id=1024081328]
 gi_mode = 0
 mesh = ExtResource("9_2mjea")
+
+[node name="generator_tag" parent="start_on" unique_id=169101710 instance=ExtResource("18_wyedb")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 10, -14.6, -18)
+top_level = true
+texture = SubResource("ViewportTexture_olm3r")
+text = "generator running"
+
+[node name="electrics_room_tag" parent="start_on" unique_id=1907349895 instance=ExtResource("18_wyedb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2, -14.3, -13.5)
+top_level = true
+texture = SubResource("ViewportTexture_3pcvv")
+visible_range = 3.0
+text = "Generator running
+Power available for basement"
+
+[node name="power_rating_tag" parent="start_on" unique_id=940182129 instance=ExtResource("18_wyedb")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11, -14.9, -15.2)
+top_level = true
+texture = SubResource("ViewportTexture_cmhje")
+visible_range = 3.0
+text = "Rated to 10 KW"
+
+[node name="electric_switch_room_tag" parent="start_on" unique_id=1680135176 instance=ExtResource("18_wyedb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7, -14.099999, -24)
+top_level = true
+texture = SubResource("ViewportTexture_xmvup")
+text = "electrical switch room
+DANGER
+DO NOT ACCESS"
+
+[node name="control_room_tag" parent="start_on" unique_id=693301625 instance=ExtResource("18_wyedb")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.8999996, -14.099999, -28)
+top_level = true
+texture = SubResource("ViewportTexture_16gw3")
+text = "control room"
+
+[node name="secure_chambers_1_10_tag" parent="start_on" unique_id=1467556300 instance=ExtResource("18_wyedb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3000004, -14.099999, -24)
+top_level = true
+texture = SubResource("ViewportTexture_m7kiy")
+text = "secure chambers 1-10"
+
+[node name="secure_chambers_11_20_tag" parent="start_on" unique_id=1868251824 instance=ExtResource("18_wyedb")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.1000004, -14.099999, -28)
+top_level = true
+texture = SubResource("ViewportTexture_iom5x")
+text = "secure chambers 11-20"
+
+[node name="storage_room_tag" parent="start_on" unique_id=40347097 instance=ExtResource("18_wyedb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.300001, -14.099999, -24)
+top_level = true
+texture = SubResource("ViewportTexture_7v45o")
+text = "storage"
+
+[node name="surface_access_stairs_tag" parent="start_on" unique_id=570373913 instance=ExtResource("18_wyedb")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -18.000002, -13.999999, -25.3)
+top_level = true
+texture = SubResource("ViewportTexture_yfilm")
+text = "surface access stairs
+(emergency exit)"
 
 [node name="generator_ambience" type="AudioStreamPlayer3D" parent="." unique_id=294599651]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.2, -14.4, -18)
