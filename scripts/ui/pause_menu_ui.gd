@@ -44,6 +44,7 @@ func _notification(what: int) -> void:
 
 	match what:
 		NOTIFICATION_APPLICATION_FOCUS_OUT:
+			get_viewport().gui_release_focus()
 			if not PauseManager.is_paused():
 				pause()
 
