@@ -16,7 +16,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _on_options_ui_opened(_event) -> void:
-	process_mode = Node.PROCESS_MODE_INHERIT
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	EventsBus.broadcast(OptionsCategoryButton.OptionsCategoryButtonEvent.new(starting_category))
 	show()
 

@@ -31,14 +31,14 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _on_main_menu_button_pressed(_event) -> void:
-	process_mode = Node.PROCESS_MODE_INHERIT
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	show()
 	InputMethod.desired_mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 	if fade_tween:
 		fade_tween.kill()
 
-	fade_tween = create_tween().set_ignore_time_scale(true)
+	fade_tween = create_tween()
 	fade_tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 1.0)
 
 	await fade_tween.finished
@@ -58,7 +58,7 @@ func _on_play_button_pressed() -> void:
 	if fade_tween:
 		fade_tween.kill()
 
-	fade_tween = create_tween().set_ignore_time_scale(true)
+	fade_tween = create_tween()
 	fade_tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 1.0)
 
 	await fade_tween.finished

@@ -4,6 +4,10 @@ extends Node
 var subscriptions: Dictionary = {}  # Typed nested collections are not allowed... I guess... but this is a Dictionary[StringName, Array[Callable]]
 
 
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
+
 func subscribe(id: StringName, callback: Callable) -> void:
 	if not subscriptions.has(id):
 		subscriptions.set(id, [callback])

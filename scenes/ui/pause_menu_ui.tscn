@@ -11,6 +11,7 @@
 bg_color = Color(0, 0, 0, 0.5019608)
 
 [node name="pause_menu_ui" type="Control" unique_id=1402958210 node_paths=PackedStringArray("menu_options_main_container", "menu_options_mm_container", "menu_options_quit_container")]
+process_mode = 3
 z_index = 5
 layout_mode = 3
 anchors_preset = 15

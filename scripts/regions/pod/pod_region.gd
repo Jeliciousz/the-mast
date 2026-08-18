@@ -10,7 +10,7 @@ func _ready() -> void:
 	EventsBus.subscribe(&"play_button_pressed", _on_play_button_pressed)
 	EventsBus.subscribe(&"main_menu_button_pressed", _on_main_menu_button_pressed)
 	EventsBus.subscribe(&"continue_tag_interacted", _on_continue_tag_interacted)
-	PauseManager.unpause()
+	get_tree().paused = false
 
 
 func _on_play_button_pressed(_event) -> void:
@@ -18,7 +18,7 @@ func _on_play_button_pressed(_event) -> void:
 
 	menu_camera.current = false
 	player.camera.current = true
-	pause_menu_ui.process_mode = Node.PROCESS_MODE_INHERIT
+	pause_menu_ui.process_mode = Node.PROCESS_MODE_ALWAYS
 
 	if get_window().has_focus():
 		player.activate()
@@ -27,7 +27,7 @@ func _on_play_button_pressed(_event) -> void:
 
 
 func _on_main_menu_button_pressed(_event) -> void:
-	PauseManager.unpause()
+	get_tree().paused = false
 
 	player.camera.current = false
 	menu_camera.current = true

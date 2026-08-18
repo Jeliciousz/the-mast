@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 	var target_head_y := player.standing_head_height - step_descent * squared_step_distance
 	player.head.position.y = move_toward(player.head.position.y, target_head_y, head_move_speed * delta)
 
-	if GlobalTime.get_time() - _last_step_time < step_duration:
+	if GlobalTime.time - _last_step_time < step_duration:
 		return
 
 	var step_distance = _last_step_position.distance_to(player.global_position)
@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 	if step_distance > clampf(stepping_distance * player.velocity.length(), step_min_distance, step_max_distance):
 		var new_step_distance := (stepping_distance * player.velocity).limit_length(step_max_distance)
 		_last_step_position = player.global_position + new_step_distance
-		_last_step_time = GlobalTime.get_time()
+		_last_step_time = GlobalTime.time
 
 		var lr_foot_position := player.basis.x * (-0.1 + _steps_taken % 2 * 0.2)
 		var volume_db := lerpf(-43.0, -36.0, clampf(0.15 * player.velocity.length_squared(), 0.0, 1.0))
@@ -53,5 +53,5 @@ func _physics_process(delta: float) -> void:
 
 func reset() -> void:
 	_last_step_position = player.global_position
-	_last_step_time = GlobalTime.get_time()
+	_last_step_time = GlobalTime.time
 	_steps_taken = 0

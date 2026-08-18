@@ -9,7 +9,7 @@ func _ready() -> void:
 	if Settings.setting_exists(&"show_fps"):
 		if Settings.get_setting(&"show_fps"):
 			show()
-			process_mode = Node.PROCESS_MODE_INHERIT
+			process_mode = Node.PROCESS_MODE_ALWAYS
 		else:
 			hide()
 			process_mode = Node.PROCESS_MODE_DISABLED
@@ -19,7 +19,7 @@ func _on_setting_changed(setting_name: StringName, new_value: Variant) -> void:
 	if setting_name == &"show_fps":
 		if new_value:
 			show()
-			process_mode = Node.PROCESS_MODE_INHERIT
+			process_mode = Node.PROCESS_MODE_ALWAYS
 		else:
 			hide()
 			process_mode = Node.PROCESS_MODE_DISABLED

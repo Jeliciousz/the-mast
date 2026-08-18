@@ -14,15 +14,7 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed(&"ui_close_dialog"):
-		get_viewport().set_input_as_handled()
-
-		if PauseManager.is_paused():
-			unpause()
-		else:
-			pause()
-		return
-	if event.is_action_pressed(&"ui_cancel"):
+	if event.is_action_pressed(&"ui_cancel") and get_tree().paused:
 		if menu_options_mm_container.is_visible_in_tree():
 			get_viewport().set_input_as_handled()
 			menu_options_mm_container.hide()
@@ -33,9 +25,17 @@ func _unhandled_input(event: InputEvent) -> void:
 			menu_options_quit_container.hide()
 			menu_options_main_container.show()
 			return
-		if PauseManager.is_paused():
-			get_viewport().set_input_as_handled()
+
+		get_viewport().set_input_as_handled()
+		unpause()
+		return
+	if event.is_action_pressed(&"ui_close_dialog"):
+		get_viewport().set_input_as_handled()
+
+		if get_tree().paused:
 			unpause()
+		else:
+			pause()
 
 
 func _notification(what: int) -> void:
@@ -45,12 +45,14 @@ func _notification(what: int) -> void:
 	match what:
 		NOTIFICATION_APPLICATION_FOCUS_OUT:
 			get_viewport().gui_release_focus()
-			if not PauseManager.is_paused():
+			if not get_tree().paused:
 				pause()
 
 
 func pause() -> void:
-	PauseManager.pause()
+	get_tree().paused = true
+	EventsBus.broadcast(Event.new(&"paused"))
+
 	show()
 	InputMethod.desired_mouse_mode = Input.MOUSE_MODE_VISIBLE
 	player.deactivate()
@@ -60,7 +62,10 @@ func unpause() -> void:
 	menu_options_mm_container.hide()
 	menu_options_quit_container.hide()
 	menu_options_main_container.show()
-	PauseManager.unpause()
+
+	get_tree().paused = false
+	EventsBus.broadcast(Event.new(&"unpaused"))
+
 	hide()
 	InputMethod.desired_mouse_mode = Input.MOUSE_MODE_CAPTURED
 	player.activate()

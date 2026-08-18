@@ -13,6 +13,7 @@ var desired_mouse_mode: Input.MouseMode = Input.MOUSE_MODE_VISIBLE:
 
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	Input.joy_connection_changed.connect(_on_joy_connection_changed)
 
 

@@ -84,7 +84,7 @@ func _process(delta: float) -> void:
 	if not full_deflection:
 		if look_deflection >= 0.98:
 			full_deflection = true
-			full_deflection_time = GlobalTime.get_time()
+			full_deflection_time = GlobalTime.time
 		else:
 			look_vector *= ease(clampf(look_deflection, 0.0, 1.0), look_response_curve)
 	else:
@@ -92,7 +92,7 @@ func _process(delta: float) -> void:
 			full_deflection = false
 			look_vector *= ease(clampf(look_deflection, 0.0, 1.0), look_response_curve)
 		else:
-			look_vector *= lerpf(1.0, look_full_deflection_boost, clampf((GlobalTime.get_time() - full_deflection_time) / look_full_deflection_duration, 0.0, 1.0))
+			look_vector *= lerpf(1.0, look_full_deflection_boost, clampf((GlobalTime.time - full_deflection_time) / look_full_deflection_duration, 0.0, 1.0))
 
 	_add_yaw(look_sensitivity.x * PI * look_vector.x * delta)
 	_add_pitch(look_sensitivity.y * PI * look_vector.y * delta)

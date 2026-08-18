@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b4rh71rlstye4" path="res://scripts/autoload/scene_transition.gd" id="1_ch43l"]
 
 [node name="scene_transition" type="Control" unique_id=1420453488]
+process_mode = 3
 z_index = 50
 layout_mode = 3
 anchors_preset = 15

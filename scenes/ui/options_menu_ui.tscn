@@ -22,6 +22,7 @@
 bg_color = Color(0, 0, 0, 0.5019608)
 
 [node name="options_menu_ui" type="Control" unique_id=1074080114]
+process_mode = 3
 z_index = 15
 layout_mode = 3
 anchors_preset = 15

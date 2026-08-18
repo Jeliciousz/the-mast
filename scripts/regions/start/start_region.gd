@@ -36,14 +36,14 @@ func _on_main_menu_button_pressed(_event) -> void:
 
 
 func _start_opening_cinematic() -> void:
-	var fov_tween = create_tween().set_ignore_time_scale(true)
+	var fov_tween = create_tween()
 	fov_tween.set_trans(Tween.TRANS_SINE)
 	fov_tween.tween_property(cinematic_camera, "fov", 94.0, 4.0)
 
-	var fade_tween = create_tween().set_ignore_time_scale(true)
+	var fade_tween = create_tween()
 	fade_tween.tween_property(fade_rect, "color", Color(0.0, 0.0, 0.0, 0.0), 10.0)
 
-	var camera_tween = create_tween().set_ignore_time_scale(true)
+	var camera_tween = create_tween()
 	camera_tween.set_trans(Tween.TRANS_SINE)
 	camera_tween.tween_interval(5.0)
 	camera_tween.tween_property(cinematic_camera, "rotation_degrees", Vector3(65.0, -90.0, 0.0), 8.0)
@@ -55,14 +55,14 @@ func _start_opening_cinematic() -> void:
 	cinematic_camera.current = false
 	player.camera.current = true
 
-	pause_menu_ui.process_mode = Node.PROCESS_MODE_INHERIT
+	pause_menu_ui.process_mode = Node.PROCESS_MODE_ALWAYS
 
 	if get_window().has_focus():
 		player.activate()
 	else:
 		pause_menu_ui.pause()
 
-	var letterbox_tween = create_tween().set_ignore_time_scale(true)
+	var letterbox_tween = create_tween()
 	letterbox_tween.tween_property(letterbox_top_bar, "size_flags_stretch_ratio", 0.0, 0.2)
 	letterbox_tween.parallel().tween_property(letterbox_bottom_bar, "size_flags_stretch_ratio", 0.0, 0.2)
 

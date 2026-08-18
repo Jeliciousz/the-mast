@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://m0oc382jdvks" path="res://scripts/ui/focus_grabber.gd" id="6_oq2e2"]
 
 [node name="main_menu_ui" type="Control" unique_id=315032881 node_paths=PackedStringArray("menu_options_main_container", "menu_options_quit_container")]
+process_mode = 3
 z_index = 10
 layout_mode = 3
 anchors_preset = 15

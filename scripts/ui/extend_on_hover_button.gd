@@ -6,11 +6,7 @@ extends Button
 var _target_position_x: float = 0.0
 
 
-func _ready() -> void:
-	GlobalTime.unscaled_process.connect(_unscaled_process)
-
-
-func _unscaled_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	if not is_inside_tree():
 		return
 
