@@ -34,7 +34,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7n36r")
 
-[node name="vertical_padding" type="VBoxContainer" parent="." unique_id=1965046036]
+[node name="vertical_container" type="VBoxContainer" parent="." unique_id=1965046036]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,12 +47,12 @@ mouse_filter = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="top_padding" type="MarginContainer" parent="vertical_padding" unique_id=1792804849]
+[node name="top_padding" type="MarginContainer" parent="vertical_container" unique_id=1792804849]
 layout_mode = 2
 size_flags_vertical = 3
 theme_type_variation = &"DocumentFooterMarginContainer"
 
-[node name="close_document_button" type="Button" parent="vertical_padding/top_padding" unique_id=333740416]
+[node name="close_document_button" type="Button" parent="vertical_container/top_padding" unique_id=333740416]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
@@ -60,25 +60,14 @@ theme_type_variation = &"DocumentCloseButton"
 text = "🞫"
 flat = true
 
-[node name="horizontal_padding" type="HBoxContainer" parent="vertical_padding" unique_id=1169213168]
+[node name="aspect_ratio_container" type="AspectRatioContainer" parent="vertical_container" unique_id=1051770253]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.95
-mouse_filter = 2
-theme_override_constants/separation = 0
-
-[node name="left_padding" type="Control" parent="vertical_padding/horizontal_padding" unique_id=169591445]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-
-[node name="aspect_ratio_container" type="AspectRatioContainer" parent="vertical_padding/horizontal_padding" unique_id=1051770253]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 6.0
 ratio = 1.3333
 
-[node name="terminal_text" type="RichTextLabel" parent="vertical_padding/horizontal_padding/aspect_ratio_container" unique_id=907575844]
+[node name="terminal_text" type="RichTextLabel" parent="vertical_container/aspect_ratio_container" unique_id=907575844]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -98,17 +87,12 @@ Global notices:[br]
 * All operations ceased planet-wide. Details available on operations room of floor 2, outpost main complex building.[/color]"
 vertical_alignment = 1
 
-[node name="right_padding" type="Control" parent="vertical_padding/horizontal_padding" unique_id=1101118225]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-
-[node name="bottom_padding" type="MarginContainer" parent="vertical_padding" unique_id=1660190861]
+[node name="bottom_padding" type="MarginContainer" parent="vertical_container" unique_id=1660190861]
 layout_mode = 2
 size_flags_vertical = 3
 theme_type_variation = &"DocumentFooterMarginContainer"
 
-[node name="close_document_text" type="RichTextLabel" parent="vertical_padding/bottom_padding" unique_id=1402979979]
+[node name="close_document_text" type="RichTextLabel" parent="vertical_container/bottom_padding" unique_id=1402979979]
 layout_mode = 2
 size_flags_vertical = 3
 theme_type_variation = &"DocumentTextLabel"
@@ -117,4 +101,4 @@ text = "[color=#ffe900][img height=2em]res://assets/textures/input_prompts/keybo
 vertical_alignment = 1
 script = ExtResource("4_vnnn1")
 
-[connection signal="pressed" from="vertical_padding/top_padding/close_document_button" to="." method="_on_close_document_button_pressed"]
+[connection signal="pressed" from="vertical_container/top_padding/close_document_button" to="." method="_on_close_document_button_pressed"]
