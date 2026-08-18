@@ -118,7 +118,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999994, 2.842171e-14, 0, -2.842171e-14, 
 texture = SubResource("ViewportTexture_0yhxd")
 script = ExtResource("10_kxifs")
 event_id = &"stasis_door_tag_interacted"
-text = "< locked >
+text = "<locked>
 see terminal for information"
 
 [node name="tag_interact_audio" parent="stasis_door_tag" unique_id=985718141 instance=ExtResource("11_paylh")]
