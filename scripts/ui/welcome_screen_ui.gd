@@ -29,3 +29,10 @@ func _on_welcome_tag_interacted(_event) -> void:
 func _on_paused(_event) -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
 	hide()
+
+
+func _on_close_document_button_pressed() -> void:
+	player.activate()
+	InputMethod.desired_mouse_mode = Input.MOUSE_MODE_CAPTURED
+	process_mode = Node.PROCESS_MODE_DISABLED
+	hide()

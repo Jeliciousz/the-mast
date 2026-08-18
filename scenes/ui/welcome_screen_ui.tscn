@@ -47,11 +47,18 @@ mouse_filter = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="top_padding" type="Control" parent="vertical_padding" unique_id=1707080517]
+[node name="top_padding" type="MarginContainer" parent="vertical_padding" unique_id=897440093]
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3
-mouse_filter = 2
+theme_type_variation = &"DocumentFooterMarginContainer"
+
+[node name="close_document_button" type="Button" parent="vertical_padding/top_padding" unique_id=1122862083]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_type_variation = &"DocumentCloseButton"
+text = "🞫"
+flat = true
 
 [node name="horizontal_padding" type="HBoxContainer" parent="vertical_padding" unique_id=1697678878]
 layout_mode = 2
@@ -110,3 +117,5 @@ bbcode_enabled = true
 text = "[color=#ffe900][img height=2em]res://assets/textures/input_prompts/keyboard_and_mouse/keyboard_e.png[/img] to close[/color]"
 vertical_alignment = 1
 script = ExtResource("4_7n36r")
+
+[connection signal="pressed" from="vertical_padding/top_padding/close_document_button" to="." method="_on_close_document_button_pressed"]
