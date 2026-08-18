@@ -8,7 +8,7 @@
 [ext_resource type="Environment" uid="uid://cw57a1jbgkdtf" path="res://environments/underground_environment.tres" id="4_d0wv4"]
 [ext_resource type="ArrayMesh" uid="uid://tr7m7i1b64xu" path="res://assets/meshes/start_off_stasis_door.mesh" id="4_hkdbf"]
 [ext_resource type="ArrayMesh" uid="uid://bj47rblennboc" path="res://assets/meshes/start_off.mesh" id="5_catr0"]
-[ext_resource type="PackedScene" uid="uid://cgosw5easj00p" path="res://scenes/ui/stasis_terminal_ui.tscn" id="6_0yhxd"]
+[ext_resource type="PackedScene" uid="uid://cgosw5easj00p" path="res://scenes/ui/documents/stasis_terminal_ui.tscn" id="6_0yhxd"]
 [ext_resource type="AudioStream" uid="uid://b60qi1syeunk8" path="res://assets/audio/world/stasis_ambience.mp3" id="6_wdsss"]
 [ext_resource type="ArrayMesh" uid="uid://cfjlyvhnu11c6" path="res://assets/meshes/start_off_corridor.mesh" id="6_xmcgj"]
 [ext_resource type="ArrayMesh" uid="uid://os7vb78t8urc" path="res://assets/meshes/start_off_generator.mesh" id="7_isr2g"]
@@ -114,6 +114,9 @@ viewport_path = NodePath("sub_viewport")
 viewport_path = NodePath("sub_viewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_yfilm"]
+viewport_path = NodePath("sub_viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_aqs6u"]
 viewport_path = NodePath("sub_viewport")
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_mjsu4"]
@@ -410,28 +413,39 @@ top_level = true
 texture = SubResource("ViewportTexture_16gw3")
 text = "control room"
 
+[node name="stasis_info_tag" parent="start_on" unique_id=1713555129 instance=ExtResource("18_wyedb")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.8999996, -14.099999, -28)
+top_level = true
+texture = SubResource("ViewportTexture_m7kiy")
+visible_range = 4.0
+interactible = true
+event_id = &"view stasis info"
+text = "view stasis info"
+
+[node name="tag_interact_audio" parent="start_on/stasis_info_tag" unique_id=1390960413 instance=ExtResource("11_paylh")]
+
 [node name="secure_chambers_1_10_tag" parent="start_on" unique_id=1467556300 instance=ExtResource("18_wyedb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3000004, -14.099999, -24)
 top_level = true
-texture = SubResource("ViewportTexture_m7kiy")
+texture = SubResource("ViewportTexture_iom5x")
 text = "secure chambers 1-10"
 
 [node name="secure_chambers_11_20_tag" parent="start_on" unique_id=1868251824 instance=ExtResource("18_wyedb")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.1000004, -14.099999, -28)
 top_level = true
-texture = SubResource("ViewportTexture_iom5x")
+texture = SubResource("ViewportTexture_7v45o")
 text = "secure chambers 11-20"
 
 [node name="storage_room_tag" parent="start_on" unique_id=40347097 instance=ExtResource("18_wyedb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.300001, -14.099999, -24)
 top_level = true
-texture = SubResource("ViewportTexture_7v45o")
+texture = SubResource("ViewportTexture_yfilm")
 text = "storage"
 
 [node name="surface_access_stairs_tag" parent="start_on" unique_id=570373913 instance=ExtResource("18_wyedb")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -18.000002, -13.999999, -25.3)
 top_level = true
-texture = SubResource("ViewportTexture_yfilm")
+texture = SubResource("ViewportTexture_aqs6u")
 text = "surface access stairs
 (emergency exit)"
 

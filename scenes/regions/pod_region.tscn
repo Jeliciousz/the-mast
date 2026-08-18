@@ -12,7 +12,7 @@
 [ext_resource type="ArrayMesh" uid="uid://bx45rnsyo7h45" path="res://assets/meshes/pod.mesh" id="10_2xigl"]
 [ext_resource type="Script" uid="uid://hpgcp6ulr2uy" path="res://scripts/tags/tags_controller.gd" id="11_nqps1"]
 [ext_resource type="PackedScene" uid="uid://f0501226jusn" path="res://scenes/tags/tag_interact_audio.tscn" id="14_a55wj"]
-[ext_resource type="PackedScene" uid="uid://gg3rchmnk7h4" path="res://scenes/ui/welcome_screen_ui.tscn" id="14_cu7xe"]
+[ext_resource type="PackedScene" uid="uid://gg3rchmnk7h4" path="res://scenes/ui/documents/welcome_screen_ui.tscn" id="14_cu7xe"]
 [ext_resource type="PackedScene" uid="uid://dw4t350jfjiuh" path="res://scenes/tags/tag.tscn" id="15_oahdy"]
 [ext_resource type="PackedScene" uid="uid://degpehp08qxhm" path="res://scenes/player/player.tscn" id="17_ai5bp"]
 
