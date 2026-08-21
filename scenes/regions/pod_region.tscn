@@ -66,12 +66,6 @@ script = ExtResource("8_kssr7")
 [node name="environment" type="WorldEnvironment" parent="." unique_id=358125135]
 environment = ExtResource("9_oxgrs")
 
-[node name="sun" type="DirectionalLight3D" parent="." unique_id=1316336161]
-transform = Transform3D(0.9396926, 0.17101006, -0.2961981, 0, 0.8660254, 0.5, 0.34202012, -0.4698463, 0.81379765, 0, 0, 0)
-light_color = Color(1, 0.98333335, 0.9, 1)
-light_bake_mode = 0
-sky_mode = 2
-
 [node name="pod" type="StaticBody3D" parent="." unique_id=645639869]
 transform = Transform3D(1, 0, 0, 0, -3.5762787e-07, -0.99999994, 0, 0.99999994, -3.5762787e-07, 0.037357695, 1.0302314, -3.1754313)
 collision_mask = 4
