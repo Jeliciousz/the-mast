@@ -7,6 +7,7 @@
 stream = ExtResource("1_qql1q")
 attenuation_model = 3
 volume_db = -2.0
+panning_strength = 0.0
 bus = &"World"
 attenuation_filter_cutoff_hz = 20500.0
 script = ExtResource("2_mt4bs")
