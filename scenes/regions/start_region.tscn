@@ -258,6 +258,7 @@ script = ExtResource("20_o7cjj")
 event_id = &"stasis_door_tag_interacted"
 text = "<locked>
 see terminal for information"
+disable_on_interact = true
 
 [node name="tag_interact_audio" parent="start_off/stasis_door_tag" unique_id=985718141 instance=ExtResource("11_paylh")]
 stream = ExtResource("12_3q6ac")

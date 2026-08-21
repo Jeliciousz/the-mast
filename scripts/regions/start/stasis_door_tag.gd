@@ -8,7 +8,3 @@ func _ready() -> void:
 func _on_terminal_tag_interacted(_event) -> void:
 	text = "open door"
 	interactible = true
-
-
-func _interacted() -> void:
-	enabled = false

@@ -8,6 +8,7 @@ signal interacted
 @export var interactible: bool = false
 @export var event_id: StringName = ""
 @export_multiline() var text: String = "Example Tag Text"
+@export var disable_on_interact: bool = false
 
 var in_visible_range: bool = false
 var targeted: bool = false
