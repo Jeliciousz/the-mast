@@ -16,7 +16,6 @@ background_color = Color(1, 1, 1, 1)
 sky = SubResource("Sky_munwf")
 ambient_light_source = 1
 reflected_light_source = 1
-tonemap_mode = 4
 glow_enabled = true
 glow_intensity = 3.0
 glow_hdr_threshold = 0.5
