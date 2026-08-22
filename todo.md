@@ -2,20 +2,6 @@
 
 ## Need to do
 
-- start region:
-  - ~~letter-boxing in the opening cinematic~~
-  - ~~background audio in stasis chamber, fades out as you leave it~~
-  - ~~room temp tag in stasis chamber: "Room temperature: 20.5 C"-"AC off."~~
-  - ~~open stasis door tag: "< locked >"-"see terminal for information" when haven't checked terminal, "open door" otherwise~~
-  - ~~stasis door opens on tag interaction, slides to the left, has audio~~
-  - ~~terminal tag in stasis chamber: "view automated logs"~~
-  - ~~stasis chambers 1-10 (not including 3) tags~~
-  - ~~tag in generator room to "start generator", switches to "starting...", after 5 seconds it switches to "generator running" and swaps the region out for the powered on variant, there is background audio from the generator room, fades the farther away you get~~
-  - ~~tags in generator room saying "Generator running"-"Power available for basement" and "Rated to 10 KW"~~
-  - ~~tags in corridor saying "control room", "electrical switch room"-"DANGER"-"DO NOT ACCESS", "secure chambers 1-10" (stasis chambers are now closed off), "secure chambers 11-20", "storage", and "surface access stairs"-"(emergency exit)"~~
-  - ~~control (purple) room, "view stasis info" tag has map image~~
-  - "elevator" tag that opens elevator door, "close door" tag to close elevator door and be taken to the next region, door has audio, elevator has audio
-
 ## Done
 
 - ~~Finish rearranging options menu:~~
@@ -49,3 +35,17 @@
   - ~~welcome player to the game~~
   - ~~show the player the controls~~
   - ~~tell the player they can change these settings in the options menu~~
+
+- ~~start region:~~
+  - ~~letter-boxing in the opening cinematic~~
+  - ~~background audio in stasis chamber, fades out as you leave it~~
+  - ~~room temp tag in stasis chamber: "Room temperature: 20.5 C"-"AC off."~~
+  - ~~open stasis door tag: "< locked >"-"see terminal for information" when haven't checked terminal, "open door" otherwise~~
+  - ~~stasis door opens on tag interaction, slides to the left, has audio~~
+  - ~~terminal tag in stasis chamber: "view automated logs"~~
+  - ~~stasis chambers 1-10 (not including 3) tags~~
+  - ~~tag in generator room to "start generator", switches to "starting...", after 5 seconds it switches to "generator running" and swaps the region out for the powered on variant, there is background audio from the generator room, fades the farther away you get~~
+  - ~~tags in generator room saying "Generator running"-"Power available for basement" and "Rated to 10 KW"~~
+  - ~~tags in corridor saying "control room", "electrical switch room"-"DANGER"-"DO NOT ACCESS", "secure chambers 1-10" (stasis chambers are now closed off), "secure chambers 11-20", "storage", and "surface access stairs"-"(emergency exit)"~~
+  - ~~control (purple) room, "view stasis info" tag has map image~~
+  - ~~"elevator" tag that opens elevator door, "close door" tag to close elevator door and be taken to the next region, door has audio, elevator has audio~~
